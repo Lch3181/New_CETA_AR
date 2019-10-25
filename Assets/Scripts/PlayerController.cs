@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
         cam = GetComponentInChildren<Camera>();
     }
 
-    void Update()
+    void FixedUpdate()
     {
         Movement();
 
@@ -57,7 +57,7 @@ public class PlayerController : MonoBehaviour
     void ToggleCursorLock()
     {
         //Right Click to toggle cursor lock
-        if (Input.GetMouseButton(1))
+        if (Input.GetMouseButtonDown(1))
         {
             CursorLock = !CursorLock;
 
