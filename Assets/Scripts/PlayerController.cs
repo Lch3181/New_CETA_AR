@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     private CharacterController controller;
     private Camera cam;
+    private bool CursorLock;
     private Vector3 moveDirection = Vector3.zero;
     private Vector3 RotationY = Vector3.zero;
     private Vector3 RotationX = Vector3.zero;
@@ -16,14 +17,13 @@ public class PlayerController : MonoBehaviour
     {
         controller = GetComponent<CharacterController>();
         cam = GetComponentInChildren<Camera>();
-
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
     }
 
     void Update()
     {
         Movement();
+
+        ToggleCursorLock();
     }
 
     void Movement()
@@ -36,16 +36,42 @@ public class PlayerController : MonoBehaviour
             //Feed moveDirection with input.
             moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
             moveDirection = transform.TransformDirection(moveDirection);
-            //Feed Rotation with input
-            RotationY = new Vector3(0, Input.GetAxisRaw("Mouse X"), 0);
-            RotationX = new Vector3(Input.GetAxisRaw("Mouse Y"), 0, 0);
+            //Feed Rotation with input if cursor is locked
+            if (CursorLock)
+            {
+                RotationY = new Vector3(0, Input.GetAxisRaw("Mouse X"), 0);
+                RotationX = new Vector3(Input.GetAxisRaw("Mouse Y"), 0, 0);
+            }
         }
         //Applying gravity to the controller
         moveDirection.y -= 20f * Time.deltaTime;
         //Apply Movement
         controller.Move(moveDirection * moveSpeed * Time.deltaTime);
-        transform.Rotate(RotationY * sensivity);
-        cam.transform.Rotate(-RotationX * sensivity);
+        if (CursorLock)
+        {
+            transform.Rotate(RotationY * sensivity);
+            cam.transform.Rotate(-RotationX * sensivity);
+        }
+    }
 
+    void ToggleCursorLock()
+    {
+        //Right Click to toggle cursor lock
+        if (Input.GetMouseButton(1))
+        {
+            CursorLock = !CursorLock;
+
+            //apply
+            if (CursorLock)
+            {
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+            }
+            else
+            {
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+            }
+        }
     }
 }
