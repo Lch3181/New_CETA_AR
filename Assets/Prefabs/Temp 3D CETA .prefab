@@ -123,7 +123,7 @@ GameObject:
   - component: {fileID: 4838929901493079248}
   - component: {fileID: 9054873844797914314}
   m_Layer: 0
-  m_Name: Plane
+  m_Name: GroundF1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -200,5 +200,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 10, y: 0.11381817, z: 10}
-  m_Center: {x: 0, y: -0.056909084, z: 0}
+  m_Size: {x: 10, y: 0.26, z: 10}
+  m_Center: {x: 0, y: -0.2110667, z: 0}
