@@ -39,3 +39,12 @@ AR triggers inside the building (IOS/Android with camera)
 12/17 : Dry run, final testing
 
 12/18 : Showcase
+
+## Control:
+PC, Mac, & Linux Standalone:
+
+Movement: Arrow Keys and Mouse
+
+Toggle UI: Mouse Right Click
+
+Teleport Between Floors: UI Buttons
