@@ -12,8 +12,8 @@ public class InfoTrigger : MonoBehaviour
     public string triggerTitle;
     //The title of the UI.
     public string displayTitle;
-    //What image should be shown.
-    public Sprite displayImage;
+    //What image should be shown. (The URL link to the image.)
+    public string imageURL;
     //The description of the location of the trigger.
     public GameObject description;
 
@@ -28,8 +28,8 @@ public class InfoTrigger : MonoBehaviour
     public enum actionType{video,other,none};
     public actionType setType;
 
-    //The video to play;
-    public UnityEngine.Video.VideoClip videoClip;
+    //The video URL to play;
+    public string videoURL;
 
     private void OnTriggerEnter(Collider hit)
     {
@@ -41,7 +41,7 @@ public class InfoTrigger : MonoBehaviour
             }
             else
             {
-                managerCall.setCommonInfo(triggerTitle, displayTitle, displayImage, getDescriptionText());
+                managerCall.setCommonInfo(triggerTitle, displayTitle, imageURL, getDescriptionText());
                 managerCall.setLink(webButtonTitle, webLink);
                 prepareAction();
             }
@@ -72,7 +72,7 @@ public class InfoTrigger : MonoBehaviour
         switch(setType)
         {
             case actionType.video:
-                managerCall.setAction(actionTitle,videoClip);
+                managerCall.setAction(actionTitle,videoURL);
                 break;
             default:
                 managerCall.setAction();

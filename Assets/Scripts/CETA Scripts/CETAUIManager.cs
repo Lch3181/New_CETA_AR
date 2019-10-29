@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.EventSystems;
+using UnityEngine.Networking;
 
 public class CETAUIManager : MonoBehaviour
 {
@@ -71,14 +72,34 @@ public class CETAUIManager : MonoBehaviour
     [SerializeField]
     private Transform videoShown;
 
-    public void setCommonInfo(string inputTriggerTitle,string inputTitle, Sprite inputImage, string inputDesc)
+    public void setCommonInfo(string inputTriggerTitle, string inputTitle, string inputImageLink, string inputDesc)
     {
 
         triggerButton.GetComponentInChildren<TextMeshProUGUI>().text = inputTriggerTitle;
         infoTitle.text = inputTitle;
-        image.sprite = inputImage;
+        //image.sprite = inputImage;
+        StartCoroutine(getSetImage(inputImageLink));
         description.text = inputDesc;
         scrollBar.GetComponent<Scrollbar>().value = 1;
+    }
+
+    IEnumerator getSetImage(string URL)
+    {
+        UnityWebRequest imageGet = UnityWebRequestTexture.GetTexture(URL);
+        yield return imageGet.SendWebRequest();
+
+        if (imageGet.isNetworkError || imageGet.isHttpError)
+        {
+            Debug.Log("Error in retrieving image.");
+            image.sprite = null;
+        }
+        else
+        {
+            Debug.Log("Retrieved image.");
+            Texture2D imageTexture = DownloadHandlerTexture.GetContent(imageGet);
+            Sprite textureToSprite = Sprite.Create(imageTexture,new Rect(0,0,imageTexture.width,imageTexture.height), Vector2.zero);
+            image.sprite = textureToSprite;
+        }
     }
 
     public void setLink(string linkTitle, string inputLink)
@@ -102,12 +123,12 @@ public class CETAUIManager : MonoBehaviour
     }
 
     //Video action.
-    public void setAction(string actionTitle, UnityEngine.Video.VideoClip inputClip)
+    public void setAction(string actionTitle, string inputURL)
     {
         actionButton.SetActive(true);
         actionButton.GetComponentInChildren<TextMeshProUGUI>().text = actionTitle;
         actionButton.GetComponent<Button>().onClick.AddListener(() => startVideo());
-        videoPlayer.clip = inputClip;
+        videoPlayer.url = inputURL;
         videoPlayer.Prepare();
 
     }
@@ -128,6 +149,19 @@ public class CETAUIManager : MonoBehaviour
     {
         ToggleUIObject(videoScreen, videoShown);
         videoPlayer.Play();
+    }
+
+    public void pauseToggle()
+    {
+        if (videoPlayer.isPaused)
+        {
+            videoPlayer.Play();
+        }
+        else
+        {
+            videoPlayer.Pause();
+        }
+        
     }
 
     public void closeVideo()
