@@ -72,6 +72,18 @@ public class CETAUIManager : MonoBehaviour
     [SerializeField]
     private Transform videoShown;
 
+    private void FixedUpdate()
+    {
+        if(infoMenuShown)
+        {
+            ToggleUIObject(infoPanel, menuShown);
+        }
+        else
+        {
+            ToggleUIObject(infoPanel, menuHidden);
+        }
+    }
+
     public void setCommonInfo(string inputTriggerTitle, string inputTitle, string inputImageLink, string inputDesc)
     {
 
@@ -177,16 +189,10 @@ public class CETAUIManager : MonoBehaviour
     public void toggleInfoMenu()
     {
         infoMenuShown = !infoMenuShown;
-        if (infoMenuShown)
+        if (!infoMenuShown)
         {
-            ToggleUIObject(infoPanel, menuShown);
-        }
-        else
-        {
-            ToggleUIObject(infoPanel, menuHidden);
             actionButton.GetComponent<Button>().onClick.RemoveAllListeners();
         }
-
     }
 
     public void triggerButtonOn()
