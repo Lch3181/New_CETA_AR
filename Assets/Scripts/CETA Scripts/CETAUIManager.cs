@@ -77,7 +77,6 @@ public class CETAUIManager : MonoBehaviour
 
         triggerButton.GetComponentInChildren<TextMeshProUGUI>().text = inputTriggerTitle;
         infoTitle.text = inputTitle;
-        //image.sprite = inputImage;
         StartCoroutine(getSetImage(inputImageLink));
         description.text = inputDesc;
         scrollBar.GetComponent<Scrollbar>().value = 1;
