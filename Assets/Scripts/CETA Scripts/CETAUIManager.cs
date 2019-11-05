@@ -1,27 +1,23 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.Video;
 using TMPro;
+using UnityEngine.EventSystems;
 using UnityEngine.Networking;
 
 public class CETAUIManager : MonoBehaviour
 {
-    public Canvas canvas;
-
-    public GameObject videoScreen;
-    public VideoPlayer videoPlayer;
-    private RectTransform VideoScreenRectTransform;
-    private bool VideoScreenShow;
+    [SerializeField]
+    private UnityEngine.Video.VideoPlayer videoPlayer;
 
     //The info panel itself;
-    public GameObject infoPanel;
-    private RectTransform InfoRectTransform;
+    [SerializeField]
+    private GameObject infoPanel;
 
     //The button that triggers the info panel.
-    public GameObject TriggerButton;
-    private RectTransform TriggerButtonRectTransform;
-    private bool TriggerButtonShow;
+    [SerializeField]
+    private GameObject triggerButton;
 
     //What should be shown as the title of the info UI.
     [SerializeField]
@@ -35,6 +31,20 @@ public class CETAUIManager : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI description;
 
+    //Location of the menu once activated.
+    [SerializeField]
+    private Transform menuShown;
+
+    //Location of the menu once hidden.
+    [SerializeField]
+    private Transform menuHidden;
+
+    //Location of the trigger button for hidden and shown.
+    [SerializeField]
+    private Transform triggerHidden;
+    [SerializeField]
+    private Transform triggerShown;
+
     //Describes the button in the description.
     [SerializeField]
     private GameObject actionButton;
@@ -47,60 +57,37 @@ public class CETAUIManager : MonoBehaviour
     private GameObject scrollBar;
 
     //Determines if the info menu is on screen.
-    public bool infoMenuShown;
+    public bool infoMenuShown = false;
 
     //A link to a website.
-    private string webLink;
+    private string webLink = "";
 
+    //The Video screen.
+    [SerializeField]
+    private GameObject videoScreen;
 
-    private void Start()
+    //Location of the video screen for hidden and shown.
+    [SerializeField]
+    private Transform videoHidden;
+    [SerializeField]
+    private Transform videoShown;
+
+    private void FixedUpdate()
     {
-        InfoRectTransform = infoPanel.GetComponent<RectTransform>();
-        TriggerButtonRectTransform = TriggerButton.GetComponent<RectTransform>();
-        VideoScreenRectTransform = videoScreen.GetComponent<RectTransform>();
-    }
-
-    private void Update()
-    {
-        Display();
-    }
-
-    private void Display()
-    {
-        //Info Menu
-        if (infoMenuShown)
+        if(infoMenuShown)
         {
-            InfoRectTransform.position = Vector3.Lerp(InfoRectTransform.position, new Vector3(Screen.width / 2f, Screen.height / 2f, 0f), Time.deltaTime * 10f);
+            ToggleUIObject(infoPanel, menuShown);
         }
         else
         {
-            InfoRectTransform.position = Vector3.Lerp(InfoRectTransform.position, new Vector3(-Screen.width / 2f, Screen.height / 2f, 0f), Time.deltaTime * 10f);
-        }
-
-        //Trigger Button
-        if (TriggerButtonShow)
-        {
-            TriggerButtonRectTransform.position = Vector3.Lerp(TriggerButtonRectTransform.position, new Vector3(Screen.width - TriggerButtonRectTransform.rect.width * canvas.scaleFactor / 1.5f, TriggerButtonRectTransform.rect.height * canvas.scaleFactor, 0f), Time.deltaTime * 10f);
-        }
-        else
-        {
-            TriggerButtonRectTransform.position = Vector3.Lerp(TriggerButtonRectTransform.position, new Vector3(Screen.width + TriggerButtonRectTransform.rect.width * canvas.scaleFactor / 2, TriggerButtonRectTransform.rect.height * canvas.scaleFactor, 0f), Time.deltaTime * 10f);
-        }
-
-        //Video Screen
-        if (VideoScreenShow)
-        {
-            VideoScreenRectTransform.position = Vector3.Lerp(VideoScreenRectTransform.position, new Vector3(Screen.width / 2f, Screen.height / 2f, 0f), Time.deltaTime * 10f);
-        }
-        else
-        {
-            VideoScreenRectTransform.position = Vector3.Lerp(VideoScreenRectTransform.position, new Vector3(Screen.width / 2f, Screen.height * 2, 0f), Time.deltaTime * 10f);
+            ToggleUIObject(infoPanel, menuHidden);
         }
     }
 
     public void setCommonInfo(string inputTriggerTitle, string inputTitle, string inputImageLink, string inputDesc)
     {
-        TriggerButton.GetComponentInChildren<Text>().text = inputTriggerTitle;
+
+        triggerButton.GetComponentInChildren<TextMeshProUGUI>().text = inputTriggerTitle;
         infoTitle.text = inputTitle;
         StartCoroutine(getSetImage(inputImageLink));
         description.text = inputDesc;
@@ -121,14 +108,14 @@ public class CETAUIManager : MonoBehaviour
         {
             Debug.Log("Retrieved image.");
             Texture2D imageTexture = DownloadHandlerTexture.GetContent(imageGet);
-            Sprite textureToSprite = Sprite.Create(imageTexture, new Rect(0, 0, imageTexture.width, imageTexture.height), Vector2.zero);
+            Sprite textureToSprite = Sprite.Create(imageTexture,new Rect(0,0,imageTexture.width,imageTexture.height), Vector2.zero);
             image.sprite = textureToSprite;
         }
     }
 
     public void setLink(string linkTitle, string inputLink)
     {
-        if (inputLink == "")
+        if(inputLink == "")
         {
             linkButton.SetActive(false);
         }
@@ -159,7 +146,7 @@ public class CETAUIManager : MonoBehaviour
 
     public void openLink()
     {
-        if (webLink == "")
+        if(webLink == "")
         {
             return;
         }
@@ -171,6 +158,7 @@ public class CETAUIManager : MonoBehaviour
 
     public void startVideo()
     {
+        ToggleUIObject(videoScreen, videoShown);
         videoPlayer.Play();
     }
 
@@ -184,12 +172,27 @@ public class CETAUIManager : MonoBehaviour
         {
             videoPlayer.Pause();
         }
-
+        
     }
 
     public void closeVideo()
     {
+        ToggleUIObject(videoScreen, videoHidden);
         videoPlayer.Stop();
+    }
+
+    public void ToggleUIObject(GameObject aObject, Transform aTransform)
+    {
+        iTween.MoveTo(aObject, iTween.Hash("position", aTransform.position, "time", 1));
+    }
+
+    public void toggleInfoMenu()
+    {
+        infoMenuShown = !infoMenuShown;
+        if (!infoMenuShown)
+        {
+            actionButton.GetComponent<Button>().onClick.RemoveAllListeners();
+        }
     }
 
     public void triggerButtonOn()
@@ -200,19 +203,12 @@ public class CETAUIManager : MonoBehaviour
         }
         else
         {
-            TriggerButtonShow = true;
+            ToggleUIObject(triggerButton, triggerShown);
         }
     }
 
     public void triggerButtonOff()
     {
-        TriggerButtonShow = false;
+        ToggleUIObject(triggerButton, triggerHidden);
     }
-
-    public void ToggleInfoMenu()
-    {
-        infoMenuShown = !infoMenuShown;
-
-    }
-
 }

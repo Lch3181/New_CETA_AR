@@ -5,14 +5,17 @@ using UnityEngine;
 public class SideMenu : MonoBehaviour
 {
     public Canvas canvas;
+    public GameObject TeleportMenu;
+    public GameObject MiniMap;
     private bool Show;
     private RectTransform rectTransform;
-
+    // Start is called before the first frame update
     void Start()
     {
         rectTransform = GetComponent<RectTransform>();
     }
 
+    // Update is called once per frame
     void Update()
     {
         Display();
@@ -27,6 +30,7 @@ public class SideMenu : MonoBehaviour
         else
         {
             rectTransform.position = Vector3.Lerp(rectTransform.position, new Vector3(-rectTransform.rect.width * rectTransform.localScale.x * canvas.scaleFactor / 2f, Screen.height / 2f, 0f), Time.deltaTime * 10f);
+
         }
     }
 
@@ -35,13 +39,13 @@ public class SideMenu : MonoBehaviour
         Show = !Show;
     }
 
-    public void ToggleMenu(GameObject gameObject)
+    public void ToggleTeleportMenu()
     {
-        gameObject.SetActive(!gameObject.activeSelf);
+        TeleportMenu.SetActive(!TeleportMenu.activeSelf);
     }
 
-    public void ToggleGameObject(GameObject gameObject)
+    public void ToggleMiniMap()
     {
-        gameObject.SetActive(!gameObject.activeSelf);
+        MiniMap.SetActive(!MiniMap.activeSelf);
     }
 }
