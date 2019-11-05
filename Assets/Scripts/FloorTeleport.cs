@@ -3,10 +3,23 @@
 public class FloorTeleport : MonoBehaviour
 {
     CharacterController controller;
+    public GameObject buttons;
 
     private void Start()
     {
         controller = GetComponent<CharacterController>();
+    }
+
+    private void Update()
+    {
+        if(Cursor.lockState == CursorLockMode.Locked)
+        {
+            buttons.SetActive(false);
+        }
+        else
+        {
+            buttons.SetActive(true);
+        }
     }
 
     public void Teleport(GameObject target)
