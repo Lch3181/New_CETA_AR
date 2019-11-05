@@ -8,9 +8,6 @@ using UnityEngine.Networking;
 
 public class CETAUIManager : MonoBehaviour
 {
-    [SerializeField]
-    private UnityEngine.Video.VideoPlayer videoPlayer;
-
     //The info panel itself;
     [SerializeField]
     private GameObject infoPanel;
@@ -53,6 +50,7 @@ public class CETAUIManager : MonoBehaviour
     [SerializeField]
     private GameObject linkButton;
 
+    //Used to set the scroll bar back to the top.
     [SerializeField]
     private GameObject scrollBar;
 
@@ -62,25 +60,26 @@ public class CETAUIManager : MonoBehaviour
     //A link to a website.
     private string webLink = "";
 
-    //The Video screen.
-    [SerializeField]
-    private GameObject videoScreen;
+    //Represents the close button for a configurable panel.
+    Transform closeButton;
 
-    //Location of the video screen for hidden and shown.
+    //Represents the player.
     [SerializeField]
-    private Transform videoHidden;
-    [SerializeField]
-    private Transform videoShown;
+    private CharacterController playerControls;
 
+    //Deactivate player movement if the menu is shown.
     private void FixedUpdate()
     {
         if(infoMenuShown)
         {
-            ToggleUIObject(infoPanel, menuShown);
+            playerControls.enabled = false;
+            Debug.Log("Player Movement Off");
         }
         else
         {
-            ToggleUIObject(infoPanel, menuHidden);
+            playerControls.enabled = true;
+            Debug.Log("Player Movement On");
+            
         }
     }
 
@@ -108,14 +107,14 @@ public class CETAUIManager : MonoBehaviour
         {
             Debug.Log("Retrieved image.");
             Texture2D imageTexture = DownloadHandlerTexture.GetContent(imageGet);
-            Sprite textureToSprite = Sprite.Create(imageTexture,new Rect(0,0,imageTexture.width,imageTexture.height), Vector2.zero);
+            Sprite textureToSprite = Sprite.Create(imageTexture, new Rect(0, 0, imageTexture.width, imageTexture.height), Vector2.zero);
             image.sprite = textureToSprite;
         }
     }
 
     public void setLink(string linkTitle, string inputLink)
     {
-        if(inputLink == "")
+        if (inputLink == "")
         {
             linkButton.SetActive(false);
         }
@@ -127,10 +126,25 @@ public class CETAUIManager : MonoBehaviour
         }
     }
 
+    //Sets up whatever panel is needed for the action.
+    public void panelSetup(GameObject panel, Transform panelHide)
+    {
+        actionButton.GetComponent<Button>().onClick.AddListener(() => ToggleUIObject(panel, menuShown));
+        closeButton = panel.transform.Find("TitlePanel").transform.Find("Close");
+        closeButton.GetComponent<Button>().onClick.AddListener(() => ToggleUIObject(panel, panelHide));
+    }
+
     //No action.
     public void setAction()
     {
         actionButton.SetActive(false);
+    }
+
+    //Panel action.
+    public void setAction(string actionTitle)
+    {
+        actionButton.SetActive(true);
+        actionButton.GetComponentInChildren<TextMeshProUGUI>().text = actionTitle;
     }
 
     //Video action.
@@ -138,15 +152,13 @@ public class CETAUIManager : MonoBehaviour
     {
         actionButton.SetActive(true);
         actionButton.GetComponentInChildren<TextMeshProUGUI>().text = actionTitle;
-        actionButton.GetComponent<Button>().onClick.AddListener(() => startVideo());
-        videoPlayer.url = inputURL;
-        videoPlayer.Prepare();
-
+        this.GetComponent<VideoManager>().setURL(inputURL);
+        actionButton.GetComponent<Button>().onClick.AddListener(() => this.GetComponent<VideoManager>().startVideo());
     }
 
     public void openLink()
     {
-        if(webLink == "")
+        if (webLink == "")
         {
             return;
         }
@@ -154,31 +166,6 @@ public class CETAUIManager : MonoBehaviour
         {
             Application.OpenURL(webLink);
         }
-    }
-
-    public void startVideo()
-    {
-        ToggleUIObject(videoScreen, videoShown);
-        videoPlayer.Play();
-    }
-
-    public void pauseToggle()
-    {
-        if (videoPlayer.isPaused)
-        {
-            videoPlayer.Play();
-        }
-        else
-        {
-            videoPlayer.Pause();
-        }
-        
-    }
-
-    public void closeVideo()
-    {
-        ToggleUIObject(videoScreen, videoHidden);
-        videoPlayer.Stop();
     }
 
     public void ToggleUIObject(GameObject aObject, Transform aTransform)
@@ -189,9 +176,13 @@ public class CETAUIManager : MonoBehaviour
     public void toggleInfoMenu()
     {
         infoMenuShown = !infoMenuShown;
-        if (!infoMenuShown)
+        if (infoMenuShown)
         {
-            actionButton.GetComponent<Button>().onClick.RemoveAllListeners();
+            ToggleUIObject(infoPanel, menuShown);
+        }
+        else
+        {
+            ToggleUIObject(infoPanel, menuHidden);
         }
     }
 
@@ -210,5 +201,12 @@ public class CETAUIManager : MonoBehaviour
     public void triggerButtonOff()
     {
         ToggleUIObject(triggerButton, triggerHidden);
+    }
+
+    public void removeListeners()
+    {
+        actionButton.GetComponent<Button>().onClick.RemoveAllListeners();
+        closeButton.GetComponent<Button>().onClick.RemoveAllListeners();
+        Debug.Log("Listeners Removed");
     }
 }
