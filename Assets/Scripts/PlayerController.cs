@@ -30,6 +30,9 @@ public class PlayerController : MonoBehaviour
     {
         if (controller.isGrounded)
         {
+            //facing direction debug
+            Debug.DrawRay(cam.transform.position, cam.transform.TransformDirection(Vector3.forward) * 10, Color.black);
+
             //Feed moveDirection with input.
             moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
             moveDirection = transform.TransformDirection(moveDirection);
