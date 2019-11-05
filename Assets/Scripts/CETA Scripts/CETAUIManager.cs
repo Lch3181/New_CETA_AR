@@ -190,7 +190,6 @@ public class CETAUIManager : MonoBehaviour
 
     public void startVideo()
     {
-        VideoScreenShow = true;
         videoPlayer.Play();
     }
 
@@ -210,7 +209,6 @@ public class CETAUIManager : MonoBehaviour
     public void closeVideo()
     {
         videoPlayer.Stop();
-        VideoScreenShow = false;
     }
 
     public void triggerButtonOn()
