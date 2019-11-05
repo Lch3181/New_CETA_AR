@@ -26,8 +26,14 @@ public class InfoTrigger : MonoBehaviour
     public enum actionType { video, other, none };
     public actionType setType;
 
+    //The panel to show.
+    public GameObject panel;
+    //The where the panel should hide.
+    public Transform panelHide;
+
     //The video URL to play;
     public string videoURL;
+   
 
     private void OnTriggerEnter(Collider hit)
     {
@@ -56,15 +62,24 @@ public class InfoTrigger : MonoBehaviour
         if (hit.tag == "Player")
         {
             managerCall.triggerButtonOff();
+            managerCall.removeListeners();
         }
     }
 
     private void prepareAction()
     {
-        switch (setType)
+        if(setType != actionType.none)
+        {
+            managerCall.panelSetup(panel, panelHide);
+        }
+
+        switch(setType)
         {
             case actionType.video:
                 managerCall.setAction(actionTitle, videoURL);
+                break;
+            case actionType.panel:
+                managerCall.setAction(actionTitle);
                 break;
             default:
                 managerCall.setAction();

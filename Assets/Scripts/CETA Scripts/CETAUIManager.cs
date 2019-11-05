@@ -43,6 +43,7 @@ public class CETAUIManager : MonoBehaviour
     [SerializeField]
     private GameObject linkButton;
 
+    //Used to set the scroll bar back to the top.
     [SerializeField]
     private GameObject scrollBar;
 
@@ -52,6 +53,12 @@ public class CETAUIManager : MonoBehaviour
     //A link to a website.
     private string webLink;
 
+    //Represents the close button for a configurable panel.
+    Transform closeButton;
+
+    //Represents the player.
+    [SerializeField]
+    private CharacterController playerControls;
 
     private void Start()
     {
@@ -67,7 +74,6 @@ public class CETAUIManager : MonoBehaviour
 
     private void Display()
     {
-        //Info Menu
         if (infoMenuShown)
         {
             InfoRectTransform.position = Vector3.Lerp(InfoRectTransform.position, new Vector3(Screen.width / 2f, Screen.height / 2f, 0f), Time.deltaTime * 10f);
@@ -140,10 +146,25 @@ public class CETAUIManager : MonoBehaviour
         }
     }
 
+    //Sets up whatever panel is needed for the action.
+    public void panelSetup(GameObject panel, Transform panelHide)
+    {
+        actionButton.GetComponent<Button>().onClick.AddListener(() => ToggleUIObject(panel, menuShown));
+        closeButton = panel.transform.Find("TitlePanel").transform.Find("Close");
+        closeButton.GetComponent<Button>().onClick.AddListener(() => ToggleUIObject(panel, panelHide));
+    }
+
     //No action.
     public void setAction()
     {
         actionButton.SetActive(false);
+    }
+
+    //Panel action.
+    public void setAction(string actionTitle)
+    {
+        actionButton.SetActive(true);
+        actionButton.GetComponentInChildren<TextMeshProUGUI>().text = actionTitle;
     }
 
     //Video action.
@@ -151,10 +172,8 @@ public class CETAUIManager : MonoBehaviour
     {
         actionButton.SetActive(true);
         actionButton.GetComponentInChildren<TextMeshProUGUI>().text = actionTitle;
-        actionButton.GetComponent<Button>().onClick.AddListener(() => startVideo());
-        videoPlayer.url = inputURL;
-        videoPlayer.Prepare();
-
+        this.GetComponent<VideoManager>().setURL(inputURL);
+        actionButton.GetComponent<Button>().onClick.AddListener(() => this.GetComponent<VideoManager>().startVideo());
     }
 
     public void openLink()
@@ -217,4 +236,10 @@ public class CETAUIManager : MonoBehaviour
 
     }
 
+    public void removeListeners()
+    {
+        actionButton.GetComponent<Button>().onClick.RemoveAllListeners();
+        closeButton.GetComponent<Button>().onClick.RemoveAllListeners();
+        Debug.Log("Listeners Removed");
+    }
 }
