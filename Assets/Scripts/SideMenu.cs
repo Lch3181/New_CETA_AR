@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class SideMenu : MonoBehaviour
 {
@@ -16,6 +14,7 @@ public class SideMenu : MonoBehaviour
     void Update()
     {
         Display();
+
     }
 
     private void Display()
@@ -29,6 +28,7 @@ public class SideMenu : MonoBehaviour
             rectTransform.position = Vector3.Lerp(rectTransform.position, new Vector3(-rectTransform.rect.width * rectTransform.localScale.x * canvas.scaleFactor / 2f, Screen.height / 2f, 0f), Time.deltaTime * 10f);
         }
     }
+
 
     public void ToggleSideMenu()
     {
