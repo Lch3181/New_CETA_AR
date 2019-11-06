@@ -1,20 +1,27 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Video;
 using TMPro;
-using UnityEngine.EventSystems;
 using UnityEngine.Networking;
 
 public class CETAUIManager : MonoBehaviour
 {
+    public Canvas canvas;
+
+    public GameObject videoScreen;
+    public VideoPlayer videoPlayer;
+    private RectTransform VideoScreenRectTransform;
+    private bool VideoScreenShow;
+
     //The info panel itself;
-    [SerializeField]
-    private GameObject infoPanel;
+    public GameObject infoPanel;
+    private RectTransform InfoRectTransform;
 
     //The button that triggers the info panel.
-    [SerializeField]
-    private GameObject triggerButton;
+    public GameObject TriggerButton;
+    private RectTransform TriggerButtonRectTransform;
+    private bool TriggerButtonShow;
 
     //What should be shown as the title of the info UI.
     [SerializeField]
@@ -27,20 +34,6 @@ public class CETAUIManager : MonoBehaviour
     //The description of the specified location.
     [SerializeField]
     private TextMeshProUGUI description;
-
-    //Location of the menu once activated.
-    [SerializeField]
-    private Transform menuShown;
-
-    //Location of the menu once hidden.
-    [SerializeField]
-    private Transform menuHidden;
-
-    //Location of the trigger button for hidden and shown.
-    [SerializeField]
-    private Transform triggerHidden;
-    [SerializeField]
-    private Transform triggerShown;
 
     //Describes the button in the description.
     [SerializeField]
@@ -55,10 +48,10 @@ public class CETAUIManager : MonoBehaviour
     private GameObject scrollBar;
 
     //Determines if the info menu is on screen.
-    public bool infoMenuShown = false;
+    public bool infoMenuShown;
 
     //A link to a website.
-    private string webLink = "";
+    private string webLink;
 
     //Represents the close button for a configurable panel.
     Transform closeButton;
@@ -70,7 +63,8 @@ public class CETAUIManager : MonoBehaviour
     //Deactivate player movement if the menu is shown.
     private void FixedUpdate()
     {
-        if(infoMenuShown)
+        //Info Menu
+        if (infoMenuShown)
         {
             playerControls.enabled = false;
             Debug.Log("Player Movement Off");
@@ -79,14 +73,57 @@ public class CETAUIManager : MonoBehaviour
         {
             playerControls.enabled = true;
             Debug.Log("Player Movement On");
-            
+        }
+    }
+
+    private void Start()
+    {
+        InfoRectTransform = infoPanel.GetComponent<RectTransform>();
+        TriggerButtonRectTransform = TriggerButton.GetComponent<RectTransform>();
+        VideoScreenRectTransform = videoScreen.GetComponent<RectTransform>();
+    }
+
+    private void Update()
+    {
+        Display();
+    }
+
+    private void Display()
+    {
+        //Info Menu
+        if (infoMenuShown)
+        {
+            InfoRectTransform.position = Vector3.Lerp(InfoRectTransform.position, new Vector3(Screen.width / 2f, Screen.height / 2f, 0f), Time.deltaTime * 10f);
+        }
+        else
+        {
+            InfoRectTransform.position = Vector3.Lerp(InfoRectTransform.position, new Vector3(-Screen.width / 2f, Screen.height / 2f, 0f), Time.deltaTime * 10f);
+        }
+
+        //Trigger Button
+        if (TriggerButtonShow)
+        {
+            TriggerButtonRectTransform.position = Vector3.Lerp(TriggerButtonRectTransform.position, new Vector3(Screen.width - TriggerButtonRectTransform.rect.width * canvas.scaleFactor / 1.5f, TriggerButtonRectTransform.rect.height * canvas.scaleFactor, 0f), Time.deltaTime * 10f);
+        }
+        else
+        {
+            TriggerButtonRectTransform.position = Vector3.Lerp(TriggerButtonRectTransform.position, new Vector3(Screen.width + TriggerButtonRectTransform.rect.width * canvas.scaleFactor / 2, TriggerButtonRectTransform.rect.height * canvas.scaleFactor, 0f), Time.deltaTime * 10f);
+        }
+
+        //Video Screen
+        if (VideoScreenShow)
+        {
+            VideoScreenRectTransform.position = Vector3.Lerp(VideoScreenRectTransform.position, new Vector3(Screen.width / 2f, Screen.height / 2f, 0f), Time.deltaTime * 10f);
+        }
+        else
+        {
+            VideoScreenRectTransform.position = Vector3.Lerp(VideoScreenRectTransform.position, new Vector3(Screen.width / 2f, Screen.height * 2, 0f), Time.deltaTime * 10f);
         }
     }
 
     public void setCommonInfo(string inputTriggerTitle, string inputTitle, string inputImageLink, string inputDesc)
     {
-
-        triggerButton.GetComponentInChildren<TextMeshProUGUI>().text = inputTriggerTitle;
+        TriggerButton.GetComponentInChildren<Text>().text = inputTriggerTitle;
         infoTitle.text = inputTitle;
         StartCoroutine(getSetImage(inputImageLink));
         description.text = inputDesc;
@@ -185,6 +222,28 @@ public class CETAUIManager : MonoBehaviour
             ToggleUIObject(infoPanel, menuHidden);
         }
     }
+    public void startVideo()
+    {
+        videoPlayer.Play();
+    }
+
+    public void pauseToggle()
+    {
+        if (videoPlayer.isPaused)
+        {
+            videoPlayer.Play();
+        }
+        else
+        {
+            videoPlayer.Pause();
+        }
+
+    }
+
+    public void closeVideo()
+    {
+        videoPlayer.Stop();
+    }
 
     public void triggerButtonOn()
     {
@@ -194,13 +253,13 @@ public class CETAUIManager : MonoBehaviour
         }
         else
         {
-            ToggleUIObject(triggerButton, triggerShown);
+            TriggerButtonShow = true;
         }
     }
 
     public void triggerButtonOff()
     {
-        ToggleUIObject(triggerButton, triggerHidden);
+        TriggerButtonShow = false;
     }
 
     public void removeListeners()
@@ -208,5 +267,10 @@ public class CETAUIManager : MonoBehaviour
         actionButton.GetComponent<Button>().onClick.RemoveAllListeners();
         closeButton.GetComponent<Button>().onClick.RemoveAllListeners();
         Debug.Log("Listeners Removed");
+    }
+
+    public void ToggleInfoMenu()
+    {
+        infoMenuShown = !infoMenuShown;
     }
 }

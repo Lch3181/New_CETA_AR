@@ -9,23 +9,21 @@ public class InfoTrigger : MonoBehaviour
     public CETAUIManager managerCall;
 
     //What the button that triggers the info UI should display.
-    public string triggerTitle;
+    public string TriggerTitle;
     //The title of the UI.
     public string displayTitle;
     //What image should be shown. (The URL link to the image.)
     public string imageURL;
-    //The description of the location of the trigger.
-    public GameObject description;
 
     //Website button text.
     public string webButtonTitle;
     //Website Link.
     public string webLink;
-    
+
     //Action button title.
     public string actionTitle;
     //What the action does.
-    public enum actionType{video,panel,none};
+    public enum actionType{video , panel, none};
     public actionType setType;
 
     //The panel to show.
@@ -39,19 +37,18 @@ public class InfoTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider hit)
     {
-        if(hit.tag == "Player")
+        if (hit.tag == "Player")
         {
-            if(managerCall.infoMenuShown)
+            if (managerCall.infoMenuShown)
             {
                 Debug.Log("Panel Already Shown.");
             }
             else
             {
-                managerCall.setCommonInfo(triggerTitle, displayTitle, imageURL, getDescriptionText());
+                managerCall.setCommonInfo(TriggerTitle, displayTitle, imageURL, gameObject.GetComponentInChildren<Text>().text);
                 managerCall.setLink(webButtonTitle, webLink);
                 prepareAction();
             }
-            
         }
     }
 
@@ -69,11 +66,6 @@ public class InfoTrigger : MonoBehaviour
         }
     }
 
-    private string getDescriptionText()
-    {
-        return description.GetComponent<Text>().text;
-    }
-
     private void prepareAction()
     {
         if(setType != actionType.none)
@@ -81,10 +73,10 @@ public class InfoTrigger : MonoBehaviour
             managerCall.panelSetup(panel, panelHide);
         }
 
-        switch(setType)
+        switch (setType)
         {
             case actionType.video:
-                managerCall.setAction(actionTitle,videoURL);
+                managerCall.setAction(actionTitle, videoURL);
                 break;
             case actionType.panel:
                 managerCall.setAction(actionTitle);
@@ -93,5 +85,13 @@ public class InfoTrigger : MonoBehaviour
                 managerCall.setAction();
                 break;
         }
+    }
+
+    public void ButtonActiveEvent()
+    {
+        managerCall.infoMenuShown = true;
+        managerCall.setCommonInfo(TriggerTitle, displayTitle, imageURL, gameObject.GetComponentInChildren<Text>().text);
+        managerCall.setLink(webButtonTitle, webLink);
+        prepareAction();
     }
 }
