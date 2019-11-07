@@ -6213,13 +6213,13 @@ MonoBehaviour:
   managerCall: {fileID: 992018013}
   TriggerTitle: Welcome
   displayTitle: Welcome to CETA!
-  imageURL: http://drive.google.com/uc?export=view&id=11ERXVGVVOzyWeB8jiEhFtbL4mR_B0pV4
+  imageURL: https://dl.dropboxusercontent.com/s/g1t302c3tf6aykd/images.jpg?dl=0
   webButtonTitle: Link to SNHU Website
   webLink: https://www.snhu.edu/student-experience/campus-experience/campus-academics/faculty/ceta
   actionTitle: CETA Welcome Video
   setType: 0
   panel: {fileID: 1863973444}
-  videoURL: https://drive.google.com/uc?export=view&id=1CciEoxeoVwUylUZt5J6Jjb0IiQPJJ2V3
+  videoURL: https://dl.dropboxusercontent.com/s/t2030txvmtp5osd/New%20SNHU%20Engineering%20Building%20to%20Offer%20Many%20Amenities.mp4?dl=0
 --- !u!65 &1195758160
 BoxCollider:
   m_ObjectHideFlags: 0
