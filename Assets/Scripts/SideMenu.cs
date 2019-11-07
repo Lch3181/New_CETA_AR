@@ -5,16 +5,17 @@ public class SideMenu : MonoBehaviour
     public Canvas canvas;
     private bool Show;
     private RectTransform rectTransform;
+    public GameObject disablePanel;
 
     void Start()
     {
         rectTransform = GetComponent<RectTransform>();
+        disablePanel.SetActive(false);
     }
 
     void Update()
     {
         Display();
-
     }
 
     private void Display()
