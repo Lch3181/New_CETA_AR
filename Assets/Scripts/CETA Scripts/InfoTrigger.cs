@@ -24,7 +24,7 @@ public class InfoTrigger : MonoBehaviour
     public string actionTitle;
     //What the action does.
 
-    public enum actionType { video, panel, none };
+    public enum actionType { video, panel, scene, none };
 
     public actionType setType;
 
@@ -35,6 +35,9 @@ public class InfoTrigger : MonoBehaviour
 
     //The video URL to play;
     public string videoURL;
+
+    //The scene the trigger should load.
+    public string triggerScene;
 
     private void Update()
     {
@@ -78,7 +81,7 @@ public class InfoTrigger : MonoBehaviour
 
     private void prepareAction()
     {
-        if (setType != actionType.none)
+        if (setType != actionType.none && setType != actionType.scene)
         {
             managerCall.panelSetup(panel,panelHide);
         }
@@ -90,6 +93,9 @@ public class InfoTrigger : MonoBehaviour
                 break;
             case actionType.panel:
                 managerCall.setAction(actionTitle);
+                break;
+            case actionType.scene:
+                managerCall.setActionS(actionTitle, triggerScene);
                 break;
             default:
                 managerCall.setAction();

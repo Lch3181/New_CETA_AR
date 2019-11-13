@@ -4,6 +4,7 @@ using UnityEngine.UI;
 using UnityEngine.Video;
 using TMPro;
 using UnityEngine.Networking;
+using UnityEngine.SceneManagement;
 
 public class CETAUIManager : MonoBehaviour
 {
@@ -61,14 +62,14 @@ public class CETAUIManager : MonoBehaviour
     private string webLink;
 
     //Represents the close button for a configurable panel.
-    Transform closeButton;
+    Transform closeButton = null;
 
     //Represents the close button for the info panel.
     Transform infoPanelClose;
 
     //Represents the player.
     [SerializeField]
-    private CharacterController playerControls;
+    private GameObject player;
 
     private void Start()
     {
@@ -138,6 +139,7 @@ public class CETAUIManager : MonoBehaviour
     public void setAction()
     {
         actionButton.SetActive(false);
+        Debug.Log("No Action.");
     }
 
     //Panel action.
@@ -145,6 +147,7 @@ public class CETAUIManager : MonoBehaviour
     {
         actionButton.SetActive(true);
         actionButton.GetComponentInChildren<TextMeshProUGUI>().text = actionTitle;
+        Debug.Log("Panel Action.");
     }
 
     //Video action.
@@ -154,6 +157,17 @@ public class CETAUIManager : MonoBehaviour
         actionButton.GetComponentInChildren<TextMeshProUGUI>().text = actionTitle;
         this.GetComponent<VideoManager>().setURL(inputURL);
         actionButton.GetComponent<Button>().onClick.AddListener(() => this.GetComponent<VideoManager>().startVideo());
+        Debug.Log("Video Action.");
+    }
+
+    //Scene action.
+    public void setActionS(string actionTitle, string inputScene)
+    {
+        actionButton.SetActive(true);
+        actionButton.GetComponentInChildren<TextMeshProUGUI>().text = actionTitle;
+        this.GetComponent<TriggerSceneManager>().setScene(inputScene);
+        actionButton.GetComponent<Button>().onClick.AddListener(() => this.GetComponent<TriggerSceneManager>().toggleBlackScreen());
+        Debug.Log("Scene Action.");
     }
 
     public void openLink()
@@ -199,15 +213,15 @@ public class CETAUIManager : MonoBehaviour
         if(infoMenuShown)
         {
             StartCoroutine(moveUIObject(InfoRectTransform, panelShow, .5f));
+            player.GetComponent<PlayerController>().toggleMove();
             triggerButtonOff();
-            playerControls.enabled = false;
             menuButton.SetActive(false);
         }
         else
         {
             StartCoroutine(moveUIObject(InfoRectTransform, panelHide, .5f));
+            player.GetComponent<PlayerController>().toggleMove();
             triggerButtonOn();
-            playerControls.enabled = true;
             menuButton.SetActive(true);
             removeListeners();
         }
@@ -219,14 +233,14 @@ public class CETAUIManager : MonoBehaviour
         if (infoMenuShown)
         {
             StartCoroutine(moveUIObject(InfoRectTransform, panelShow, .5f));
-            playerControls.enabled = false;
+            player.GetComponent<PlayerController>().toggleMove();
             menuButton.GetComponent<Button>().interactable = false;
             disablePanel.SetActive(true);
         }
         else
         {
             StartCoroutine(moveUIObject(InfoRectTransform, panelHide, .5f));
-            playerControls.enabled = true;
+            player.GetComponent<PlayerController>().toggleMove();
             menuButton.GetComponent<Button>().interactable = true;
             disablePanel.SetActive(false);
             removeListeners();
@@ -246,13 +260,20 @@ public class CETAUIManager : MonoBehaviour
         }
     }
 
-
     public void removeListeners()
     {
         actionButton.GetComponent<Button>().onClick.RemoveAllListeners();
-        closeButton.GetComponent<Button>().onClick.RemoveAllListeners();
+        if(closeButton != null)
+        {
+            Debug.Log("Removing listeners for close button on panel.");
+            closeButton.GetComponent<Button>().onClick.RemoveAllListeners();
+            closeButton = null;
+        }
+        else
+        {
+            Debug.Log("No panel for close button.");
+        }
         infoPanelClose.GetComponent<Button>().onClick.RemoveAllListeners();
         Debug.Log("Listeners Removed");
     }
-
 }

@@ -13,10 +13,19 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed;
     public float sensivity;
 
+    public bool canMove;
+
     void Start()
     {
+        canMove = true;
         controller = GetComponent<CharacterController>();
         cam = GetComponentInChildren<Camera>();
+    }
+
+    public void toggleMove()
+    {
+        canMove = !canMove;
+        Debug.Log("Toggle move to: " + canMove);
     }
 
     void FixedUpdate()
@@ -28,46 +37,52 @@ public class PlayerController : MonoBehaviour
 
     void Movement()
     {
-        if (controller.isGrounded)
+        if (canMove)
         {
-            //Feed moveDirection with input.
-            moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-            moveDirection = transform.TransformDirection(moveDirection);
-            //Feed Rotation with input if cursor is locked
+            if (controller.isGrounded)
+            {
+                //Feed moveDirection with input.
+                moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+                moveDirection = transform.TransformDirection(moveDirection);
+                //Feed Rotation with input if cursor is locked
+                if (CursorLock)
+                {
+                    RotationY = new Vector3(0, Input.GetAxisRaw("Mouse X"), 0);
+                    RotationX = new Vector3(Input.GetAxisRaw("Mouse Y"), 0, 0);
+                }
+            }
+            //Applying gravity to the controller
+            moveDirection.y -= 20f * Time.deltaTime;
+            //Apply Movement
+            controller.Move(moveDirection * moveSpeed * Time.deltaTime);
             if (CursorLock)
             {
-                RotationY = new Vector3(0, Input.GetAxisRaw("Mouse X"), 0);
-                RotationX = new Vector3(Input.GetAxisRaw("Mouse Y"), 0, 0);
+                transform.Rotate(RotationY * sensivity);
+                cam.transform.Rotate(-RotationX * sensivity);
             }
-        }
-        //Applying gravity to the controller
-        moveDirection.y -= 20f * Time.deltaTime;
-        //Apply Movement
-        controller.Move(moveDirection * moveSpeed * Time.deltaTime);
-        if (CursorLock)
-        {
-            transform.Rotate(RotationY * sensivity);
-            cam.transform.Rotate(-RotationX * sensivity);
         }
     }
 
     void ToggleCursorLock()
     {
         //Right Click to toggle cursor lock
-        if (Input.GetMouseButtonDown(1))
+        if (canMove)
         {
-            CursorLock = !CursorLock;
+            if (Input.GetMouseButtonDown(1))
+            {
+                CursorLock = !CursorLock;
 
-            //apply
-            if (CursorLock)
-            {
-                Cursor.lockState = CursorLockMode.Locked;
-                Cursor.visible = false;
-            }
-            else
-            {
-                Cursor.lockState = CursorLockMode.None;
-                Cursor.visible = true;
+                //apply
+                if (CursorLock)
+                {
+                    Cursor.lockState = CursorLockMode.Locked;
+                    Cursor.visible = false;
+                }
+                else
+                {
+                    Cursor.lockState = CursorLockMode.None;
+                    Cursor.visible = true;
+                }
             }
         }
     }
