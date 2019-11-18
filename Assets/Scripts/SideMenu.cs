@@ -1,8 +1,10 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SideMenu : MonoBehaviour
 {
     public Canvas canvas;
+    public GameObject miniMap;
     private bool Show;
     private RectTransform rectTransform;
     public GameObject disablePanel;
@@ -44,5 +46,19 @@ public class SideMenu : MonoBehaviour
     public void ToggleGameObject(GameObject gameObject)
     {
         gameObject.SetActive(!gameObject.activeSelf);
+    }
+
+    public void ARSceneSwitch()
+    {
+        if (SceneManager.GetSceneByName("AR").isLoaded)
+        {
+            miniMap.SetActive(true);
+            SceneManager.UnloadSceneAsync("AR");
+        }
+        else
+        {
+            SceneManager.LoadScene("AR", LoadSceneMode.Additive);
+            miniMap.SetActive(false);
+        }
     }
 }
