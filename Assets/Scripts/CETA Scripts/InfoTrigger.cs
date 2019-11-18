@@ -23,11 +23,33 @@ public class InfoTrigger : MonoBehaviour
     //Action button title.
     public string actionTitle;
     //What the action does.
-    public enum actionType { video, other, none };
+
+    public enum actionType { video, panel, scene, none };
+
     public actionType setType;
+
+    //The panel to show.
+    public GameObject panel;
+    //Where the panel should hide.
+    Vector3 panelHide;
 
     //The video URL to play;
     public string videoURL;
+
+    //The scene the trigger should load.
+    public string triggerScene;
+
+    private void Update()
+    {
+        if (setType == actionType.video)
+        {
+            panelHide = new Vector3(Screen.width / 2f, Screen.height * 8 / 2f, 0f);
+        }
+        else
+        {
+            panelHide = new Vector3(-Screen.width * 3, Screen.height / 2f, 0f);
+        }
+    }
 
     private void OnTriggerEnter(Collider hit)
     {
@@ -39,6 +61,8 @@ public class InfoTrigger : MonoBehaviour
             }
             else
             {
+                managerCall.triggerButtonOn();
+                managerCall.setUpInfoClose(false);
                 managerCall.setCommonInfo(TriggerTitle, displayTitle, imageURL, gameObject.GetComponentInChildren<Text>().text);
                 managerCall.setLink(webButtonTitle, webLink);
                 prepareAction();
@@ -46,25 +70,32 @@ public class InfoTrigger : MonoBehaviour
         }
     }
 
-    private void OnTriggerStay(Collider hit)
-    {
-        managerCall.triggerButtonOn();
-    }
-
     private void OnTriggerExit(Collider hit)
     {
         if (hit.tag == "Player")
         {
             managerCall.triggerButtonOff();
+            managerCall.removeListeners();
         }
     }
 
     private void prepareAction()
     {
+        if (setType != actionType.none && setType != actionType.scene)
+        {
+            managerCall.panelSetup(panel,panelHide);
+        }
+
         switch (setType)
         {
             case actionType.video:
                 managerCall.setAction(actionTitle, videoURL);
+                break;
+            case actionType.panel:
+                managerCall.setAction(actionTitle);
+                break;
+            case actionType.scene:
+                managerCall.setActionS(actionTitle, triggerScene);
                 break;
             default:
                 managerCall.setAction();
@@ -74,9 +105,10 @@ public class InfoTrigger : MonoBehaviour
 
     public void ButtonActiveEvent()
     {
-        managerCall.infoMenuShown = true;
+        managerCall.setUpInfoClose(true);
         managerCall.setCommonInfo(TriggerTitle, displayTitle, imageURL, gameObject.GetComponentInChildren<Text>().text);
         managerCall.setLink(webButtonTitle, webLink);
         prepareAction();
+        managerCall.eventToggleInfoMenu();
     }
 }

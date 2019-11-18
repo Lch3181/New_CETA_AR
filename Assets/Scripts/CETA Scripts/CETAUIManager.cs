@@ -4,24 +4,29 @@ using UnityEngine.UI;
 using UnityEngine.Video;
 using TMPro;
 using UnityEngine.Networking;
+using UnityEngine.SceneManagement;
 
 public class CETAUIManager : MonoBehaviour
 {
     public Canvas canvas;
 
-    public GameObject videoScreen;
-    public VideoPlayer videoPlayer;
-    private RectTransform VideoScreenRectTransform;
-    private bool VideoScreenShow;
-
     //The info panel itself;
     public GameObject infoPanel;
     private RectTransform InfoRectTransform;
 
+    Vector3 panelShow;
+    Vector3 panelHide;
+
     //The button that triggers the info panel.
     public GameObject TriggerButton;
     private RectTransform TriggerButtonRectTransform;
-    private bool TriggerButtonShow;
+
+    Vector3 buttonShow;
+    Vector3 buttonHide;
+
+    //The menu button and the panel that disables the menu.
+    public GameObject menuButton;
+    public GameObject disablePanel;
 
     //What should be shown as the title of the info UI.
     [SerializeField]
@@ -43,59 +48,40 @@ public class CETAUIManager : MonoBehaviour
     [SerializeField]
     private GameObject linkButton;
 
+    //Used to set the scroll bar back to the top.
     [SerializeField]
     private GameObject scrollBar;
 
     //Determines if the info menu is on screen.
     public bool infoMenuShown;
 
+    //Determines if the panel associated with a trigger is shown.
+    public bool triggerPanelShown = false;
+
     //A link to a website.
     private string webLink;
 
+    //Represents the close button for a configurable panel.
+    Transform closeButton = null;
+
+    //Represents the close button for the info panel.
+    Transform infoPanelClose;
+
+    //Represents the player.
+    [SerializeField]
+    private GameObject player;
 
     private void Start()
     {
         InfoRectTransform = infoPanel.GetComponent<RectTransform>();
         TriggerButtonRectTransform = TriggerButton.GetComponent<RectTransform>();
-        VideoScreenRectTransform = videoScreen.GetComponent<RectTransform>();
+        infoPanelClose = infoPanel.transform.Find("TitlePanel").transform.Find("Close");
     }
 
     private void Update()
     {
-        Display();
-    }
-
-    private void Display()
-    {
-        //Info Menu
-        if (infoMenuShown)
-        {
-            InfoRectTransform.position = Vector3.Lerp(InfoRectTransform.position, new Vector3(Screen.width / 2f, Screen.height / 2f, 0f), Time.deltaTime * 10f);
-        }
-        else
-        {
-            InfoRectTransform.position = Vector3.Lerp(InfoRectTransform.position, new Vector3(-Screen.width / 2f, Screen.height / 2f, 0f), Time.deltaTime * 10f);
-        }
-
-        //Trigger Button
-        if (TriggerButtonShow)
-        {
-            TriggerButtonRectTransform.position = Vector3.Lerp(TriggerButtonRectTransform.position, new Vector3(Screen.width - TriggerButtonRectTransform.rect.width * canvas.scaleFactor / 1.5f, TriggerButtonRectTransform.rect.height * canvas.scaleFactor, 0f), Time.deltaTime * 10f);
-        }
-        else
-        {
-            TriggerButtonRectTransform.position = Vector3.Lerp(TriggerButtonRectTransform.position, new Vector3(Screen.width + TriggerButtonRectTransform.rect.width * canvas.scaleFactor / 2, TriggerButtonRectTransform.rect.height * canvas.scaleFactor, 0f), Time.deltaTime * 10f);
-        }
-
-        //Video Screen
-        if (VideoScreenShow)
-        {
-            VideoScreenRectTransform.position = Vector3.Lerp(VideoScreenRectTransform.position, new Vector3(Screen.width / 2f, Screen.height / 2f, 0f), Time.deltaTime * 10f);
-        }
-        else
-        {
-            VideoScreenRectTransform.position = Vector3.Lerp(VideoScreenRectTransform.position, new Vector3(Screen.width / 2f, Screen.height * 2, 0f), Time.deltaTime * 10f);
-        }
+        panelShow = new Vector3(Screen.width / 2f, Screen.height / 2f, 0f);
+        panelHide = new Vector3(-Screen.width * 3, Screen.height / 2f, 0f);
     }
 
     public void setCommonInfo(string inputTriggerTitle, string inputTitle, string inputImageLink, string inputDesc)
@@ -140,10 +126,28 @@ public class CETAUIManager : MonoBehaviour
         }
     }
 
+    //Sets up whatever panel is needed for the action.
+    public void panelSetup(GameObject panel, Vector3 panelHide)
+    {
+        actionButton.GetComponent<Button>().onClick.AddListener(() => StartCoroutine(moveUIObject(panel.GetComponent<RectTransform>(), panelShow, 1f)));
+        closeButton = panel.transform.Find("TitlePanel").transform.Find("Close");
+        closeButton.GetComponent<Button>().onClick.AddListener(() => StartCoroutine(moveUIObject(panel.GetComponent<RectTransform>(), panelHide, .5f)));
+        Debug.Log("Setup Panel");
+    }
+
     //No action.
     public void setAction()
     {
         actionButton.SetActive(false);
+        Debug.Log("No Action.");
+    }
+
+    //Panel action.
+    public void setAction(string actionTitle)
+    {
+        actionButton.SetActive(true);
+        actionButton.GetComponentInChildren<TextMeshProUGUI>().text = actionTitle;
+        Debug.Log("Panel Action.");
     }
 
     //Video action.
@@ -151,10 +155,19 @@ public class CETAUIManager : MonoBehaviour
     {
         actionButton.SetActive(true);
         actionButton.GetComponentInChildren<TextMeshProUGUI>().text = actionTitle;
-        actionButton.GetComponent<Button>().onClick.AddListener(() => startVideo());
-        videoPlayer.url = inputURL;
-        videoPlayer.Prepare();
+        this.GetComponent<VideoManager>().setURL(inputURL);
+        actionButton.GetComponent<Button>().onClick.AddListener(() => this.GetComponent<VideoManager>().startVideo());
+        Debug.Log("Video Action.");
+    }
 
+    //Scene action.
+    public void setActionS(string actionTitle, string inputScene)
+    {
+        actionButton.SetActive(true);
+        actionButton.GetComponentInChildren<TextMeshProUGUI>().text = actionTitle;
+        this.GetComponent<TriggerSceneManager>().setScene(inputScene);
+        actionButton.GetComponent<Button>().onClick.AddListener(() => this.GetComponent<TriggerSceneManager>().toggleBlackScreen());
+        Debug.Log("Scene Action.");
     }
 
     public void openLink()
@@ -169,52 +182,98 @@ public class CETAUIManager : MonoBehaviour
         }
     }
 
-    public void startVideo()
+    public IEnumerator moveUIObject(RectTransform UIObject, Vector3 target, float addTime)
     {
-        VideoScreenShow = true;
-        videoPlayer.Play();
-    }
-
-    public void pauseToggle()
-    {
-        if (videoPlayer.isPaused)
+        Debug.Log("Moving");
+        float startTime = Time.time;
+        while (Time.time < startTime + addTime)
         {
-            videoPlayer.Play();
+            UIObject.position = Vector3.Lerp(UIObject.position, target, (Time.time - startTime) / addTime);
+            yield return null;
         }
-        else
-        {
-            videoPlayer.Pause();
-        }
-
-    }
-
-    public void closeVideo()
-    {
-        videoPlayer.Stop();
-        VideoScreenShow = false;
+        UIObject.position = target;
+        Debug.Log("Done Moving");
     }
 
     public void triggerButtonOn()
     {
-        if (infoMenuShown)
-        {
-            triggerButtonOff();
-        }
-        else
-        {
-            TriggerButtonShow = true;
-        }
+        buttonShow = new Vector3(Screen.width - TriggerButtonRectTransform.rect.width * canvas.scaleFactor / 1.5f, TriggerButtonRectTransform.rect.height * canvas.scaleFactor, 0f);
+        StartCoroutine(moveUIObject(TriggerButtonRectTransform, buttonShow, .5f));
     }
 
     public void triggerButtonOff()
     {
-        TriggerButtonShow = false;
+        buttonHide = new Vector3(Screen.width + TriggerButtonRectTransform.rect.width * canvas.scaleFactor / 2, TriggerButtonRectTransform.rect.height * canvas.scaleFactor, 0f);
+        StartCoroutine(moveUIObject(TriggerButtonRectTransform, buttonHide, .5f));
     }
 
     public void ToggleInfoMenu()
     {
         infoMenuShown = !infoMenuShown;
-
+        if(infoMenuShown)
+        {
+            StartCoroutine(moveUIObject(InfoRectTransform, panelShow, .5f));
+            player.GetComponent<PlayerController>().toggleMove();
+            triggerButtonOff();
+            menuButton.SetActive(false);
+        }
+        else
+        {
+            StartCoroutine(moveUIObject(InfoRectTransform, panelHide, .5f));
+            player.GetComponent<PlayerController>().toggleMove();
+            triggerButtonOn();
+            menuButton.SetActive(true);
+            removeListeners();
+        }
     }
 
+    public void eventToggleInfoMenu()
+    {
+        infoMenuShown = !infoMenuShown;
+        if (infoMenuShown)
+        {
+            StartCoroutine(moveUIObject(InfoRectTransform, panelShow, .5f));
+            player.GetComponent<PlayerController>().toggleMove();
+            menuButton.GetComponent<Button>().interactable = false;
+            disablePanel.SetActive(true);
+        }
+        else
+        {
+            StartCoroutine(moveUIObject(InfoRectTransform, panelHide, .5f));
+            player.GetComponent<PlayerController>().toggleMove();
+            menuButton.GetComponent<Button>().interactable = true;
+            disablePanel.SetActive(false);
+            removeListeners();
+        }
+    }
+
+    //Designates info close if opened from a trigger.
+    public void setUpInfoClose(bool eventOpened)
+    {
+        if (eventOpened)
+        {
+            infoPanelClose.GetComponent<Button>().onClick.AddListener(() => eventToggleInfoMenu());
+        }
+        else
+        {
+            infoPanelClose.GetComponent<Button>().onClick.AddListener(() => ToggleInfoMenu());
+        }
+    }
+
+    public void removeListeners()
+    {
+        actionButton.GetComponent<Button>().onClick.RemoveAllListeners();
+        if(closeButton != null)
+        {
+            Debug.Log("Removing listeners for close button on panel.");
+            closeButton.GetComponent<Button>().onClick.RemoveAllListeners();
+            closeButton = null;
+        }
+        else
+        {
+            Debug.Log("No panel for close button.");
+        }
+        infoPanelClose.GetComponent<Button>().onClick.RemoveAllListeners();
+        Debug.Log("Listeners Removed");
+    }
 }
