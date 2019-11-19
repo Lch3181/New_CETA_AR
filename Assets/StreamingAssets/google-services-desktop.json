@@ -1,0 +1,37 @@
+{
+  "client": [
+    {
+      "services": {
+        "appinvite_service": {
+          "status": 1
+        }, 
+        "analytics_service": {
+          "status": 0
+        }
+      }, 
+      "oauth_client": [
+        {
+          "client_id": "422261355406-jbm8s1tducf7igp4dlgurokmosrquf5v.apps.googleusercontent.com"
+        }
+      ], 
+      "api_key": [
+        {
+          "current_key": "AIzaSyBWzpUz46kE3aOFiI-Eqxm5F2mdD3XyvCQ"
+        }
+      ], 
+      "client_info": {
+        "mobilesdk_app_id": "1:422261355406:ios:377e70de09e1925efaaadf", 
+        "android_client_info": {
+          "package_name": "com.student.ceta-ar"
+        }
+      }
+    }
+  ], 
+  "configuration_version": "1", 
+  "project_info": {
+    "storage_bucket": "root-wharf-237820.appspot.com", 
+    "project_id": "root-wharf-237820", 
+    "firebase_url": "https://root-wharf-237820.firebaseio.com", 
+    "project_number": "422261355406"
+  }
+}
