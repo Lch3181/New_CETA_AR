@@ -165,8 +165,8 @@ public class CETAUIManager : MonoBehaviour
     {
         actionButton.SetActive(true);
         actionButton.GetComponentInChildren<TextMeshProUGUI>().text = actionTitle;
-        this.GetComponent<TriggerSceneManager>().setScene(inputScene);
-        actionButton.GetComponent<Button>().onClick.AddListener(() => this.GetComponent<TriggerSceneManager>().toggleBlackScreen());
+        this.GetComponent<ScenesManager>().setScene(inputScene);
+        actionButton.GetComponent<Button>().onClick.AddListener(() => this.GetComponent<ScenesManager>().toggleSceneWindow());
         Debug.Log("Scene Action.");
     }
 

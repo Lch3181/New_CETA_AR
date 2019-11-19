@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class TriggerSceneManager : MonoBehaviour
+public class ScenesManager : MonoBehaviour
 {
     //Name of the scene to load.
     private string triggerScene;
@@ -13,21 +13,13 @@ public class TriggerSceneManager : MonoBehaviour
     [SerializeField]
     private GameObject blackScreen;
 
+    //Gives users a choice on leaving the current scene.
+    [SerializeField]
+    private GameObject sceneChoice;
+
     private void Start()
     {
-        toggleBlackScreen();
-    }
-
-    public void toggleBlackScreen()
-    {
-        if (blackScreen.GetComponent<Image>().color == Color.clear)
-        {
-            blackScreenActive();
-            iTween.ValueTo(gameObject, iTween.Hash("from", blackScreen.GetComponent<Image>().color,
-                "to", Color.black, "time", 1.5f, "onupdate", "UpdateBlackScreenColor", "oncomplete", "changeScenes"));
-        }
-        else
-            iTween.ValueTo(gameObject, iTween.Hash("from", blackScreen.GetComponent<Image>().color,
+        iTween.ValueTo(gameObject, iTween.Hash("from", blackScreen.GetComponent<Image>().color,
                "to", Color.clear, "time", 1.5f, "onupdate", "UpdateBlackScreenColor", "oncomplete", "blackScreenActive"));
     }
 
@@ -36,7 +28,20 @@ public class TriggerSceneManager : MonoBehaviour
         triggerScene = inputScene;
     }
 
-    public void changeScenes()
+    public void toggleSceneWindow()
+    {
+        sceneChoice.SetActive(!sceneChoice.activeSelf);
+    }
+
+    public void sceneOut()
+    {
+        toggleSceneWindow();
+        blackScreenActive();
+        iTween.ValueTo(gameObject, iTween.Hash("from", blackScreen.GetComponent<Image>().color,
+            "to", Color.black, "time", 1.5f, "onupdate", "UpdateBlackScreenColor", "oncomplete", "changeScenes"));
+    }
+
+    private void changeScenes()
     {
         SceneManager.LoadScene(triggerScene, LoadSceneMode.Single);
     }
@@ -51,4 +56,6 @@ public class TriggerSceneManager : MonoBehaviour
         blackScreen.SetActive(!blackScreen.activeSelf);
         Debug.Log("Black Screen Active Changed");
     }
+
+
 }
