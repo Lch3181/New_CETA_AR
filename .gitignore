@@ -10,6 +10,7 @@
 /[Ll]ogs/
 /[Mm]emoryCaptures/
 /IOS build/
+Assets/GoogleAPIKey/
 
 # Never ignore Asset meta data
 !/[Aa]ssets/**/*.meta
