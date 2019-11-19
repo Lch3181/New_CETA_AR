@@ -223,7 +223,6 @@ public class CETAUIManager : MonoBehaviour
             player.GetComponent<PlayerController>().toggleMove();
             triggerButtonOn();
             menuButton.SetActive(true);
-            removeListeners();
         }
     }
 

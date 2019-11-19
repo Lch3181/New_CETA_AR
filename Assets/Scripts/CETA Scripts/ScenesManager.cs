@@ -19,8 +19,12 @@ public class ScenesManager : MonoBehaviour
 
     private void Start()
     {
-        iTween.ValueTo(gameObject, iTween.Hash("from", blackScreen.GetComponent<Image>().color,
-               "to", Color.clear, "time", 1.5f, "onupdate", "UpdateBlackScreenColor", "oncomplete", "blackScreenActive"));
+        //Makes it so that the screen is still interactible if the black screen is turned off in the editor.
+        if(blackScreen.activeSelf)
+        {
+            iTween.ValueTo(gameObject, iTween.Hash("from", blackScreen.GetComponent<Image>().color,
+              "to", Color.clear, "time", 1.5f, "onupdate", "UpdateBlackScreenColor", "oncomplete", "blackScreenActive"));
+        }
     }
 
     public void setScene(string inputScene)
@@ -35,7 +39,6 @@ public class ScenesManager : MonoBehaviour
 
     public void sceneOut()
     {
-        toggleSceneWindow();
         blackScreenActive();
         iTween.ValueTo(gameObject, iTween.Hash("from", blackScreen.GetComponent<Image>().color,
             "to", Color.black, "time", 1.5f, "onupdate", "UpdateBlackScreenColor", "oncomplete", "changeScenes"));
