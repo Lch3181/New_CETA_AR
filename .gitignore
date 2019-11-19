@@ -10,6 +10,7 @@
 /[Ll]ogs/
 /[Mm]emoryCaptures/
 /IOS build/
+/Database/
 
 # Never ignore Asset meta data
 !/[Aa]ssets/**/*.meta
