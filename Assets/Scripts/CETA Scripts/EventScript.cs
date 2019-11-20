@@ -23,6 +23,9 @@ public class EventScript : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI eventLocation;
 
+    [SerializeField]
+    private string detailsLink = "";
+
     public void setDate(string inputInfo)
     {
         date.text = inputInfo;
@@ -46,5 +49,23 @@ public class EventScript : MonoBehaviour
     public void setLoc(string inputInfo)
     {
         eventLocation.text = inputInfo;
+    }
+
+    public void setLink(string inputLink)
+    {
+        detailsLink = inputLink;
+    }
+
+    public void openLink()
+    {
+        if (detailsLink == "")
+        {
+            Debug.Log("No link provided for event.");
+            return;
+        }
+        else
+        {
+            Application.OpenURL(detailsLink);
+        }
     }
 }

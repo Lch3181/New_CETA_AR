@@ -9,9 +9,12 @@ EditorBuildSettings:
     path: Assets/Scenes/3D CETA.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
-    path: Assets/Scenes/CETA Building.unity
-    guid: 3d5139f689851a64aa1d4f6b673609f5
-  - enabled: 1
-    path: Assets/Scenes/Games/TestGame.unity
+    path: Assets/Scenes/Games/GameTemplate.unity
     guid: a744137ebba9c45428f4f8d5ee3d1f32
+  - enabled: 1
+    path: Assets/Scenes/AR.unity
+    guid: d33ef156cd7d9a346ac0b9fb04049351
+  - enabled: 1
+    path: Assets/Scenes/Games/MazeRunner.unity
+    guid: a78db62a37c9ad948a38d9a75f32dade
   m_configObjects: {}
