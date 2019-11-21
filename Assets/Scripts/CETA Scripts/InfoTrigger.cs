@@ -13,7 +13,7 @@ public class InfoTrigger : MonoBehaviour
     //The title of the UI.
     public string displayTitle;
     //What image should be shown. (The URL link to the image.)
-    public string imageURL;
+    public string ImageLocation;
 
     //Website button text.
     public string webButtonTitle;
@@ -63,7 +63,7 @@ public class InfoTrigger : MonoBehaviour
             {
                 managerCall.triggerButtonOn();
                 managerCall.setUpInfoClose(false);
-                managerCall.setCommonInfo(TriggerTitle, displayTitle, imageURL, gameObject.GetComponentInChildren<Text>().text);
+                managerCall.setCommonInfo(TriggerTitle, displayTitle, ImageLocation, gameObject.GetComponentInChildren<Text>().text);
                 managerCall.setLink(webButtonTitle, webLink);
                 prepareAction();
             }
@@ -106,7 +106,7 @@ public class InfoTrigger : MonoBehaviour
     public void ButtonActiveEvent()
     {
         managerCall.setUpInfoClose(true);
-        managerCall.setCommonInfo(TriggerTitle, displayTitle, imageURL, gameObject.GetComponentInChildren<Text>().text);
+        managerCall.setCommonInfo(TriggerTitle, displayTitle, ImageLocation, gameObject.GetComponentInChildren<Text>().text);
         managerCall.setLink(webButtonTitle, webLink);
         prepareAction();
         managerCall.eventToggleInfoMenu();

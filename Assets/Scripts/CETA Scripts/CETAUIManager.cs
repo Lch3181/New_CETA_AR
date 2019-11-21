@@ -78,8 +78,8 @@ public class CETAUIManager : MonoBehaviour
 
     private void Start()
     {
-        storage = FirebaseStorage.GetInstance("gs://ceta-ar-unity");
-        storage_ref = storage.GetReferenceFromUrl("gs://ceta-ar-unity");
+        storage = FirebaseStorage.DefaultInstance;
+        storage_ref = storage.GetReferenceFromUrl("gs://root-wharf-237820.appspot.com");
         InfoRectTransform = infoPanel.GetComponent<RectTransform>();
         TriggerButtonRectTransform = TriggerButton.GetComponent<RectTransform>();
         infoPanelClose = infoPanel.transform.Find("TitlePanel").transform.Find("Close");
@@ -113,7 +113,6 @@ public class CETAUIManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("Retrieved image.");
             Texture2D imageTexture = DownloadHandlerTexture.GetContent(imageGet);
             Sprite textureToSprite = Sprite.Create(imageTexture, new Rect(0, 0, imageTexture.width, imageTexture.height), Vector2.zero);
             image.sprite = textureToSprite;
@@ -156,11 +155,13 @@ public class CETAUIManager : MonoBehaviour
     }
 
     //Video action.
-    public void setAction(string actionTitle, string inputURL)
+    public async void setAction(string actionTitle, string inputURL)
     {
         actionButton.SetActive(true);
         actionButton.GetComponentInChildren<TextMeshProUGUI>().text = actionTitle;
-        this.GetComponent<VideoManager>().setURL(inputURL);
+        var uri = await storage_ref.Child(inputURL).GetDownloadUrlAsync(); //get link from database
+        Debug.Log(uri.ToString());
+        this.GetComponent<VideoManager>().setURL(uri.ToString());
         actionButton.GetComponent<Button>().onClick.AddListener(() => this.GetComponent<VideoManager>().startVideo());
     }
 
@@ -265,7 +266,6 @@ public class CETAUIManager : MonoBehaviour
         actionButton.GetComponent<Button>().onClick.RemoveAllListeners();
         if(closeButton != null)
         {
-            Debug.Log("Removing listeners for close button on panel.");
             closeButton.GetComponent<Button>().onClick.RemoveAllListeners();
             closeButton = null;
         }
@@ -274,6 +274,5 @@ public class CETAUIManager : MonoBehaviour
             Debug.Log("No panel for close button.");
         }
         infoPanelClose.GetComponent<Button>().onClick.RemoveAllListeners();
-        Debug.Log("Listeners Removed");
     }
 }
