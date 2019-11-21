@@ -25,7 +25,6 @@ public class PlayerController : MonoBehaviour
     public void toggleMove()
     {
         canMove = !canMove;
-        Debug.Log("Toggle move to: " + canMove);
     }
 
     void FixedUpdate()

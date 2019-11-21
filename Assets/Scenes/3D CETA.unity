@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2378,7 +2378,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 441995400}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 999341042}
+        m_MethodName: GetImagesURL
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: CETA Challenge Cup.jpg
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &441995400
@@ -6351,6 +6362,7 @@ GameObject:
   - component: {fileID: 992018015}
   - component: {fileID: 992018016}
   - component: {fileID: 992018018}
+  - component: {fileID: 992018017}
   m_Layer: 0
   m_Name: CETA Manager
   m_TagString: Untagged
@@ -6370,6 +6382,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c9cfa6429622cb49833879b2790a6c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  database: {fileID: 0}
   canvas: {fileID: 1833827767}
   infoPanel: {fileID: 643266219}
   TriggerButton: {fileID: 1737826607}
@@ -6428,6 +6441,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   videoPlayer: {fileID: 765932969}
+--- !u!114 &992018017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 992018012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b9d21bfb1f6db342a13f02745ca0605, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &992018018
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6442,6 +6467,49 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blackScreen: {fileID: 430021655}
   sceneChoice: {fileID: 738928716}
+--- !u!1 &999341041
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 999341043}
+  - component: {fileID: 999341042}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &999341042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 999341041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b9d21bfb1f6db342a13f02745ca0605, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &999341043
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 999341041}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1281.4028, y: 305.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1011546756
 GameObject:
   m_ObjectHideFlags: 0
@@ -8254,7 +8322,7 @@ MonoBehaviour:
   managerCall: {fileID: 992018013}
   TriggerTitle: Welcome
   displayTitle: Welcome to CETA!
-  imageURL: https://dl.dropboxusercontent.com/s/g1t302c3tf6aykd/images.jpg?dl=0
+  imageURL: Images/images.jpg
   webButtonTitle: Link to SNHU Website
   webLink: https://www.snhu.edu/stem/ceta
   actionTitle: CETA Welcome Video

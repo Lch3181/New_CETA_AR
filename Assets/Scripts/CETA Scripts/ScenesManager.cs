@@ -57,7 +57,6 @@ public class ScenesManager : MonoBehaviour
     private void blackScreenActive()
     {
         blackScreen.SetActive(!blackScreen.activeSelf);
-        Debug.Log("Black Screen Active Changed");
     }
 
 
