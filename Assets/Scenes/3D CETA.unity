@@ -5694,7 +5694,7 @@ MonoBehaviour:
   managerCall: {fileID: 992018013}
   TriggerTitle: Cafe
   displayTitle: Welcome to the Cafe!
-  ImageLocation: 
+  ImageLocation: Images/
   webButtonTitle: SNHU Events
   webLink: https://s3.amazonaws.com/libapps/accounts/258/images/innovation_lab-logo2.jpg
   actionTitle: Upcoming CETA Events
@@ -8321,13 +8321,13 @@ MonoBehaviour:
   managerCall: {fileID: 992018013}
   TriggerTitle: Welcome
   displayTitle: Welcome to CETA!
-  ImageLocation: Images/CETA building.jpg
+  ImageLocation: Images/CETA Building.jpg
   webButtonTitle: Link to SNHU Website
   webLink: https://www.snhu.edu/stem/ceta
   actionTitle: CETA Welcome Video
   setType: 0
   panel: {fileID: 1863973444}
-  videoURL: https://dl.dropboxusercontent.com/s/t2030txvmtp5osd/New%20SNHU%20Engineering%20Building%20to%20Offer%20Many%20Amenities.mp4?dl=0
+  videoURL: Videos/New SNHU Engineering Building to Offer Many Amenities.mp4
   triggerScene: 
 --- !u!65 &1195758160
 BoxCollider:

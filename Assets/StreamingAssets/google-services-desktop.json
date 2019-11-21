@@ -1,37 +1,47 @@
 {
+  "project_info": {
+    "project_number": "422261355406",
+    "firebase_url": "https://root-wharf-237820.firebaseio.com",
+    "project_id": "root-wharf-237820",
+    "storage_bucket": "root-wharf-237820.appspot.com"
+  },
   "client": [
     {
-      "services": {
-        "appinvite_service": {
-          "status": 1
-        }, 
-        "analytics_service": {
-          "status": 0
+      "client_info": {
+        "mobilesdk_app_id": "1:422261355406:android:6c756ada22a65eddfaaadf",
+        "android_client_info": {
+          "package_name": "com.student.ceta_ar"
         }
-      }, 
+      },
       "oauth_client": [
         {
-          "client_id": "422261355406-jbm8s1tducf7igp4dlgurokmosrquf5v.apps.googleusercontent.com"
+          "client_id": "422261355406-dgbns06li3sm02lo80e6q728fvmabc5k.apps.googleusercontent.com",
+          "client_type": 3
         }
-      ], 
+      ],
       "api_key": [
         {
-          "current_key": "AIzaSyATCg2QHxLu777RYFUEBhpEZ877meJLQFc"
+          "current_key": "AIzaSyD3n9of8tunffCiGOs1O8zP5E_WfbAmFo8"
         }
-      ], 
-      "client_info": {
-        "mobilesdk_app_id": "1:422261355406:ios:377e70de09e1925efaaadf", 
-        "android_client_info": {
-          "package_name": "com.student.ceta-ar"
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "422261355406-dgbns06li3sm02lo80e6q728fvmabc5k.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "422261355406-jbm8s1tducf7igp4dlgurokmosrquf5v.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.student.ceta-ar"
+              }
+            }
+          ]
         }
       }
     }
-  ], 
-  "configuration_version": "1", 
-  "project_info": {
-    "storage_bucket": "root-wharf-237820.appspot.com", 
-    "project_id": "root-wharf-237820", 
-    "firebase_url": "https://root-wharf-237820.firebaseio.com", 
-    "project_number": "422261355406"
-  }
+  ],
+  "configuration_version": "1"
 }
