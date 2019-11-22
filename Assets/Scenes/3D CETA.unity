@@ -496,7 +496,7 @@ MonoBehaviour:
   managerCall: {fileID: 992018013}
   TriggerTitle: Yan Xiang
   displayTitle: Yan Xiang Ph.D.
-  ImageLocation: 
+  ImageLocation: Images/Faculties/Yan Xiang Ph.D..jpg
   webButtonTitle: More Info
   webLink: https://www.snhu.edu/student-experience/campus-experience/campus-academics/faculty/ceta
   actionTitle: 
@@ -5694,7 +5694,7 @@ MonoBehaviour:
   managerCall: {fileID: 992018013}
   TriggerTitle: Cafe
   displayTitle: Welcome to the Cafe!
-  ImageLocation: Images/
+  ImageLocation: Images/Cafe.jpg
   webButtonTitle: SNHU Events
   webLink: https://s3.amazonaws.com/libapps/accounts/258/images/innovation_lab-logo2.jpg
   actionTitle: Upcoming CETA Events
@@ -6031,8 +6031,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   managerCall: {fileID: 992018013}
   TriggerTitle: 'Angie Foss '
-  displayTitle: 'Angie Foss '
-  ImageLocation: 
+  displayTitle: Angie Foss
+  ImageLocation: Images/Faculties/Angie Foss.jpg
   webButtonTitle: More Info
   webLink: https://www.snhu.edu/student-experience/campus-experience/campus-academics/faculty/ceta
   actionTitle: 
@@ -6149,13 +6149,13 @@ MonoBehaviour:
   managerCall: {fileID: 992018013}
   TriggerTitle: Maker Space
   displayTitle: Creative Goes Here!
-  ImageLocation: 
+  ImageLocation: Images/Makerspace.png
   webButtonTitle: Learn More About Maker Space!
   webLink: https://libanswers.snhu.edu/makerspace/faq/139123
   actionTitle: Lab Rules Video
   setType: 0
   panel: {fileID: 1863973444}
-  videoURL: https://dl.dropboxusercontent.com/s/87f3hrfv2hka797/SNHU%20CETA%20and%20Makerspace%20Lab%20Rules%20and%20Policies.mp4?dl=0
+  videoURL: Videos/SNHU CETA and Makerspace Lab Rules and Policies.mp4
   triggerScene: 
 --- !u!65 &962753399
 BoxCollider:
@@ -11534,7 +11534,7 @@ MonoBehaviour:
   managerCall: {fileID: 992018013}
   TriggerTitle: Kolenbrander
   displayTitle: 'Dr. Kirk D. Kolenbrander '
-  ImageLocation: 
+  ImageLocation: Images/Faculties/Dr. Kirk D. Kolenbrander.jpg
   webButtonTitle: More Info
   webLink: https://www.snhu.edu/student-experience/campus-experience/campus-academics/faculty/ceta
   actionTitle: 
@@ -13690,11 +13690,11 @@ MonoBehaviour:
   managerCall: {fileID: 992018013}
   TriggerTitle: Fire Place
   displayTitle: Keep Warm Here!
-  ImageLocation: 
+  ImageLocation: Images/Fireplace.jpg
   webButtonTitle: Cool Student Works!
   webLink: https://twitter.com/snhu
   actionTitle: 
-  setType: 2
+  setType: 3
   panel: {fileID: 0}
   videoURL: 
   triggerScene: 
@@ -13980,8 +13980,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   managerCall: {fileID: 992018013}
   TriggerTitle: 'Susan Elsass '
-  displayTitle: 'Susan Elsass '
-  ImageLocation: 
+  displayTitle: Susan Elsass
+  ImageLocation: Images/Faculties/Susan Elsass.jpg
   webButtonTitle: More Info
   webLink: https://www.snhu.edu/student-experience/campus-experience/campus-academics/faculty/ceta
   actionTitle: 
@@ -14190,8 +14190,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   managerCall: {fileID: 992018013}
   TriggerTitle: 'Kyle Viator '
-  displayTitle: 'Kyle Viator '
-  ImageLocation: 
+  displayTitle: Kyle Viator
+  ImageLocation: Images/Faculties/Kyle Viator.jpg
   webButtonTitle: More Info
   webLink: https://www.snhu.edu/student-experience/campus-experience/campus-academics/faculty/ceta
   actionTitle: 
