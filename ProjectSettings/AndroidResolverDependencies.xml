@@ -5,13 +5,15 @@
     <package>com.google.firebase:firebase-auth:19.1.0</package>
     <package>com.google.firebase:firebase-auth-unity:6.7.0</package>
     <package>com.google.firebase:firebase-common:19.2.0</package>
+    <package>com.google.firebase:firebase-database:19.2.0</package>
+    <package>com.google.firebase:firebase-database-unity:6.7.0</package>
     <package>com.google.firebase:firebase-storage:19.1.0</package>
     <package>com.google.firebase:firebase-storage-unity:6.7.0</package>
   </packages>
   <files />
   <settings>
     <setting name="androidAbis" value="armeabi-v7a,x86" />
-    <setting name="bundleId" value="com.student.ceta-ar" />
+    <setting name="bundleId" value="com.student.cetaar" />
     <setting name="explodeAars" value="True" />
     <setting name="gradleBuildEnabled" value="True" />
     <setting name="gradleTemplateEnabled" value="False" />
