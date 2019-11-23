@@ -20,10 +20,14 @@ public class ScenesManager : MonoBehaviour
     private void Start()
     {
         //Makes it so that the screen is still interactible if the black screen is turned off in the editor.
-        if(blackScreen.activeSelf)
+        if (blackScreen.activeSelf)
         {
             iTween.ValueTo(gameObject, iTween.Hash("from", blackScreen.GetComponent<Image>().color,
               "to", Color.clear, "time", 1.5f, "onupdate", "UpdateBlackScreenColor", "oncomplete", "blackScreenActive"));
+        }
+        else
+        {
+            blackScreen.GetComponent<Image>().color = Color.clear;
         }
     }
 
@@ -59,6 +63,4 @@ public class ScenesManager : MonoBehaviour
         blackScreen.SetActive(!blackScreen.activeSelf);
         Debug.Log("Black Screen Active Changed");
     }
-
-
 }
