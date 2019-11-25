@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -496,7 +496,7 @@ MonoBehaviour:
   managerCall: {fileID: 992018013}
   TriggerTitle: Yan Xiang
   displayTitle: Yan Xiang Ph.D.
-  imageURL: https://www.snhu.edu/-/media/images/profiles-295x295-round/faculty-image-yan-xiang.png?h=180&la=en&w=180&modified=20191021153024&hash=EE095729C7C99A343DA4F9D39000C95FD7568398
+  ImageLocation: Images/Faculties/Yan Xiang Ph.D..jpg
   webButtonTitle: More Info
   webLink: https://www.snhu.edu/student-experience/campus-experience/campus-academics/faculty/ceta
   actionTitle: 
@@ -2350,7 +2350,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &430021656
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2611,7 +2611,10 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 441995400}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls: [{m_Target: {fileID: 0}, m_MethodName: GetImagesURL, m_Mode: 5, m_Arguments: {
+            m_ObjectArgument: {fileID: 0}, m_ObjectArgumentAssemblyTypeName: 'UnityEngine.Object,
+              UnityEngine', m_IntArgument: 0, m_FloatArgument: 0, m_StringArgument: CETA
+              Challenge Cup.jpg, m_BoolArgument: 0}, m_CallState: 2}]
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &441995400
@@ -4822,7 +4825,7 @@ MonoBehaviour:
   managerCall: {fileID: 992018013}
   TriggerTitle: Test Game
   displayTitle: Test Game
-  imageURL: https://dl.dropboxusercontent.com/s/g1t302c3tf6aykd/images.jpg?dl=0
+  ImageLocation: 
   webButtonTitle: Link to SNHU Website
   webLink: https://www.snhu.edu/student-experience/campus-experience/campus-academics/faculty/ceta
   actionTitle: To Maze Runner
@@ -5785,7 +5788,7 @@ MonoBehaviour:
   managerCall: {fileID: 992018013}
   TriggerTitle: The Big Table
   displayTitle: Take a break at the Table!
-  imageURL: http://drive.google.com/uc?export=view&id=11ERXVGVVOzyWeB8jiEhFtbL4mR_B0pV4
+  ImageLocation: 
   webButtonTitle: Link to Online Whiteboard
   webLink: https://www.webwhiteboard.com/
   actionTitle: 
@@ -5995,7 +5998,7 @@ MonoBehaviour:
   managerCall: {fileID: 992018013}
   TriggerTitle: Cafe
   displayTitle: Welcome to the Cafe!
-  imageURL: https://images.squarespace-cdn.com/content/v1/5966808015d5dbba47c63ea0/1559396328080-DW0YTWFGVJEMB5AYRQGW/ke17ZwdGBToddI8pDm48kP2ur17grYiNVwXn6bMAPtt7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QPOohDIaIeljMHgDF5CVlOqpeNLcJ80NK65_fV7S1UU4P-gzYwcGlky0CzJpTNkoezwCecnAM5OBGlWYpUPqjkvjJh3JJWsjdMZ66YIxKAg/2E6A0613.jpg?format=2500w
+  ImageLocation: Images/Cafe.jpg
   webButtonTitle: SNHU Events
   webLink: https://s3.amazonaws.com/libapps/accounts/258/images/innovation_lab-logo2.jpg
   actionTitle: Upcoming CETA Events
@@ -6332,8 +6335,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   managerCall: {fileID: 992018013}
   TriggerTitle: 'Angie Foss '
-  displayTitle: 'Angie Foss '
-  imageURL: https://www.snhu.edu/-/media/images/profiles-295x295-round/leading-ladies-angela-foss.png?h=180&la=en&w=180&modified=20191021153030&hash=9DA121F9800CE4932C69AB3F475BA05ECA205001
+  displayTitle: Angie Foss
+  ImageLocation: Images/Faculties/Angie Foss.jpg
   webButtonTitle: More Info
   webLink: https://www.snhu.edu/student-experience/campus-experience/campus-academics/faculty/ceta
   actionTitle: 
@@ -6450,13 +6453,13 @@ MonoBehaviour:
   managerCall: {fileID: 992018013}
   TriggerTitle: Maker Space
   displayTitle: Creative Goes Here!
-  imageURL: https://dl.dropboxusercontent.com/s/irraxe0vwv9qdrj/MakerspaceLogo.jpg?dl=0
+  ImageLocation: Images/Makerspace.png
   webButtonTitle: Learn More About Maker Space!
   webLink: https://libanswers.snhu.edu/makerspace/faq/139123
   actionTitle: Lab Rules Video
   setType: 0
   panel: {fileID: 1863973444}
-  videoURL: https://dl.dropboxusercontent.com/s/87f3hrfv2hka797/SNHU%20CETA%20and%20Makerspace%20Lab%20Rules%20and%20Policies.mp4?dl=0
+  videoURL: Videos/SNHU CETA and Makerspace Lab Rules and Policies.mp4
   triggerScene: 
 --- !u!65 &962753399
 BoxCollider:
@@ -7408,7 +7411,7 @@ MonoBehaviour:
   managerCall: {fileID: 992018013}
   TriggerTitle: 
   displayTitle: 
-  imageURL: 
+  ImageLocation: 
   webButtonTitle: 
   webLink: 
   actionTitle: 
@@ -7958,7 +7961,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1959209356}
   m_Direction: 0
   m_Value: 0
-  m_Size: 1
+  m_Size: 0.99999994
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -8585,13 +8588,13 @@ MonoBehaviour:
   managerCall: {fileID: 992018013}
   TriggerTitle: Welcome
   displayTitle: Welcome to CETA!
-  imageURL: https://dl.dropboxusercontent.com/s/g1t302c3tf6aykd/images.jpg?dl=0
+  ImageLocation: Images/CETA Building.jpg
   webButtonTitle: Link to SNHU Website
   webLink: https://www.snhu.edu/stem/ceta
   actionTitle: CETA Welcome Video
   setType: 0
   panel: {fileID: 1863973444}
-  videoURL: https://dl.dropboxusercontent.com/s/t2030txvmtp5osd/New%20SNHU%20Engineering%20Building%20to%20Offer%20Many%20Amenities.mp4?dl=0
+  videoURL: Videos/New SNHU Engineering Building to Offer Many Amenities.mp4
   triggerScene: 
 --- !u!65 &1195758160
 BoxCollider:
@@ -11920,7 +11923,7 @@ MonoBehaviour:
   managerCall: {fileID: 992018013}
   TriggerTitle: Kolenbrander
   displayTitle: 'Dr. Kirk D. Kolenbrander '
-  imageURL: https://www.snhu.edu/-/media/images/profiles-295x295-round/leadership-team-kirk-kolenbrander.png?h=295&la=en&w=295&modified=20191021153028&hash=11035F969E6E0A1230FB2718F79F1A4746292D57
+  ImageLocation: Images/Faculties/Dr. Kirk D. Kolenbrander.jpg
   webButtonTitle: More Info
   webLink: https://www.snhu.edu/student-experience/campus-experience/campus-academics/faculty/ceta
   actionTitle: 
@@ -14469,11 +14472,11 @@ MonoBehaviour:
   managerCall: {fileID: 992018013}
   TriggerTitle: Fire Place
   displayTitle: Keep Warm Here!
-  imageURL: https://cdn.hiconsumption.com/wp-content/uploads/2017/12/How-To-Build-A-Campfire-1-850x567.jpg
+  ImageLocation: Images/Fireplace.jpg
   webButtonTitle: Cool Student Works!
   webLink: https://twitter.com/snhu
   actionTitle: 
-  setType: 2
+  setType: 3
   panel: {fileID: 0}
   videoURL: 
   triggerScene: 
@@ -14892,8 +14895,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   managerCall: {fileID: 992018013}
   TriggerTitle: 'Susan Elsass '
-  displayTitle: 'Susan Elsass '
-  imageURL: https://www.snhu.edu/-/media/images/profiles-295x295-round/faculty-image-susan-elsass.png?h=180&la=en&w=180&modified=20191021153020&hash=D0E3C5F03597E2B51B4877E9CFA391A633836566
+  displayTitle: Susan Elsass
+  ImageLocation: Images/Faculties/Susan Elsass.jpg
   webButtonTitle: More Info
   webLink: https://www.snhu.edu/student-experience/campus-experience/campus-academics/faculty/ceta
   actionTitle: 
@@ -15102,8 +15105,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   managerCall: {fileID: 992018013}
   TriggerTitle: 'Kyle Viator '
-  displayTitle: 'Kyle Viator '
-  imageURL: https://www.snhu.edu/-/media/images/profiles-295x295-round/faculty-image-kyle-viator-ceta.png?h=180&la=en&w=180&modified=20191021153000&hash=722B53616D5CE318BE4BF5F2388956A92FE52D16
+  displayTitle: Kyle Viator
+  ImageLocation: Images/Faculties/Kyle Viator.jpg
   webButtonTitle: More Info
   webLink: https://www.snhu.edu/student-experience/campus-experience/campus-academics/faculty/ceta
   actionTitle: 

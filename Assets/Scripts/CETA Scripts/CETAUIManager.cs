@@ -1,13 +1,18 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.Video;
 using TMPro;
 using UnityEngine.Networking;
-using UnityEngine.SceneManagement;
+using Firebase.Storage;
 
 public class CETAUIManager : MonoBehaviour
 {
+    //database
+    FirebaseStorage storage;
+    StorageReference storage_ref;
+
+    //UI
     public Canvas canvas;
 
     //The info panel itself;
@@ -73,6 +78,8 @@ public class CETAUIManager : MonoBehaviour
 
     private void Start()
     {
+        storage = FirebaseStorage.DefaultInstance;
+        storage_ref = storage.GetReferenceFromUrl("gs://root-wharf-237820.appspot.com");
         InfoRectTransform = infoPanel.GetComponent<RectTransform>();
         TriggerButtonRectTransform = TriggerButton.GetComponent<RectTransform>();
         infoPanelClose = infoPanel.transform.Find("TitlePanel").transform.Find("Close");
@@ -84,16 +91,17 @@ public class CETAUIManager : MonoBehaviour
         panelHide = new Vector3(-Screen.width * 3, Screen.height / 2f, 0f);
     }
 
-    public void setCommonInfo(string inputTriggerTitle, string inputTitle, string inputImageLink, string inputDesc)
+    public async void setCommonInfo(string inputTriggerTitle, string inputTitle, string ImageLocation, string inputDesc)
     {
         TriggerButton.GetComponentInChildren<Text>().text = inputTriggerTitle;
         infoTitle.text = inputTitle;
-        StartCoroutine(getSetImage(inputImageLink));
+        var uri = await storage_ref.Child(ImageLocation).GetDownloadUrlAsync(); //get link from database
+        StartCoroutine(getSetImage(uri));
         description.text = inputDesc;
         scrollBar.GetComponent<Scrollbar>().value = 1;
     }
 
-    IEnumerator getSetImage(string URL)
+    IEnumerator getSetImage(Uri URL)
     {
         UnityWebRequest imageGet = UnityWebRequestTexture.GetTexture(URL);
         yield return imageGet.SendWebRequest();
@@ -105,7 +113,6 @@ public class CETAUIManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("Retrieved image.");
             Texture2D imageTexture = DownloadHandlerTexture.GetContent(imageGet);
             Sprite textureToSprite = Sprite.Create(imageTexture, new Rect(0, 0, imageTexture.width, imageTexture.height), Vector2.zero);
             image.sprite = textureToSprite;
@@ -132,14 +139,12 @@ public class CETAUIManager : MonoBehaviour
         actionButton.GetComponent<Button>().onClick.AddListener(() => StartCoroutine(moveUIObject(panel.GetComponent<RectTransform>(), panelShow, 1f)));
         closeButton = panel.transform.Find("TitlePanel").transform.Find("Close");
         closeButton.GetComponent<Button>().onClick.AddListener(() => StartCoroutine(moveUIObject(panel.GetComponent<RectTransform>(), panelHide, .5f)));
-        Debug.Log("Setup Panel");
     }
 
     //No action.
     public void setAction()
     {
         actionButton.SetActive(false);
-        Debug.Log("No Action.");
     }
 
     //Panel action.
@@ -147,17 +152,16 @@ public class CETAUIManager : MonoBehaviour
     {
         actionButton.SetActive(true);
         actionButton.GetComponentInChildren<TextMeshProUGUI>().text = actionTitle;
-        Debug.Log("Panel Action.");
     }
 
     //Video action.
-    public void setAction(string actionTitle, string inputURL)
+    public async void setAction(string actionTitle, string inputURL)
     {
         actionButton.SetActive(true);
         actionButton.GetComponentInChildren<TextMeshProUGUI>().text = actionTitle;
-        this.GetComponent<VideoManager>().setURL(inputURL);
+        var uri = await storage_ref.Child(inputURL).GetDownloadUrlAsync(); //get link from database
+        this.GetComponent<VideoManager>().setURL(uri.ToString());
         actionButton.GetComponent<Button>().onClick.AddListener(() => this.GetComponent<VideoManager>().startVideo());
-        Debug.Log("Video Action.");
     }
 
     //Scene action.
@@ -167,7 +171,6 @@ public class CETAUIManager : MonoBehaviour
         actionButton.GetComponentInChildren<TextMeshProUGUI>().text = actionTitle;
         this.GetComponent<ScenesManager>().setScene(inputScene);
         actionButton.GetComponent<Button>().onClick.AddListener(() => this.GetComponent<ScenesManager>().toggleSceneWindow());
-        Debug.Log("Scene Action.");
     }
 
     public void openLink()
@@ -184,7 +187,6 @@ public class CETAUIManager : MonoBehaviour
 
     public IEnumerator moveUIObject(RectTransform UIObject, Vector3 target, float addTime)
     {
-        Debug.Log("Moving");
         float startTime = Time.time;
         while (Time.time < startTime + addTime)
         {
@@ -192,7 +194,6 @@ public class CETAUIManager : MonoBehaviour
             yield return null;
         }
         UIObject.position = target;
-        Debug.Log("Done Moving");
     }
 
     public void triggerButtonOn()
@@ -264,7 +265,6 @@ public class CETAUIManager : MonoBehaviour
         actionButton.GetComponent<Button>().onClick.RemoveAllListeners();
         if(closeButton != null)
         {
-            Debug.Log("Removing listeners for close button on panel.");
             closeButton.GetComponent<Button>().onClick.RemoveAllListeners();
             closeButton = null;
         }
@@ -273,6 +273,5 @@ public class CETAUIManager : MonoBehaviour
             Debug.Log("No panel for close button.");
         }
         infoPanelClose.GetComponent<Button>().onClick.RemoveAllListeners();
-        Debug.Log("Listeners Removed");
     }
 }

@@ -10,6 +10,8 @@
 /[Ll]ogs/
 /[Mm]emoryCaptures/
 /IOS build/
+/Assets/StreamingAssets/GoogleAPIKey/
+/Assets/StreamingAssets/google-services-desktop.json
 
 # Never ignore Asset meta data
 !/[Aa]ssets/**/*.meta
