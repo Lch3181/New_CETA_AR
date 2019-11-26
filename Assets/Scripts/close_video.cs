@@ -4,8 +4,10 @@ using UnityEngine;
 using Vuforia;
 public class close_video : MonoBehaviour
 {
-    public Transform play;
+   
     public GameObject player;
+    public GameObject button;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -17,7 +19,9 @@ public class close_video : MonoBehaviour
     {
          //  VuforiaBehaviour.Instance.enabled = false;
             Destroy(player);
-            VuforiaBehaviour.Instance.enabled = true;
+        Destroy(button);
+       
+        VuforiaBehaviour.Instance.enabled = true;
         
     }
 }
