@@ -1,5 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using Firebase.Storage;
+using System;
+using System.Collections;
+using UnityEngine.Networking;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,12 +10,22 @@ public class InfoTrigger : MonoBehaviour
     //Used to call to the CETA UI Manager.
     public CETAUIManager managerCall;
 
+    //database
+    FirebaseStorage storage;
+    StorageReference storage_ref;
+
     //What the button that triggers the info UI should display.
     public string TriggerTitle;
     //The title of the UI.
     public string displayTitle;
     //What image should be shown. (The URL link to the image.)
     public string ImageLocation;
+
+    //loading.gif
+    private GameObject loadingGif;
+
+    //store image texture in scope
+    public Sprite sprite;
 
     //Website button text.
     public string webButtonTitle;
@@ -39,6 +51,13 @@ public class InfoTrigger : MonoBehaviour
     //The scene the trigger should load.
     public string triggerScene;
 
+    private void Start()
+    {
+        storage = FirebaseStorage.DefaultInstance;
+        storage_ref = storage.GetReferenceFromUrl("gs://root-wharf-237820.appspot.com");
+        loadingGif =  GameObject.Find("CETA Manager/Canvas/loading.gif");
+    }
+
     private void Update()
     {
         if (setType == actionType.video)
@@ -61,11 +80,7 @@ public class InfoTrigger : MonoBehaviour
             }
             else
             {
-                managerCall.triggerButtonOn();
-                managerCall.setUpInfoClose(false);
-                managerCall.setCommonInfo(TriggerTitle, displayTitle, ImageLocation, gameObject.GetComponentInChildren<Text>().text);
-                managerCall.setLink(webButtonTitle, webLink);
-                prepareAction();
+                getInfo();
             }
         }
     }
@@ -105,10 +120,48 @@ public class InfoTrigger : MonoBehaviour
 
     public void ButtonActiveEvent()
     {
-        managerCall.setUpInfoClose(true);
-        managerCall.setCommonInfo(TriggerTitle, displayTitle, ImageLocation, gameObject.GetComponentInChildren<Text>().text);
+        getInfo();
+    }
+
+    async void getInfo()
+    {
+        if (sprite == null)
+        {
+            var task = await storage_ref.Child(ImageLocation).GetDownloadUrlAsync();
+            StartCoroutine(SetInfo(task));
+        }
+        else
+        {
+            ManagerCalls(gameObject.GetComponentInChildren<Text>().text);
+        }
+    }
+
+    IEnumerator SetInfo(Uri URL)
+    {
+        loadingGif.SetActive(true);
+        UnityWebRequest imageGet = UnityWebRequestTexture.GetTexture(URL);
+        yield return imageGet.SendWebRequest();
+
+        if (imageGet.isNetworkError || imageGet.isHttpError)
+        {
+            Debug.Log("Error in retrieving image.");
+            ManagerCalls("NetworkError");
+        }
+        else
+        {
+            Texture2D imageTexture = DownloadHandlerTexture.GetContent(imageGet);
+            sprite = Sprite.Create(imageTexture, new Rect(0, 0, imageTexture.width, imageTexture.height), Vector2.zero);
+            ManagerCalls(gameObject.GetComponentInChildren<Text>().text);
+        }
+    }
+
+    void ManagerCalls(string text)
+    {
+        loadingGif.SetActive(false);
+        managerCall.setUpInfoClose(false);
+        managerCall.setCommonInfo(TriggerTitle, displayTitle, sprite, text);
         managerCall.setLink(webButtonTitle, webLink);
         prepareAction();
-        managerCall.eventToggleInfoMenu();
+        managerCall.ToggleInfoMenu();
     }
 }
