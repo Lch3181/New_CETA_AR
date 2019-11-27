@@ -31,14 +31,14 @@ public class EventScript : MonoBehaviour
         date.text = inputInfo;
     }
 
-    public void setStart(string inputInfo, string AMPM)
+    public void setStart(string inputInfo)
     {
-        startTime.text = inputInfo + "\n" + AMPM;
+        startTime.text = inputInfo;
     }
 
-    public void setEnd(string inputInfo, string AMPM)
+    public void setEnd(string inputInfo)
     {
-        endTime.text = inputInfo + "\n" + AMPM;
+        endTime.text = inputInfo;
     }
 
     public void setTitle(string inputInfo)
