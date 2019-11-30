@@ -95,9 +95,9 @@ public class CETAUIManager : MonoBehaviour
     {
         TriggerButton.GetComponentInChildren<Text>().text = inputTriggerTitle;
         infoTitle.text = inputTitle;
+        description.text = inputDesc;
         var uri = await storage_ref.Child(ImageLocation).GetDownloadUrlAsync(); //get link from database
         StartCoroutine(getSetImage(uri));
-        description.text = inputDesc;
         scrollBar.GetComponent<Scrollbar>().value = 1;
     }
 

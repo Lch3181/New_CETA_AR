@@ -15,7 +15,7 @@ public class ARTrigger : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if(triggerCounterpart != null)
+        if(triggerCounterpart != null && !GameObject.Find("CETA Manager").GetComponent<CETAUIManager>().infoMenuShown)
         {
             triggerCounterpart.ButtonActiveEvent();
         }
