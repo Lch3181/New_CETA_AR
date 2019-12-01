@@ -80,7 +80,7 @@ public class InfoTrigger : MonoBehaviour
             }
             else
             {
-                getInfo();
+                getInfo(false);
             }
         }
     }
@@ -120,23 +120,23 @@ public class InfoTrigger : MonoBehaviour
 
     public void ButtonActiveEvent()
     {
-        getInfo();
+        getInfo(true);
     }
 
-    async void getInfo()
+    async void getInfo(bool isEvent)
     {
         if (sprite == null)
         {
             var task = await storage_ref.Child(ImageLocation).GetDownloadUrlAsync();
-            StartCoroutine(SetInfo(task));
+            StartCoroutine(SetInfo(task,isEvent));
         }
         else
         {
-            ManagerCalls(gameObject.GetComponentInChildren<Text>().text);
+            ManagerCalls(gameObject.GetComponentInChildren<Text>().text, isEvent);
         }
     }
 
-    IEnumerator SetInfo(Uri URL)
+    IEnumerator SetInfo(Uri URL, bool isEvent)
     {
         loadingGif.SetActive(true);
         UnityWebRequest imageGet = UnityWebRequestTexture.GetTexture(URL);
@@ -145,23 +145,31 @@ public class InfoTrigger : MonoBehaviour
         if (imageGet.isNetworkError || imageGet.isHttpError)
         {
             Debug.Log("Error in retrieving image.");
-            ManagerCalls("NetworkError");
+            ManagerCalls("NetworkError", isEvent);
         }
         else
         {
             Texture2D imageTexture = DownloadHandlerTexture.GetContent(imageGet);
             sprite = Sprite.Create(imageTexture, new Rect(0, 0, imageTexture.width, imageTexture.height), Vector2.zero);
-            ManagerCalls(gameObject.GetComponentInChildren<Text>().text);
+            ManagerCalls(gameObject.GetComponentInChildren<Text>().text, isEvent);
         }
     }
 
-    void ManagerCalls(string text)
+    void ManagerCalls(string text, bool isEvent)
     {
         loadingGif.SetActive(false);
-        managerCall.setUpInfoClose(false);
+        managerCall.setUpInfoClose(isEvent);
         managerCall.setCommonInfo(TriggerTitle, displayTitle, sprite, text);
         managerCall.setLink(webButtonTitle, webLink);
         prepareAction();
-        managerCall.ToggleInfoMenu();
+
+        if (isEvent)
+        {
+            managerCall.eventToggleInfoMenu();
+        }
+        else
+        {
+            managerCall.triggerButtonOn();
+        }
     }
 }

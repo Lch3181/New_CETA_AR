@@ -254,5 +254,6 @@ public class CETAUIManager : MonoBehaviour
             Debug.Log("No panel for close button.");
         }
         infoPanelClose.GetComponent<Button>().onClick.RemoveAllListeners();
+        Debug.Log("Removed All Listeners");
     }
 }
