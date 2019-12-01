@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
@@ -10,6 +8,8 @@ public class PlayerController : MonoBehaviour
     private Vector3 moveDirection = Vector3.zero;
     private Vector3 RotationY = Vector3.zero;
     private Vector3 RotationX = Vector3.zero;
+    public Joystick joystickMovement;
+    public Joystick joystickCamera;
     public float moveSpeed;
     public float sensivity;
 
@@ -41,24 +41,27 @@ public class PlayerController : MonoBehaviour
             if (controller.isGrounded)
             {
                 //Feed moveDirection with input.
-                moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+                moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")); //keyboard
+                moveDirection = new Vector3(joystickMovement.Horizontal, 0, joystickMovement.Vertical); //virtual joystick
                 moveDirection = transform.TransformDirection(moveDirection);
-                //Feed Rotation with input if cursor is locked
-                if (CursorLock)
+                //Feed Rotation with input
+                if (CursorLock) // keyboard
                 {
                     RotationY = new Vector3(0, Input.GetAxisRaw("Mouse X"), 0);
                     RotationX = new Vector3(Input.GetAxisRaw("Mouse Y"), 0, 0);
                 }
+                //virtual joystick
+                RotationY = new Vector3(0, joystickCamera.Horizontal, 0);
+                RotationX = new Vector3(joystickCamera.Vertical, 0, 0);
             }
             //Applying gravity to the controller
             moveDirection.y -= 20f * Time.deltaTime;
             //Apply Movement
             controller.Move(moveDirection * moveSpeed * Time.deltaTime);
-            if (CursorLock)
-            {
-                transform.Rotate(RotationY * sensivity);
-                cam.transform.Rotate(-RotationX * sensivity);
-            }
+            //Apply Rotation
+            transform.Rotate(RotationY * sensivity);
+            cam.transform.Rotate(-RotationX * sensivity);
+
         }
     }
 
