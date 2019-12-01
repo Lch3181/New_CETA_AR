@@ -91,32 +91,13 @@ public class CETAUIManager : MonoBehaviour
         panelHide = new Vector3(-Screen.width * 3, Screen.height / 2f, 0f);
     }
 
-    public async void setCommonInfo(string inputTriggerTitle, string inputTitle, string ImageLocation, string inputDesc)
+    public void setCommonInfo(string inputTriggerTitle, string inputTitle, Sprite sprite, string inputDesc)
     {
         TriggerButton.GetComponentInChildren<Text>().text = inputTriggerTitle;
         infoTitle.text = inputTitle;
+        image.sprite = sprite;
         description.text = inputDesc;
-        var uri = await storage_ref.Child(ImageLocation).GetDownloadUrlAsync(); //get link from database
-        StartCoroutine(getSetImage(uri));
         scrollBar.GetComponent<Scrollbar>().value = 1;
-    }
-
-    IEnumerator getSetImage(Uri URL)
-    {
-        UnityWebRequest imageGet = UnityWebRequestTexture.GetTexture(URL);
-        yield return imageGet.SendWebRequest();
-
-        if (imageGet.isNetworkError || imageGet.isHttpError)
-        {
-            Debug.Log("Error in retrieving image.");
-            image.sprite = null;
-        }
-        else
-        {
-            Texture2D imageTexture = DownloadHandlerTexture.GetContent(imageGet);
-            Sprite textureToSprite = Sprite.Create(imageTexture, new Rect(0, 0, imageTexture.width, imageTexture.height), Vector2.zero);
-            image.sprite = textureToSprite;
-        }
     }
 
     public void setLink(string linkTitle, string inputLink)

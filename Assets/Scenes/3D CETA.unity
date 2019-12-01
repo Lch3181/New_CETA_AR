@@ -844,6 +844,7 @@ MonoBehaviour:
   TriggerTitle: Yan Xiang
   displayTitle: Yan Xiang Ph.D.
   ImageLocation: Images/Faculties/Yan Xiang Ph.D..jpg
+  sprite: {fileID: 0}
   webButtonTitle: More Info
   webLink: https://www.snhu.edu/student-experience/campus-experience/campus-academics/faculty/ceta
   actionTitle: 
@@ -6786,6 +6787,7 @@ MonoBehaviour:
   TriggerTitle: Test Game
   displayTitle: Test Game
   ImageLocation: 
+  sprite: {fileID: 0}
   webButtonTitle: Link to SNHU Website
   webLink: https://www.snhu.edu/student-experience/campus-experience/campus-academics/faculty/ceta
   actionTitle: To Maze Runner
@@ -7749,6 +7751,7 @@ MonoBehaviour:
   TriggerTitle: The Big Table
   displayTitle: Take a break at the Table!
   ImageLocation: 
+  sprite: {fileID: 0}
   webButtonTitle: Link to Online Whiteboard
   webLink: https://www.webwhiteboard.com/
   actionTitle: 
@@ -7998,6 +8001,7 @@ MonoBehaviour:
   TriggerTitle: Cafe
   displayTitle: Welcome to the Cafe!
   ImageLocation: Images/Cafe.jpg
+  sprite: {fileID: 0}
   webButtonTitle: SNHU Events
   webLink: https://s3.amazonaws.com/libapps/accounts/258/images/innovation_lab-logo2.jpg
   actionTitle: Upcoming CETA Events
@@ -8767,6 +8771,7 @@ MonoBehaviour:
   TriggerTitle: 'Angie Foss '
   displayTitle: Angie Foss
   ImageLocation: Images/Faculties/Angie Foss.jpg
+  sprite: {fileID: 0}
   webButtonTitle: More Info
   webLink: https://www.snhu.edu/student-experience/campus-experience/campus-academics/faculty/ceta
   actionTitle: 
@@ -8884,6 +8889,7 @@ MonoBehaviour:
   TriggerTitle: Maker Space
   displayTitle: Creative Goes Here!
   ImageLocation: Images/Makerspace.png
+  sprite: {fileID: 0}
   webButtonTitle: Learn More About Maker Space!
   webLink: https://libanswers.snhu.edu/makerspace/faq/139123
   actionTitle: Lab Rules Video
@@ -9842,6 +9848,7 @@ MonoBehaviour:
   TriggerTitle: 
   displayTitle: 
   ImageLocation: 
+  sprite: {fileID: 0}
   webButtonTitle: 
   webLink: 
   actionTitle: 
@@ -10390,7 +10397,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1959209357}
   m_HandleRect: {fileID: 1959209356}
   m_Direction: 0
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -11185,6 +11192,7 @@ MonoBehaviour:
   TriggerTitle: Welcome
   displayTitle: Welcome to CETA!
   ImageLocation: Images/CETA Building.jpg
+  sprite: {fileID: 0}
   webButtonTitle: Link to SNHU Website
   webLink: https://www.snhu.edu/stem/ceta
   actionTitle: CETA Welcome Video
@@ -14438,6 +14446,102 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1541583200}
   m_CullTransparentMesh: 0
+--- !u!1 &1566495039
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1566495040}
+  - component: {fileID: 1566495043}
+  - component: {fileID: 1566495042}
+  - component: {fileID: 1566495041}
+  m_Layer: 5
+  m_Name: loading.gif
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1566495040
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1566495039}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1833827764}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!95 &1566495041
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1566495039}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ddc44b84790dc264eab61a2c38e7418f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1566495042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1566495039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: -7004451253261790606, guid: 3919002fc0bba254bbad8ec30b1166be,
+    type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1566495043
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1566495039}
+  m_CullTransparentMesh: 0
 --- !u!1 &1566738181
 GameObject:
   m_ObjectHideFlags: 0
@@ -15485,6 +15589,7 @@ MonoBehaviour:
   TriggerTitle: Kolenbrander
   displayTitle: 'Dr. Kirk D. Kolenbrander '
   ImageLocation: Images/Faculties/Dr. Kirk D. Kolenbrander.jpg
+  sprite: {fileID: 0}
   webButtonTitle: More Info
   webLink: https://www.snhu.edu/student-experience/campus-experience/campus-academics/faculty/ceta
   actionTitle: 
@@ -17275,6 +17380,7 @@ RectTransform:
   - {fileID: 738928717}
   - {fileID: 336075862}
   - {fileID: 430021658}
+  - {fileID: 1566495040}
   m_Father: {fileID: 992018014}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -18861,6 +18967,7 @@ MonoBehaviour:
   TriggerTitle: Fire Place
   displayTitle: Keep Warm Here!
   ImageLocation: Images/Fireplace.jpg
+  sprite: {fileID: 0}
   webButtonTitle: Cool Student Works!
   webLink: https://twitter.com/snhu
   actionTitle: 
@@ -19285,6 +19392,7 @@ MonoBehaviour:
   TriggerTitle: 'Susan Elsass '
   displayTitle: Susan Elsass
   ImageLocation: Images/Faculties/Susan Elsass.jpg
+  sprite: {fileID: 0}
   webButtonTitle: More Info
   webLink: https://www.snhu.edu/student-experience/campus-experience/campus-academics/faculty/ceta
   actionTitle: 
@@ -19495,6 +19603,7 @@ MonoBehaviour:
   TriggerTitle: 'Kyle Viator '
   displayTitle: Kyle Viator
   ImageLocation: Images/Faculties/Kyle Viator.jpg
+  sprite: {fileID: 0}
   webButtonTitle: More Info
   webLink: https://www.snhu.edu/student-experience/campus-experience/campus-academics/faculty/ceta
   actionTitle: 
