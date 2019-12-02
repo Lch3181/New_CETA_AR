@@ -136,12 +136,11 @@ public class CETAUIManager : MonoBehaviour
     }
 
     //Video action.
-    public async void setAction(string actionTitle, string inputURL)
+    public void setAction(string actionTitle, string inputURL)
     {
         actionButton.SetActive(true);
         actionButton.GetComponentInChildren<TextMeshProUGUI>().text = actionTitle;
-        var uri = await storage_ref.Child(inputURL).GetDownloadUrlAsync(); //get link from database
-        this.GetComponent<VideoManager>().setURL(uri.ToString());
+        this.GetComponent<VideoManager>().setURL(inputURL);
         actionButton.GetComponent<Button>().onClick.AddListener(() => this.GetComponent<VideoManager>().startVideo());
     }
 

@@ -2213,6 +2213,7 @@ MonoBehaviour:
   TriggerTitle: Eshed
   displayTitle: Anat Eshed
   ImageLocation: Images/Faculties/Anat Eshed.jpg
+  sprite: {fileID: 0}
   webButtonTitle: More Info
   webLink: https://www.snhu.edu/student-experience/campus-experience/campus-academics/faculty/ceta
   actionTitle: 
@@ -2556,6 +2557,138 @@ Transform:
   m_Father: {fileID: 932950612}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &311264004
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 311264005}
+  - component: {fileID: 311264010}
+  - component: {fileID: 311264009}
+  - component: {fileID: 311264008}
+  - component: {fileID: 311264007}
+  - component: {fileID: 311264006}
+  m_Layer: 0
+  m_Name: GroupStudyTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &311264005
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 311264004}
+  m_LocalRotation: {x: -0.00032131607, y: -0.07100342, z: 0.0078515895, w: 0.99744517}
+  m_LocalPosition: {x: 0, y: 0, z: 120.857}
+  m_LocalScale: {x: 0.13174, y: 0.049999997, z: 0.13902998}
+  m_Children:
+  - {fileID: 1136982793}
+  m_Father: {fileID: 287063643}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0.027, y: -8.143001, z: 0.90000004}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -283.44275, y: -202.07352}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &311264006
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 311264004}
+  m_CullTransparentMesh: 0
+--- !u!114 &311264007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 311264004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccfb7340f52c7d34d9be12d69f388e5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  managerCall: {fileID: 992018013}
+  TriggerTitle: Group Study
+  displayTitle: Group Study Table
+  ImageLocation: Images/Study Room.jpg
+  sprite: {fileID: 0}
+  webButtonTitle: 
+  webLink: 
+  actionTitle: 
+  setType: 3
+  panel: {fileID: 0}
+  videoURL: 
+  triggerScene: 
+--- !u!65 &311264008
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 311264004}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &311264009
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 311264004}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a3361aa944593dc44b830a46bfa8ac50, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &311264010
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 311264004}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1001 &315463515
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2675,137 +2808,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d230cc8be529a542a08cb878ab14b18, type: 3}
---- !u!1 &311264004
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 311264005}
-  - component: {fileID: 311264010}
-  - component: {fileID: 311264009}
-  - component: {fileID: 311264008}
-  - component: {fileID: 311264007}
-  - component: {fileID: 311264006}
-  m_Layer: 0
-  m_Name: GroupStudyTrigger
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &311264005
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 311264004}
-  m_LocalRotation: {x: -0.00032131607, y: -0.07100342, z: 0.0078515895, w: 0.99744517}
-  m_LocalPosition: {x: 0, y: 0, z: 120.857}
-  m_LocalScale: {x: 0.13174, y: 0.049999997, z: 0.13902998}
-  m_Children:
-  - {fileID: 1136982793}
-  m_Father: {fileID: 287063643}
-  m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0.027, y: -8.143001, z: 0.90000004}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -283.44275, y: -202.07352}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &311264006
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 311264004}
-  m_CullTransparentMesh: 0
---- !u!114 &311264007
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 311264004}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ccfb7340f52c7d34d9be12d69f388e5b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  managerCall: {fileID: 992018013}
-  TriggerTitle: Group Study
-  displayTitle: Group Study Table
-  ImageLocation: Images/Study Room.jpg
-  webButtonTitle: 
-  webLink: 
-  actionTitle: 
-  setType: 3
-  panel: {fileID: 0}
-  videoURL: 
-  triggerScene: 
---- !u!65 &311264008
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 311264004}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!23 &311264009
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 311264004}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: a3361aa944593dc44b830a46bfa8ac50, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
---- !u!33 &311264010
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 311264004}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &316766890
 GameObject:
   m_ObjectHideFlags: 0
@@ -2917,7 +2919,7 @@ RectTransform:
   m_Children:
   - {fileID: 1084746948}
   m_Father: {fileID: 1833827764}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -3017,6 +3019,82 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 319341240}
+  m_CullTransparentMesh: 0
+--- !u!1 &336075861
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 336075862}
+  - component: {fileID: 336075864}
+  - component: {fileID: 336075863}
+  m_Layer: 5
+  m_Name: ARModeChangeScreen
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &336075862
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 336075861}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1715115141}
+  m_Father: {fileID: 1833827764}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &336075863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 336075861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &336075864
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 336075861}
   m_CullTransparentMesh: 0
 --- !u!1001 &341859229
 PrefabInstance:
@@ -3152,82 +3230,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d230cc8be529a542a08cb878ab14b18, type: 3}
---- !u!1 &336075861
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 336075862}
-  - component: {fileID: 336075864}
-  - component: {fileID: 336075863}
-  m_Layer: 5
-  m_Name: ARModeChangeScreen
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &336075862
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 336075861}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1715115141}
-  m_Father: {fileID: 1833827764}
-  m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &336075863
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 336075861}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &336075864
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 336075861}
-  m_CullTransparentMesh: 0
 --- !u!1 &357316856
 GameObject:
   m_ObjectHideFlags: 0
@@ -3627,7 +3629,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1833827764}
-  m_RootOrder: 11
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -4253,6 +4255,7 @@ MonoBehaviour:
   TriggerTitle: Classroom
   displayTitle: CETA Double Classroom
   ImageLocation: Images/CETA Building.jpg
+  sprite: {fileID: 0}
   webButtonTitle: Academic Catalog
   webLink: https://www.snhu.edu/admission/academic-catalogs/uc-catalog#/home
   actionTitle: 
@@ -4384,6 +4387,7 @@ MonoBehaviour:
   TriggerTitle: Guo
   displayTitle: 'David Guo Ph.D. '
   ImageLocation: Images/Faculties/David Guo.jpg
+  sprite: {fileID: 0}
   webButtonTitle: More Info
   webLink: https://www.snhu.edu/student-experience/campus-experience/campus-academics/faculty/ceta
   actionTitle: 
@@ -4841,6 +4845,7 @@ MonoBehaviour:
   TriggerTitle: Alcantara
   displayTitle: Marlon Alcantara
   ImageLocation: Images/Faculties/Marlon Alcantara.jpg
+  sprite: {fileID: 0}
   webButtonTitle: More Info
   webLink: https://www.snhu.edu/student-experience/campus-experience/campus-academics/faculty/ceta
   actionTitle: 
@@ -5598,7 +5603,7 @@ RectTransform:
   - {fileID: 965630722}
   - {fileID: 1912338724}
   m_Father: {fileID: 1833827764}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5708,6 +5713,7 @@ MonoBehaviour:
   TriggerTitle: Carlstrom
   displayTitle: Chris Carlstrom
   ImageLocation: Images/Faculties/Chris Carlstrom.jpg
+  sprite: {fileID: 0}
   webButtonTitle: More Info
   webLink: https://www.snhu.edu/student-experience/campus-experience/campus-academics/faculty/ceta
   actionTitle: 
@@ -6585,7 +6591,7 @@ RectTransform:
   m_Children:
   - {fileID: 465752741}
   m_Father: {fileID: 1833827764}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -6681,7 +6687,7 @@ VideoPlayer:
   m_AspectRatio: 2
   m_DataSource: 0
   m_PlaybackSpeed: 1
-  m_AudioOutputMode: 2
+  m_AudioOutputMode: 1
   m_TargetAudioSources:
   - {fileID: 0}
   m_DirectAudioVolumes:
@@ -6760,6 +6766,7 @@ MonoBehaviour:
   TriggerTitle: Group Study
   displayTitle: Group Study Table
   ImageLocation: Images/Study Room.jpg
+  sprite: {fileID: 0}
   webButtonTitle: 
   webLink: 
   actionTitle: 
@@ -6907,24 +6914,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 815666055}
   m_CullTransparentMesh: 0
---- !u!224 &817650771 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 8170153791668043268, guid: 0d230cc8be529a542a08cb878ab14b18,
-    type: 3}
-  m_PrefabInstance: {fileID: 341859229}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &817650772 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8170153791668043265, guid: 0d230cc8be529a542a08cb878ab14b18,
-    type: 3}
-  m_PrefabInstance: {fileID: 341859229}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a47f546fc70ec8428172694e78e4288, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &816485943
 GameObject:
   m_ObjectHideFlags: 0
@@ -7011,6 +7000,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 816485943}
   m_CullTransparentMesh: 0
+--- !u!224 &817650771 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 8170153791668043268, guid: 0d230cc8be529a542a08cb878ab14b18,
+    type: 3}
+  m_PrefabInstance: {fileID: 341859229}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &817650772 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8170153791668043265, guid: 0d230cc8be529a542a08cb878ab14b18,
+    type: 3}
+  m_PrefabInstance: {fileID: 341859229}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a47f546fc70ec8428172694e78e4288, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &820586102
 GameObject:
   m_ObjectHideFlags: 0
@@ -8442,6 +8449,7 @@ MonoBehaviour:
   TriggerTitle: Faculty
   displayTitle: Big Faculty Room
   ImageLocation: 
+  sprite: {fileID: 0}
   webButtonTitle: Faculty Webpage
   webLink: https://www.snhu.edu/student-experience/campus-experience/campus-academics/faculty/ceta
   actionTitle: 
@@ -8929,6 +8937,7 @@ MonoBehaviour:
   TriggerTitle: CETA Hub
   displayTitle: CETA Computer Hub
   ImageLocation: Images/CETA Hub.jpg
+  sprite: {fileID: 0}
   webButtonTitle: 
   webLink: 
   actionTitle: 
@@ -9184,7 +9193,7 @@ MonoBehaviour:
   actionTitle: Lab Rules Video
   setType: 0
   panel: {fileID: 1863973444}
-  videoURL: Videos/SNHU CETA and Makerspace Lab Rules and Policies.mp4
+  videoURL: https://firebasestorage.googleapis.com/v0/b/root-wharf-237820.appspot.com/o/Videos%2FSNHU%20CETA%20and%20Makerspace%20Lab%20Rules%20and%20Policies.webm?alt=media&token=533d437f-e88f-406b-bba1-64b6db18a9e6
   triggerScene: 
 --- !u!65 &962753399
 BoxCollider:
@@ -11487,7 +11496,7 @@ MonoBehaviour:
   actionTitle: CETA Welcome Video
   setType: 0
   panel: {fileID: 1863973444}
-  videoURL: Videos/New SNHU Engineering Building to Offer Many Amenities.mp4
+  videoURL: https://firebasestorage.googleapis.com/v0/b/root-wharf-237820.appspot.com/o/Videos%2FNew%20SNHU%20Engineering%20Building%20to%20Offer%20Many%20Amenities.webm?alt=media&token=6a41d4db-8cbf-47f7-b773-f8836e548ec8
   triggerScene: 
 --- !u!65 &1195758160
 BoxCollider:
@@ -12294,6 +12303,7 @@ MonoBehaviour:
   TriggerTitle: Classroom
   displayTitle: CETA Double Classroom
   ImageLocation: Images/CETA Building.jpg
+  sprite: {fileID: 0}
   webButtonTitle: Academic Catalog
   webLink: https://www.snhu.edu/admission/academic-catalogs/uc-catalog#/home
   actionTitle: 
@@ -12893,6 +12903,7 @@ MonoBehaviour:
   TriggerTitle: Group Study
   displayTitle: Group Study Table
   ImageLocation: Images/Study Room.jpg
+  sprite: {fileID: 0}
   webButtonTitle: 
   webLink: 
   actionTitle: 
@@ -13024,6 +13035,7 @@ MonoBehaviour:
   TriggerTitle: Classroom
   displayTitle: CETA Double Classroom
   ImageLocation: Images/CETA Building.jpg
+  sprite: {fileID: 0}
   webButtonTitle: Academic Catalog
   webLink: https://www.snhu.edu/admission/academic-catalogs/uc-catalog#/home
   actionTitle: 
@@ -13312,6 +13324,7 @@ MonoBehaviour:
   TriggerTitle: CETA Hub
   displayTitle: CETA Computer Hub
   ImageLocation: Images/CETA Hub.jpg
+  sprite: {fileID: 0}
   webButtonTitle: 
   webLink: 
   actionTitle: 
@@ -13443,6 +13456,7 @@ MonoBehaviour:
   TriggerTitle: Bo Kim
   displayTitle: Bo Kim Ph.D.
   ImageLocation: Images/Faculties/Bo Kim.jpg
+  sprite: {fileID: 0}
   webButtonTitle: More Info
   webLink: https://www.snhu.edu/student-experience/campus-experience/campus-academics/faculty/ceta
   actionTitle: 
@@ -14034,6 +14048,7 @@ MonoBehaviour:
   TriggerTitle: CETA Hub
   displayTitle: CETA Computer Hub
   ImageLocation: Images/CETA Hub.jpg
+  sprite: {fileID: 0}
   webButtonTitle: 
   webLink: 
   actionTitle: 
@@ -14766,7 +14781,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1833827764}
-  m_RootOrder: 12
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -16010,6 +16025,7 @@ MonoBehaviour:
   TriggerTitle: Group Study
   displayTitle: Group Study Table
   ImageLocation: Images/Study Room.jpg
+  sprite: {fileID: 0}
   webButtonTitle: 
   webLink: 
   actionTitle: 
@@ -16121,7 +16137,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1714568157}
-  m_Enabled: 0
+  m_Enabled: 1
 --- !u!20 &1714568160
 Camera:
   m_ObjectHideFlags: 0
@@ -16388,6 +16404,7 @@ MonoBehaviour:
   TriggerTitle: 'Donovan '
   displayTitle: 'Joe Donovan '
   ImageLocation: Images/Faculties/Joe Donovan.jpg
+  sprite: {fileID: 0}
   webButtonTitle: More Info
   webLink: https://www.snhu.edu/student-experience/campus-experience/campus-academics/faculty/ceta
   actionTitle: 
@@ -16486,7 +16503,7 @@ RectTransform:
   m_Children:
   - {fileID: 1514646077}
   m_Father: {fileID: 1833827764}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -16622,7 +16639,7 @@ RectTransform:
   - {fileID: 1032083334}
   - {fileID: 1331962162}
   m_Father: {fileID: 1833827764}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
@@ -16996,6 +17013,7 @@ MonoBehaviour:
   TriggerTitle: Drone Arena
   displayTitle: Drone Arena Hub
   ImageLocation: Images/CETA Building.jpg
+  sprite: {fileID: 0}
   webButtonTitle: 
   webLink: 
   actionTitle: 
@@ -18009,7 +18027,7 @@ RectTransform:
   - {fileID: 1813857821}
   - {fileID: 1289200558}
   m_Father: {fileID: 1833827764}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -18438,6 +18456,7 @@ MonoBehaviour:
   TriggerTitle: Classroom
   displayTitle: CETA Double Classroom
   ImageLocation: Images/CETA Building.jpg
+  sprite: {fileID: 0}
   webButtonTitle: Academic Catalog
   webLink: https://www.snhu.edu/admission/academic-catalogs/uc-catalog#/home
   actionTitle: 
@@ -18647,7 +18666,7 @@ RectTransform:
   - {fileID: 112588212}
   - {fileID: 1365999521}
   m_Father: {fileID: 1833827764}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -19044,6 +19063,7 @@ MonoBehaviour:
   TriggerTitle: Computer Lab
   displayTitle: CETA Computer Lab
   ImageLocation: Images/Computer Lab.jpg
+  sprite: {fileID: 0}
   webButtonTitle: 
   webLink: 
   actionTitle: 
@@ -19519,7 +19539,7 @@ RectTransform:
   m_Children:
   - {fileID: 736705133}
   m_Father: {fileID: 1833827764}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}

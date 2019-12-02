@@ -8,9 +8,13 @@ public class VideoManager : MonoBehaviour
     [SerializeField]
     private VideoPlayer videoPlayer;
 
+    private AudioSource audioSource;
+
     public void setURL(string URL)
     {
         videoPlayer.url = URL;
+        audioSource = gameObject.AddComponent<AudioSource>();
+        videoPlayer.SetTargetAudioSource(0,audioSource);
         videoPlayer.Prepare();
     }
 
@@ -35,5 +39,6 @@ public class VideoManager : MonoBehaviour
     public void closeVideo()
     {
         videoPlayer.Stop();
+        videoPlayer.Prepare();
     }
 }
