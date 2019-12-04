@@ -28,6 +28,13 @@ public class ARManager : MonoBehaviour
     [SerializeField]
     private GameObject arBackButton;
 
+    //Represents the movement and camera touch controls.
+    [SerializeField]
+    private GameObject joyMove;
+
+    [SerializeField]
+    private GameObject joyCamera;
+
     public void toggleARWindow()
     {
         arChoice.SetActive(!arChoice.activeSelf);
@@ -59,6 +66,8 @@ public class ARManager : MonoBehaviour
     {
         SceneManager.LoadScene("AR", LoadSceneMode.Additive);
         //toggleARTourObjects();
+        joyMove.SetActive(false);
+        joyCamera.SetActive(false);
         iTween.ValueTo(gameObject, iTween.Hash("from", blackScreen.GetComponent<Image>().color,
             "to", Color.clear, "time", 1.5f, "onupdate", "UpdateBlackScreenColor", "oncomplete", "arBlackscreenActive"));
         sceneText.text = "Would you like to go back to the Virtual Tour Mode?";
@@ -68,6 +77,8 @@ public class ARManager : MonoBehaviour
     {
         SceneManager.UnloadSceneAsync("AR");
         //toggleARTourObjects();
+        joyMove.SetActive(true);
+        joyCamera.SetActive(true);
         iTween.ValueTo(gameObject, iTween.Hash("from", blackScreen.GetComponent<Image>().color,
     "to", Color.clear, "time", 1.5f, "onupdate", "UpdateBlackScreenColor", "oncomplete", "arBlackscreenActive"));
         sceneText.text = "Would you like to switch to AR Mode?";
