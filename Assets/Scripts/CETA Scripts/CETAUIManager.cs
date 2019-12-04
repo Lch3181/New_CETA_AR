@@ -76,6 +76,13 @@ public class CETAUIManager : MonoBehaviour
     [SerializeField]
     private GameObject player;
 
+    //Represents the joystick and camera controllers.
+    [SerializeField]
+    private GameObject joyMove;
+
+    [SerializeField]
+    private GameObject joyCamera;
+
     private void Start()
     {
         storage = FirebaseStorage.DefaultInstance;
@@ -197,6 +204,8 @@ public class CETAUIManager : MonoBehaviour
             player.GetComponent<PlayerController>().toggleMove();
             triggerButtonOff();
             menuButton.SetActive(false);
+            joyMove.SetActive(false);
+            joyCamera.SetActive(false);
         }
         else
         {
@@ -204,6 +213,8 @@ public class CETAUIManager : MonoBehaviour
             player.GetComponent<PlayerController>().toggleMove();
             triggerButtonOn();
             menuButton.SetActive(true);
+            joyMove.SetActive(true);
+            joyCamera.SetActive(true);
         }
     }
 
