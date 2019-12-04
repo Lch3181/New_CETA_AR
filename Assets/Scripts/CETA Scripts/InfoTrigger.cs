@@ -51,6 +51,9 @@ public class InfoTrigger : MonoBehaviour
     //The scene the trigger should load.
     public string triggerScene;
 
+    //Denotes if the player is in a trigger.
+    bool inTrigger = false;
+
     private void Start()
     {
         storage = FirebaseStorage.DefaultInstance;
@@ -81,6 +84,17 @@ public class InfoTrigger : MonoBehaviour
             else
             {
                 getInfo(false);
+            }
+        }
+    }
+
+    private void OnTriggerStay(Collider hit)
+    {
+        if (hit.tag == "Player")
+        { 
+            if(!inTrigger)
+            {
+                inTrigger = !inTrigger;
             }
         }
     }
