@@ -1,8 +1,10 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class SideMenu : MonoBehaviour
 {
     public Canvas canvas;
+    public GameObject[] sideMenus;
     public GameObject miniMap;
     private bool Show;
     private RectTransform rectTransform;
@@ -35,11 +37,25 @@ public class SideMenu : MonoBehaviour
     public void ToggleSideMenu()
     {
         Show = !Show;
+
+        if (!Show)
+        {
+            ResetMenu();
+            sideMenus[0].SetActive(true);
+        }
     }
 
     public void ToggleMenu(GameObject gameObject)
     {
         gameObject.SetActive(!gameObject.activeSelf);
+    }
+
+    private void ResetMenu()
+    {
+        foreach (var gameObject in sideMenus)
+        {
+            gameObject.SetActive(false);
+        }
     }
 
 }
