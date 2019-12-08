@@ -22,6 +22,21 @@ public class PlayerController : MonoBehaviour
         cam = GetComponentInChildren<Camera>();
     }
 
+    //Determines if the player can interact with the trigger.
+    public void toggleTriggerCollide()
+    {
+        if(this.CompareTag("Player"))
+        {
+            this.tag = "Untagged";
+            Debug.Log(this.tag);
+        }
+        else
+        {
+            this.tag = "Player";
+            Debug.Log(this.tag);
+        }
+    }
+
     public void toggleMove()
     {
         canMove = !canMove;
