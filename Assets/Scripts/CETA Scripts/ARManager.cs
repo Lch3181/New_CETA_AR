@@ -71,7 +71,7 @@ public class ARManager : MonoBehaviour
         iTween.ValueTo(gameObject, iTween.Hash("from", blackScreen.GetComponent<Image>().color,
             "to", Color.clear, "time", 1.5f, "onupdate", "UpdateBlackScreenColor", "oncomplete", "arBlackscreenActive"));
         sceneText.text = "Would you like to go back to the Virtual Tour Mode?";
-        GameObject.Find("Side Menu").GetComponent<SideMenu>().ToggleSideMenu();
+        GameObject.Find("Side Menu Manager").GetComponent<SideMenu>().ToggleSideMenu();
     }
 
     private void toTour()
