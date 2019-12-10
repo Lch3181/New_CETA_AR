@@ -8,9 +8,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:422261355406:android:6c756ada22a65eddfaaadf",
+        "mobilesdk_app_id": "1:422261355406:android:986bbe28d40d243cfaaadf",
         "android_client_info": {
-          "package_name": "com.student.ceta_ar"
+          "package_name": "com.student.cetaar"
         }
       },
       "oauth_client": [
@@ -21,7 +21,7 @@
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyD3n9of8tunffCiGOs1O8zP5E_WfbAmFo8"
+          "current_key": "AIzaSyCijwd8FAowT7YgHEVGQWgdEOw4jYzsjUs"
         }
       ],
       "services": {

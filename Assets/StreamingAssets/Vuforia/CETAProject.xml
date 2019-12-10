@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
   <Tracking>
+    <ImageTarget name="CETA_AR_Table" size="1.000000 1.000000" />
+    <ImageTarget name="CETA_AR_Hub" size="1.000000 1.000000" />
+    <ImageTarget name="CETA_AR_GroupStudy" size="1.000000 1.000000" />
+    <ImageTarget name="CETA_AR_Fireplace" size="1.000000 1.000000" />
+    <ImageTarget name="CETA_AR_Faculty" size="1.000000 1.000000" />
+    <ImageTarget name="CETA_AR_Classroom" size="1.000000 1.000000" />
+    <ImageTarget name="CETA_AR_DroneLab" size="1.000000 1.000000" />
+    <ImageTarget name="CETA_AR_ComputerLab" size="1.000000 1.000000" />
     <ImageTarget name="CETA_AR_Cafe" size="1.000000 1.000000" />
     <ImageTarget name="Makerspace" size="1.000000 0.378082" />
     <ImageTarget name="CETA_AR_Welcome" size="1.000000 1.000000" />

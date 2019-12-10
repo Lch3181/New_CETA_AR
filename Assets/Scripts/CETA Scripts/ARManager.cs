@@ -65,23 +65,25 @@ public class ARManager : MonoBehaviour
     private void toAR()
     {
         SceneManager.LoadScene("AR", LoadSceneMode.Additive);
-        //toggleARTourObjects();
+        toggleARTourObjects();
         joyMove.SetActive(false);
         joyCamera.SetActive(false);
         iTween.ValueTo(gameObject, iTween.Hash("from", blackScreen.GetComponent<Image>().color,
             "to", Color.clear, "time", 1.5f, "onupdate", "UpdateBlackScreenColor", "oncomplete", "arBlackscreenActive"));
         sceneText.text = "Would you like to go back to the Virtual Tour Mode?";
+        GameObject.Find("Side Menu Manager").GetComponent<SideMenu>().ToggleSideMenu();
     }
 
     private void toTour()
     {
         SceneManager.UnloadSceneAsync("AR");
-        //toggleARTourObjects();
+        toggleARTourObjects();
         joyMove.SetActive(true);
         joyCamera.SetActive(true);
         iTween.ValueTo(gameObject, iTween.Hash("from", blackScreen.GetComponent<Image>().color,
     "to", Color.clear, "time", 1.5f, "onupdate", "UpdateBlackScreenColor", "oncomplete", "arBlackscreenActive"));
         sceneText.text = "Would you like to switch to AR Mode?";
+        GameObject.Find("Player").GetComponent<PlayerController>().toggleTriggerCollide();
     }
 
     private void arBlackscreenActive()

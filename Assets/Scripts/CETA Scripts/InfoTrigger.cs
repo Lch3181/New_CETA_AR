@@ -73,28 +73,25 @@ public class InfoTrigger : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider hit)
-    {
-        if (hit.tag == "Player")
-        {
-            if (managerCall.infoMenuShown)
-            {
-                Debug.Log("Panel Already Shown.");
-            }
-            else
-            {
-                getInfo(false);
-            }
-        }
-    }
-
     private void OnTriggerStay(Collider hit)
     {
         if (hit.tag == "Player")
         { 
             if(!inTrigger)
             {
-                inTrigger = !inTrigger;
+                inTrigger = true;
+                getInfo(false);
+                Debug.Log("Trigger Enabled");
+            }
+        }
+        else if(hit.tag == "Untagged")
+        {
+            if (inTrigger)
+            {
+                inTrigger = false;
+                managerCall.triggerButtonOff();
+                managerCall.removeListeners();
+                Debug.Log("Trigger Disabled");
             }
         }
     }
@@ -103,8 +100,10 @@ public class InfoTrigger : MonoBehaviour
     {
         if (hit.tag == "Player")
         {
+            inTrigger = false;
             managerCall.triggerButtonOff();
             managerCall.removeListeners();
+            Debug.Log("Trigger Disabled");
         }
     }
 
