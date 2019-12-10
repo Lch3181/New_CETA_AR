@@ -8,7 +8,43 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:422261355406:android:986bbe28d40d243cfaaadf",
+        "mobilesdk_app_id": "1:422261355406:android:8ae86b4feebf681afaaadf",
+        "android_client_info": {
+          "package_name": "com.snhuStudent.cetaAR"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "422261355406-dgbns06li3sm02lo80e6q728fvmabc5k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCijwd8FAowT7YgHEVGQWgdEOw4jYzsjUs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "422261355406-dgbns06li3sm02lo80e6q728fvmabc5k.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "422261355406-jbm8s1tducf7igp4dlgurokmosrquf5v.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.student.ceta-ar"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:422261355406:android:a50372dd4b6e1281faaadf",
         "android_client_info": {
           "package_name": "com.student.cetaar"
         }
