@@ -12076,7 +12076,7 @@ MonoBehaviour:
   managerCall: {fileID: 992018013}
   TriggerTitle: The Big Table
   displayTitle: Take a break at the Table!
-  ImageLocation: 
+  ImageLocation: Images/CETA Building.jpg
   sprite: {fileID: 0}
   webButtonTitle: Link to Online Whiteboard
   webLink: https://www.webwhiteboard.com/
@@ -12557,7 +12557,7 @@ MonoBehaviour:
   managerCall: {fileID: 992018013}
   TriggerTitle: Faculty
   displayTitle: Big Faculty Room
-  ImageLocation: 
+  ImageLocation: Images/CETA Building.jpg
   sprite: {fileID: 0}
   webButtonTitle: Faculty Webpage
   webLink: https://www.snhu.edu/student-experience/campus-experience/campus-academics/faculty/ceta
