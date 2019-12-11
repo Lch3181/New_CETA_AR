@@ -6,6 +6,6 @@
   <string name="project_id" translatable="false">root-wharf-237820</string>
   <string name="google_api_key" translatable="false">AIzaSyCijwd8FAowT7YgHEVGQWgdEOw4jYzsjUs</string>
   <string name="google_crash_reporting_api_key" translatable="false">AIzaSyCijwd8FAowT7YgHEVGQWgdEOw4jYzsjUs</string>
-  <string name="google_app_id" translatable="false">1:422261355406:android:a50372dd4b6e1281faaadf</string>
+  <string name="google_app_id" translatable="false">1:422261355406:android:8ae86b4feebf681afaaadf</string>
   <string name="default_web_client_id" translatable="false">422261355406-dgbns06li3sm02lo80e6q728fvmabc5k.apps.googleusercontent.com</string>
 </resources>
