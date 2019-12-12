@@ -58,7 +58,7 @@ public class InfoTrigger : MonoBehaviour
     {
         storage = FirebaseStorage.DefaultInstance;
         storage_ref = storage.GetReferenceFromUrl("gs://root-wharf-237820.appspot.com");
-        loadingGif =  GameObject.Find("CETA Manager/Canvas/loading.gif");
+        loadingGif = GameObject.Find("CETA Manager/Canvas/loading.gif");
     }
 
     private void Update()
@@ -73,18 +73,18 @@ public class InfoTrigger : MonoBehaviour
         }
     }
 
-    private void OnTriggerStay(Collider hit)
+    private void OnTriggerEnter(Collider hit)
     {
         if (hit.tag == "Player")
-        { 
-            if(!inTrigger)
+        {
+            if (!inTrigger)
             {
                 inTrigger = true;
                 getInfo(false);
                 Debug.Log("Trigger Enabled");
             }
         }
-        else if(hit.tag == "Untagged")
+        else if (hit.tag == "Untagged")
         {
             if (inTrigger)
             {
@@ -111,7 +111,7 @@ public class InfoTrigger : MonoBehaviour
     {
         if (setType != actionType.none && setType != actionType.scene)
         {
-            managerCall.panelSetup(panel,panelHide);
+            managerCall.panelSetup(panel, panelHide);
         }
 
         switch (setType)
@@ -141,7 +141,7 @@ public class InfoTrigger : MonoBehaviour
         if (sprite == null)
         {
             var task = await storage_ref.Child(ImageLocation).GetDownloadUrlAsync();
-            StartCoroutine(SetInfo(task,isEvent));
+            StartCoroutine(SetInfo(task, isEvent));
         }
         else
         {

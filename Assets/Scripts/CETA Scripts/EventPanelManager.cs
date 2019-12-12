@@ -15,7 +15,6 @@ public class EventPanelManager : MonoBehaviour
     void Start()
     {
         DBinit();
-        Debug.Log(System.DateTime.Now);
     }
 
     void DBinit()
