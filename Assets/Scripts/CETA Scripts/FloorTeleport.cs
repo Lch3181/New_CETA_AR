@@ -18,19 +18,24 @@ public class FloorTeleport : MonoBehaviour
         controller.enabled = true;
     }
 
-    public void SetCurrentLayer(GameObject gameObject)
+    public void SetCurrentLayer(GameObject go)
     {
         ResetLayer();
-
-        gameObject.layer = 9;
-        gameObject.SetActive(true);
-        foreach(Transform child in gameObject.transform)
+        go.layer = LayerMask.NameToLayer("CurrentFloor");
+        for (int i = System.Array.IndexOf(Floors,go);i>=0;i--)
         {
-            child.gameObject.layer = 9;
+            foreach (Transform child in Triggers[i].transform)
+            {
+                child.gameObject.layer = LayerMask.NameToLayer("CurrentFloor");
+            }
+            foreach (Transform child in Floors[i].transform)
+            {
+                child.gameObject.layer = LayerMask.NameToLayer("CurrentFloor");
+            }
         }
     }
 
-    private void ResetLayer()
+    public void ResetLayer()
     {
         foreach(GameObject floor in Floors)
         {
@@ -43,7 +48,12 @@ public class FloorTeleport : MonoBehaviour
 
         foreach (GameObject trigger in Triggers)
         {
-            trigger.SetActive(false);
+            trigger.layer = 10;
+            foreach (Transform child in trigger.transform)
+            {
+                child.gameObject.layer = 10;
+            }
         }
     }
+
 }
