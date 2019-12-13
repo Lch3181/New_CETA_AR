@@ -12,9 +12,9 @@ public class MazeRunnerPoint : MonoBehaviour
         pointPosition.position = new Vector3(Random.Range(-18,18),1,(Random.Range(-18,18)));
     }
 
-    private void OnCollisionStay(Collision other)
+    private void OnTriggerStay(Collider other)
     {
-        if(other.collider.tag == "Wall")
+        if(other.tag == "Wall")
         {
             pointPosition.position = new Vector3(Random.Range(-18, 18), 1, (Random.Range(-18, 18)));
             Debug.Log("Teleported into Wall.");
