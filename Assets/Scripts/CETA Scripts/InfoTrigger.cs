@@ -54,11 +54,15 @@ public class InfoTrigger : MonoBehaviour
     //Denotes if the player is in a trigger.
     bool inTrigger = false;
 
+    private PlayerController controller;
+
     private void Start()
     {
         storage = FirebaseStorage.DefaultInstance;
         storage_ref = storage.GetReferenceFromUrl("gs://root-wharf-237820.appspot.com");
         loadingGif = GameObject.Find("CETA Manager/Canvas/loading.gif");
+
+        controller = GameObject.Find("Player").GetComponent<PlayerController>();
     }
 
     private void Update()
@@ -152,6 +156,7 @@ public class InfoTrigger : MonoBehaviour
     IEnumerator SetInfo(Uri URL, bool isEvent)
     {
         loadingGif.SetActive(true);
+        controller.toggleMove();
         UnityWebRequest imageGet = UnityWebRequestTexture.GetTexture(URL);
         yield return imageGet.SendWebRequest();
 
@@ -159,12 +164,14 @@ public class InfoTrigger : MonoBehaviour
         {
             Debug.Log("Error in retrieving image.");
             ManagerCalls("NetworkError", isEvent);
+            controller.toggleMove();
         }
         else
         {
             Texture2D imageTexture = DownloadHandlerTexture.GetContent(imageGet);
             sprite = Sprite.Create(imageTexture, new Rect(0, 0, imageTexture.width, imageTexture.height), Vector2.zero);
             ManagerCalls(gameObject.GetComponentInChildren<Text>().text, isEvent);
+            controller.toggleMove();
         }
     }
 
