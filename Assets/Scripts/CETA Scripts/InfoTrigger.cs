@@ -77,7 +77,7 @@ public class InfoTrigger : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider hit)
+    private void OnTriggerStay(Collider hit)
     {
         if (hit.tag == "Player")
         {
