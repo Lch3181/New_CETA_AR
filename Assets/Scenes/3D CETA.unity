@@ -13171,7 +13171,8 @@ MonoBehaviour:
     or just to relax and brainstorm. Bring your friends and discuss potential ideas!
     Chat publicly with other students, or feel free to use the closed rooms on the
     second and third floors for more private and focused meetings or for specialized
-    tools to help your work.
+    tools to help your work. You can reserve a session for these rooms and other types
+    of rooms at CETA following the link below.
 --- !u!222 &275921514
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -14137,8 +14138,8 @@ MonoBehaviour:
   displayTitle: Group Study Table
   ImageLocation: Images/Study Room.jpg
   sprite: {fileID: 0}
-  webButtonTitle: 
-  webLink: 
+  webButtonTitle: Reserve a Room at CETA
+  webLink: https://libcal.snhu.edu/spaces?lid=8418
   actionTitle: 
   setType: 3
   panel: {fileID: 0}
@@ -29612,7 +29613,8 @@ MonoBehaviour:
     or just to relax and brainstorm. Bring your friends and discuss potential ideas!
     Chat publicly with other students, or feel free to use the closed rooms on the
     second and third floors for more private and focused meetings or for specialized
-    tools to help your work.
+    tools to help your work. You can reserve a session for these rooms and other types
+    of rooms at CETA following the link below.
 --- !u!222 &614853559
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -37290,8 +37292,8 @@ MonoBehaviour:
   displayTitle: Group Study Table
   ImageLocation: Images/Study Room.jpg
   sprite: {fileID: 0}
-  webButtonTitle: 
-  webLink: 
+  webButtonTitle: Reserve a Room at CETA
+  webLink: https://libcal.snhu.edu/spaces?lid=8418
   actionTitle: 
   setType: 3
   panel: {fileID: 0}
@@ -53263,7 +53265,8 @@ MonoBehaviour:
     or just to relax and brainstorm. Bring your friends and discuss potential ideas!
     Chat publicly with other students, or feel free to use the closed rooms on the
     second and third floors for more private and focused meetings or for specialized
-    tools to help your work.
+    tools to help your work. You can reserve a session for these rooms and other types
+    of rooms at CETA following the link below.
 --- !u!222 &1136982795
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -53346,7 +53349,8 @@ MonoBehaviour:
     or just to relax and brainstorm. Bring your friends and discuss potential ideas!
     Chat publicly with other students, or feel free to use the closed rooms on the
     second and third floors for more private and focused meetings or for specialized
-    tools to help your work.
+    tools to help your work. You can reserve a session for these rooms and other types
+    of rooms at CETA following the link below.
 --- !u!222 &1137518708
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -63779,8 +63783,8 @@ MonoBehaviour:
   displayTitle: Group Study Table
   ImageLocation: Images/Study Room.jpg
   sprite: {fileID: 0}
-  webButtonTitle: 
-  webLink: 
+  webButtonTitle: Reserve a Room at CETA
+  webLink: https://libcal.snhu.edu/spaces?lid=8418
   actionTitle: 
   setType: 3
   panel: {fileID: 0}
@@ -80512,8 +80516,8 @@ MonoBehaviour:
   displayTitle: Group Study Table
   ImageLocation: Images/Study Room.jpg
   sprite: {fileID: 0}
-  webButtonTitle: 
-  webLink: 
+  webButtonTitle: Reserve a Room at CETA
+  webLink: https://libcal.snhu.edu/spaces?lid=8418
   actionTitle: 
   setType: 3
   panel: {fileID: 0}
