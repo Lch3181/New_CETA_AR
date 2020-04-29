@@ -35264,6 +35264,86 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 736705132}
   m_CullTransparentMesh: 0
+--- !u!1001 &736922141
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1785356661}
+    m_Modifications:
+    - target: {fileID: -927199367670048503, guid: fbefe25e86ee6e348a7462e6cda16cad,
+        type: 3}
+      propertyPath: m_Name
+      value: model
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: fbefe25e86ee6e348a7462e6cda16cad,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 244.27458
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: fbefe25e86ee6e348a7462e6cda16cad,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 8.230995
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: fbefe25e86ee6e348a7462e6cda16cad,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 21.344942
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: fbefe25e86ee6e348a7462e6cda16cad,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.49297178
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: fbefe25e86ee6e348a7462e6cda16cad,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.5069308
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: fbefe25e86ee6e348a7462e6cda16cad,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.5069308
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: fbefe25e86ee6e348a7462e6cda16cad,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.49297178
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: fbefe25e86ee6e348a7462e6cda16cad,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 65
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: fbefe25e86ee6e348a7462e6cda16cad,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: fbefe25e86ee6e348a7462e6cda16cad,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: fbefe25e86ee6e348a7462e6cda16cad,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -1504981713932161579, guid: fbefe25e86ee6e348a7462e6cda16cad,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3c1c572f35a7dc44594ae7733f207505, type: 2}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: fbefe25e86ee6e348a7462e6cda16cad, type: 3}
+--- !u!4 &736922142 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: fbefe25e86ee6e348a7462e6cda16cad,
+    type: 3}
+  m_PrefabInstance: {fileID: 736922141}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &738480603
 GameObject:
   m_ObjectHideFlags: 0
@@ -41088,7 +41168,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 214591426}
   m_HandleRect: {fileID: 214591425}
   m_Direction: 0
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -52027,8 +52107,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1959209357}
   m_HandleRect: {fileID: 1959209356}
   m_Direction: 0
-  m_Value: 0
-  m_Size: 1
+  m_Value: 1
+  m_Size: 0.9999999
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -61753,7 +61833,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c370907cc4eb0224ba9ccd89e32d0576, type: 2}
+  - {fileID: 2100000, guid: 2f259745da7a82147a169e24013ee287, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -75374,7 +75454,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 229202933}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.20834823
+  m_Size: 0.2083482
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -85775,6 +85855,7 @@ Transform:
   - {fileID: 1300914496}
   - {fileID: 1403720630}
   - {fileID: 1745876111}
+  - {fileID: 736922142}
   m_Father: {fileID: 1284862915}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
