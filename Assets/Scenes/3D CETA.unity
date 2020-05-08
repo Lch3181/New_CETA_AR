@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -595,7 +595,7 @@ GameObject:
   - component: {fileID: 4762336}
   - component: {fileID: 4762338}
   - component: {fileID: 4762337}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: Description
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3194,7 +3194,7 @@ GameObject:
   - component: {fileID: 54582538}
   - component: {fileID: 54582540}
   - component: {fileID: 54582539}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: Description
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7711,7 +7711,7 @@ GameObject:
   - component: {fileID: 150611523}
   - component: {fileID: 150611522}
   - component: {fileID: 150611521}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: Yan Xiang
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10380,7 +10380,7 @@ GameObject:
   - component: {fileID: 207089174}
   - component: {fileID: 207089176}
   - component: {fileID: 207089175}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: Description
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10987,7 +10987,7 @@ GameObject:
   - component: {fileID: 228498589}
   - component: {fileID: 228498591}
   - component: {fileID: 228498590}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: Description
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13268,7 +13268,7 @@ GameObject:
   - component: {fileID: 275921512}
   - component: {fileID: 275921514}
   - component: {fileID: 275921513}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: Description
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21680,7 +21680,7 @@ GameObject:
   - component: {fileID: 433501797}
   - component: {fileID: 433501799}
   - component: {fileID: 433501798}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: Description
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23666,7 +23666,7 @@ GameObject:
   - component: {fileID: 491720571}
   - component: {fileID: 491720570}
   - component: {fileID: 491720569}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: ClassroomTrigger(2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26774,7 +26774,7 @@ GameObject:
   - component: {fileID: 549095627}
   - component: {fileID: 549095629}
   - component: {fileID: 549095628}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: Description
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27252,7 +27252,7 @@ GameObject:
   - component: {fileID: 563347689}
   - component: {fileID: 563347688}
   - component: {fileID: 563347687}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: 'Marlon Alcantara '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28281,7 +28281,7 @@ GameObject:
   - component: {fileID: 585072457}
   - component: {fileID: 585072459}
   - component: {fileID: 585072458}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: Description
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34247,7 +34247,7 @@ GameObject:
   - component: {fileID: 715305112}
   - component: {fileID: 715305114}
   - component: {fileID: 715305113}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: Description
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37486,7 +37486,7 @@ GameObject:
   - component: {fileID: 799355942}
   - component: {fileID: 799355941}
   - component: {fileID: 799355940}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: GroupStudyTrigger(2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41168,7 +41168,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 214591426}
   m_HandleRect: {fileID: 214591425}
   m_Direction: 0
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -44117,7 +44117,7 @@ GameObject:
   - component: {fileID: 926756981}
   - component: {fileID: 926756983}
   - component: {fileID: 926756982}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: Description
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45486,7 +45486,7 @@ GameObject:
   - component: {fileID: 954039451}
   - component: {fileID: 954039450}
   - component: {fileID: 954039449}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: 'Angie Foss '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52107,8 +52107,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1959209357}
   m_HandleRect: {fileID: 1959209356}
   m_Direction: 0
-  m_Value: 1
-  m_Size: 0.9999999
+  m_Value: 0
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -53615,7 +53615,7 @@ GameObject:
   - component: {fileID: 1137518706}
   - component: {fileID: 1137518708}
   - component: {fileID: 1137518707}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: Description
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -64223,7 +64223,7 @@ GameObject:
   - component: {fileID: 1324063978}
   - component: {fileID: 1324063977}
   - component: {fileID: 1324063976}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: GroupStudyTrigger(2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -65248,7 +65248,7 @@ GameObject:
   - component: {fileID: 1346581138}
   - component: {fileID: 1346581137}
   - component: {fileID: 1346581136}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: 'Bo Kim Ph.D. '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -67689,7 +67689,7 @@ GameObject:
   - component: {fileID: 1395254171}
   - component: {fileID: 1395254170}
   - component: {fileID: 1395254169}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: HubTrigger(2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -77592,7 +77592,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1620278557}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: SecondFloorTriggers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -79738,7 +79738,7 @@ GameObject:
   - component: {fileID: 1686227020}
   - component: {fileID: 1686227022}
   - component: {fileID: 1686227021}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: Description
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -80774,7 +80774,7 @@ GameObject:
   - component: {fileID: 1696135830}
   - component: {fileID: 1696135829}
   - component: {fileID: 1696135828}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: 'Dr. Kirk D. Kolenbrander '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -84604,7 +84604,7 @@ GameObject:
   - component: {fileID: 1760079038}
   - component: {fileID: 1760079037}
   - component: {fileID: 1760079036}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: DroneLab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86717,6 +86717,8 @@ GameObject:
   - component: {fileID: 1819481858}
   - component: {fileID: 1819481857}
   - component: {fileID: 1819481856}
+  - component: {fileID: 1819481859}
+  - component: {fileID: 1819481860}
   m_Layer: 5
   m_Name: Side Menu Manager
   m_TagString: Untagged
@@ -86818,6 +86820,30 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1819481854}
   m_CullTransparentMesh: 0
+--- !u!114 &1819481859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1819481854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7780a055be0d4dc43a8dc52f0f70eea2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1819481860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1819481854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35a533068b8ba034f8f15b76f6506487, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1820561376
 GameObject:
   m_ObjectHideFlags: 0
@@ -95785,7 +95811,7 @@ GameObject:
   - component: {fileID: 2055102723}
   - component: {fileID: 2055102722}
   - component: {fileID: 2055102721}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: 'Susan Elsass '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96745,7 +96771,7 @@ GameObject:
   - component: {fileID: 2072905034}
   - component: {fileID: 2072905033}
   - component: {fileID: 2072905032}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: 'Kyle Viator '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
