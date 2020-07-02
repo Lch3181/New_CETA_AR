@@ -38,6 +38,8 @@ undecided
 undecided
 
 ## Contact
-Professor Kim
+Professor Kim,
+
 https://github.com/b-kim
+
 b.kim@snhu.edu
