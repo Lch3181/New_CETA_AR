@@ -1,66 +1,43 @@
-# Overview of the project development
+# Virtual/AR CETA Tour
+## Description
+* Project idea requested by CETA Ops team for the new CETA building.
+  * Inspired by a similar project for the library being developed by Inkwell.
+  * Designed to incentivise students to go to the library and have students learn about the building.
+  * Similar idea, but also allow other activities and information shown to better enhance interactivity.
+    * Display Real Time Info. (Events, Class Schedules, Etc.)
+    * Games to play.
+    * Videos to explain landmarks.
+* Could be part of a campus wide tour project in the future.
+
+## Spec of the project development
 
 Platform: windows OS, IOS, Android
 
 IDE: Unity: 2019.2.0f (C#) package: Vuforia (AR)
 
-For the app development, a 3D model of the CETA building is needed. 
-
-Until the real model is ready by the gaming art member at Inkwell Studio.
-
-A temporary “fake” model may be used to develop the scripts until the 3D model is ready.
-
 3D model - built by Inkwell Studio
 
-Scripts - done by CETA CS 
-
-
 ## 3D model interaction:
-User as a player that can walk inside 3D models of CETA (Windows OS using arrow keys; IOS/Android using joystick)
+Virtual: User as a player that can walk inside 3D models of CETA (Windows OS using arrow keys; IOS/Android using virtual joystick)
 
-Or if they are physically inside the building in reality, they can also use AR triggers inside the building (IOS/Android with camera)
-
+AR: AR triggers inside the building (IOS/Android with camera)
 
 ## Major landmarks in new CETA building:
-1st floor: offices (navigation), front door (map, indoor navigation), cafe, fireplace, bigtable(something interesting like game), signs (websites), robotics room, maker space (schedule link for reservation)
+1st floor: offices (navigation), front door (map, indoor navigation), cafe, fireplace, bigtable(games), signs (websites), robotics room, maker space (reservation)
 
 2rd floor: offices (navigation), classrooms (schedule), hubs, drone lab, conference rooms
 
-3nd floor: offices (navigation), computer labs(schedule), classrooms(schedule), study rooms (schedule link for reservation)
+3nd floor: offices (navigation), computer labs(schedule), classrooms(schedule), study rooms (reservation)
 
 Basement : machine shop
 
+## Installation
+undecided
 
-Phased development plan: it is to be done floor by floor. 
+## License
+undecided
 
-Starting with the 1st floor, moving to the 2nd, 3rd, then the basement.
-
-
-## Timeline:
-10/29 : show this document, a simple 3d CETA model, assign works (major landmarks for first floor)
-
-11/5  : Finish the 1st floor
-
-11/12 : Mid progress presentation, assign the 2nd floor
-
-11/19 : Finish the 2nd floor, assign the 3rd floor
-
-11/26 : Finish the 3rd floor, assign the basement
-
-12/3  : progress report
-
-12/10 : Finish All floors, start putting everything together
-
-12/17 : Dry run, final testing
-
-12/18 : Showcase
-
-
-## Control:
-PC, Mac, & Linux Standalone:
-
-Movement: Arrow Keys and Mouse
-
-Toggle UI: Mouse Right Click
-
-Teleport Between Floors: UI Buttons
+## Contact
+Professor Kim
+https://github.com/b-kim
+b.kim@snhu.edu
