@@ -14,11 +14,17 @@ public class GameUIManager : MonoBehaviour
     public GameObject scoreCounter;
     public GameObject endScore;
 
+    /// <summary>
+    /// Activate game's UI
+    /// </summary>
     public void toggleGameUI(GameObject UIObject)
     {
         UIObject.SetActive(!UIObject.activeSelf);
     }
 
+    /// <summary>
+    /// Toggle UI of gameOverScreen, startScreen, and countdown
+    /// </summary>
     public void gameReset()
     {
         toggleGameUI(gameOverScreen);
@@ -26,6 +32,9 @@ public class GameUIManager : MonoBehaviour
         toggleGameUI(countdown);
     }
 
+    /// <summary>
+    /// Toggle gameOverScreen, pauseButton, and scoreCounter
+    /// </summary>
     public void gameEnd()
     {
         toggleGameUI(gameOverScreen);
@@ -33,6 +42,9 @@ public class GameUIManager : MonoBehaviour
         toggleGameUI(scoreCounter);
     }
 
+    /// <summary>
+    /// Update Score Board UI
+    /// </summary>
     public void setScore(int score)
     {
         Debug.Log("Score Up!");
@@ -40,6 +52,9 @@ public class GameUIManager : MonoBehaviour
         endScore.GetComponent<TextMeshProUGUI>().text = "Score: " + score;
     }
 
+    /// <summary>
+    /// Start the timer for the UI to show the User
+    /// </summary>
     public IEnumerator startCountdown()
     {
         toggleGameUI(startScreen);
