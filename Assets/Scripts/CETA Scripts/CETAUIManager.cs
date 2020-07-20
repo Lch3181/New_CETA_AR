@@ -29,60 +29,66 @@ public class CETAUIManager : MonoBehaviour
     Vector3 buttonShow;
     Vector3 buttonHide;
 
-    //The menu button and the panel that disables the menu.
+    ///The menu button and the panel that disables the menu.
     public GameObject menuButton;
     public GameObject disablePanel;
 
-    //What should be shown as the title of the info UI.
+    ///What should be shown as the title of the info UI.
     [SerializeField]
     private TextMeshProUGUI infoTitle;
 
-    //What image should be shown.
+    ///What image should be shown.
     [SerializeField]
     private Image image;
 
-    //The description of the specified location.
+    ///The description of the specified location.
     [SerializeField]
     private TextMeshProUGUI description;
 
-    //Describes the button in the description.
+    ///Describes the button in the description.
     [SerializeField]
     private GameObject actionButton;
 
-    //Describes the button that acts as a link.
+    ///Describes the button that acts as a link.
     [SerializeField]
     private GameObject linkButton;
 
-    //Used to set the scroll bar back to the top.
+    ///Used to set the scroll bar back to the top.
     [SerializeField]
     private GameObject scrollBar;
 
-    //Determines if the info menu is on screen.
+    ///Determines if the info menu is on screen.
     public bool infoMenuShown;
 
-    //Determines if the panel associated with a trigger is shown.
+    ///Determines if the panel associated with a trigger is shown.
     public bool triggerPanelShown = false;
 
-    //A link to a website.
+    ///A link to a website.
     private string webLink;
 
-    //Represents the close button for a configurable panel.
+    ///Represents the close button for a configurable panel.
     Transform closeButton = null;
 
-    //Represents the close button for the info panel.
+    ///Represents the close button for the info panel.
     Transform infoPanelClose;
 
-    //Represents the player.
+    ///Represents the player.
     [SerializeField]
     private GameObject player;
 
-    //Represents the joystick and camera controllers.
+    ///Represents the joystick
     [SerializeField]
     private GameObject joyMove;
 
+    ///Represents the Joystick's Camera
     [SerializeField]
     private GameObject joyCamera;
 
+    /// <summary>
+    /// Start is called on the frame when a script is enabled
+    /// 
+    /// initial database links
+    /// </summary>
     private void Start()
     {
         storage = FirebaseStorage.DefaultInstance;
@@ -92,12 +98,20 @@ public class CETAUIManager : MonoBehaviour
         infoPanelClose = infoPanel.transform.Find("TitlePanel").transform.Find("Close");
     }
 
+    /// <summary>
+    /// Update is called once per frame
+    /// 
+    /// update panel position
+    /// </summary>
     private void Update()
     {
         panelShow = new Vector3(Screen.width / 2f, Screen.height / 2f, 0f);
         panelHide = new Vector3(-Screen.width * 3, Screen.height / 2f, 0f);
     }
 
+    /// <summary>
+    /// Set Infomations from parameters
+    /// </summary>
     public void setCommonInfo(string inputTriggerTitle, string inputTitle, Sprite sprite, string inputDesc)
     {
         TriggerButton.GetComponentInChildren<Text>().text = inputTriggerTitle;
@@ -107,6 +121,9 @@ public class CETAUIManager : MonoBehaviour
         scrollBar.GetComponent<Scrollbar>().value = 1;
     }
 
+    /// <summary>
+    /// Set Website Links and Title from parameters
+    /// </summary>
     public void setLink(string linkTitle, string inputLink)
     {
         if (inputLink == "")
@@ -121,7 +138,7 @@ public class CETAUIManager : MonoBehaviour
         }
     }
 
-    //Sets up whatever panel is needed for the action.
+    ///Sets up whatever panel is needed for the action.
     public void panelSetup(GameObject panel, Vector3 panelHide)
     {
         actionButton.GetComponent<Button>().onClick.AddListener(() => StartCoroutine(moveUIObject(panel.GetComponent<RectTransform>(), panelShow, 1f)));
@@ -129,20 +146,20 @@ public class CETAUIManager : MonoBehaviour
         closeButton.GetComponent<Button>().onClick.AddListener(() => StartCoroutine(moveUIObject(panel.GetComponent<RectTransform>(), panelHide, .5f)));
     }
 
-    //No action.
+    ///No action.
     public void setAction()
     {
         actionButton.SetActive(false);
     }
 
-    //Panel action.
+    ///Panel action.
     public void setAction(string actionTitle)
     {
         actionButton.SetActive(true);
         actionButton.GetComponentInChildren<TextMeshProUGUI>().text = actionTitle;
     }
 
-    //Video action.
+    ///Video action.
     public void setAction(string actionTitle, string inputURL)
     {
         actionButton.SetActive(true);
@@ -151,7 +168,7 @@ public class CETAUIManager : MonoBehaviour
         actionButton.GetComponent<Button>().onClick.AddListener(() => this.GetComponent<VideoManager>().startVideo());
     }
 
-    //Scene action.
+    ///Scene action.
     public void setActionS(string actionTitle, string inputScene)
     {
         actionButton.SetActive(true);
@@ -160,6 +177,9 @@ public class CETAUIManager : MonoBehaviour
         actionButton.GetComponent<Button>().onClick.AddListener(() => this.GetComponent<ScenesManager>().toggleSceneWindow());
     }
 
+    /// <summary>
+    /// Open Website
+    /// </summary>
     public void openLink()
     {
         if (webLink == "")
@@ -172,6 +192,9 @@ public class CETAUIManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Move UI (Panel) Hide/Show
+    /// </summary>
     public IEnumerator moveUIObject(RectTransform UIObject, Vector3 target, float addTime)
     {
         float startTime = Time.time;
@@ -183,18 +206,29 @@ public class CETAUIManager : MonoBehaviour
         UIObject.position = target;
     }
 
+    /// <summary>
+    /// Enable and Show Trigger button
+    /// </summary>
     public void triggerButtonOn()
     {
         buttonShow = new Vector3(Screen.width - TriggerButtonRectTransform.rect.width * canvas.scaleFactor / 1.5f, TriggerButtonRectTransform.rect.height * canvas.scaleFactor, 0f);
         StartCoroutine(moveUIObject(TriggerButtonRectTransform, buttonShow, .5f));
     }
 
+    /// <summary>
+    /// Disable and Hide Trigger button
+    /// </summary>
     public void triggerButtonOff()
     {
         buttonHide = new Vector3(Screen.width + TriggerButtonRectTransform.rect.width * canvas.scaleFactor / 2, TriggerButtonRectTransform.rect.height * canvas.scaleFactor, 0f);
         StartCoroutine(moveUIObject(TriggerButtonRectTransform, buttonHide, .5f));
     }
 
+    /// <summary>
+    /// Toggle Information Panel UI
+    /// 
+    /// Hide/Show Panel UI, Toggle Tigger Button, MenuButton, and JoyStick
+    /// </summary>
     public void ToggleInfoMenu()
     {
         infoMenuShown = !infoMenuShown;
@@ -218,6 +252,13 @@ public class CETAUIManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Toggle Event Panel UI
+    /// 
+    /// Hide/Show Panel UI, Toggel Player's movement controll, menu button
+    /// 
+    /// remove listeners on hide
+    /// </summary>
     public void eventToggleInfoMenu()
     {
         infoMenuShown = !infoMenuShown;
@@ -238,7 +279,7 @@ public class CETAUIManager : MonoBehaviour
         }
     }
 
-    //Designates info close if opened from a trigger.
+    ///Designates info close if opened from a trigger.
     public void setUpInfoClose(bool eventOpened)
     {
         if (eventOpened)
@@ -251,6 +292,9 @@ public class CETAUIManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Remove all Listeners(Buttons functions)
+    /// </summary>
     public void removeListeners()
     {
         actionButton.GetComponent<Button>().onClick.RemoveAllListeners();

@@ -4,10 +4,11 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+/// <summary>
+/// GetSet What should be shown as the title of the info UI.
+/// </summary>
 public class EventScript : MonoBehaviour
 {
-    // Start is called before the first frame update
-    //What should be shown as the title of the info UI.
     [SerializeField]
     private TextMeshProUGUI date;
 
@@ -56,6 +57,9 @@ public class EventScript : MonoBehaviour
         detailsLink = inputLink;
     }
 
+    /// <summary>
+    /// Open website link
+    /// </summary>
     public void openLink()
     {
         if (detailsLink == "")

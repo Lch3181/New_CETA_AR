@@ -7,18 +7,18 @@ using TMPro;
 
 public class ARManager : MonoBehaviour
 {
-    //Used to transition between scenes.
+    ///Used to transition between scenes.
     [SerializeField]
     private GameObject blackScreen;
 
-    //Gives users a choice on switching modes.
+    ///Gives users a choice on switching modes.
     [SerializeField]
     private GameObject arChoice;
 
     [SerializeField]
     private TextMeshProUGUI sceneText;
 
-    //Various Elements to turn off/on when the AR mode is changed.
+    ///Various Elements to turn off/on when the AR mode is changed.
     [SerializeField]
     private GameObject menuButton;
 
@@ -27,19 +27,25 @@ public class ARManager : MonoBehaviour
 
     [SerializeField]
     private GameObject arBackButton;
-
-    //Represents the movement and camera touch controls.
+    
+    ///Represents the movement and camera touch controls.
     [SerializeField]
     private GameObject joyMove;
 
     [SerializeField]
     private GameObject joyCamera;
 
+    /// <summary>
+    /// Enable AR Yes.No UI
+    /// </summary>
     public void toggleARWindow()
     {
         arChoice.SetActive(!arChoice.activeSelf);
     }
 
+    /// <summary>
+    /// Toggle UI for AR Mode
+    /// </summary>
     public void toggleARTourObjects()
     {
         menuButton.SetActive(!menuButton.activeSelf);
@@ -47,6 +53,9 @@ public class ARManager : MonoBehaviour
         arBackButton.SetActive(!arBackButton.activeSelf);
     }
 
+    /// <summary>
+    /// Switch scene with a black screen from AR/Virtual
+    /// </summary>
     public void switchMode()
     {
         arBlackscreenActive();
@@ -62,6 +71,9 @@ public class ARManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Switch Scene to AR
+    /// </summary>
     private void toAR()
     {
         SceneManager.LoadScene("AR", LoadSceneMode.Additive);
@@ -74,6 +86,9 @@ public class ARManager : MonoBehaviour
         GameObject.Find("Side Menu Manager").GetComponent<SideMenu>().ToggleSideMenu();
     }
 
+    /// <summary>
+    /// Switch Scene to Virtual
+    /// </summary>
     private void toTour()
     {
         SceneManager.UnloadSceneAsync("AR");
@@ -86,12 +101,18 @@ public class ARManager : MonoBehaviour
         GameObject.Find("Player").GetComponent<PlayerController>().toggleTriggerCollide();
     }
 
+    /// <summary>
+    /// Enable Black Screen for Scene Transfering
+    /// </summary>
     private void arBlackscreenActive()
     {
         blackScreen.SetActive(!blackScreen.activeSelf);
         Debug.Log("Black Screen Active Changed");
     }
 
+    /// <summary>
+    /// Set Black Screen Color
+    /// </summary>
     private void UpdateBlackScreenColor(Color aColor)
     {
         blackScreen.GetComponent<Image>().color = aColor;

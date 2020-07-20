@@ -11,12 +11,17 @@ public class EventPanelManager : MonoBehaviour
     public GameObject scrollContent;
     private FirebaseDatabase database;
 
-    // Start is called before the first frame update
+    /// Start is called before the first frame update
     void Start()
     {
         DBinit();
     }
 
+    /// <summary>
+    /// initial Database
+    /// 
+    /// Set Connections, and check data update
+    /// </summary>
     void DBinit()
     {
         //set connection
@@ -26,6 +31,9 @@ public class EventPanelManager : MonoBehaviour
         FirebaseDatabase.DefaultInstance.GetReference("Events").ValueChanged += HandleValueChanged;
     }
 
+    /// <summary>
+    /// Get all Event data from Database and Set into EventScript.cs 
+    /// </summary>
     async void GetData()
     {
         //remove all old events
@@ -54,6 +62,9 @@ public class EventPanelManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// If and new update on event database, update event panel
+    /// </summary>
     void HandleValueChanged(object sender, ValueChangedEventArgs args)
     {
         if (args.DatabaseError != null)

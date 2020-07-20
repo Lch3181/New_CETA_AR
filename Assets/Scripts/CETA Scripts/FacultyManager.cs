@@ -11,12 +11,15 @@ public class FacultyManager : MonoBehaviour
     //public GameObject scrollContent;
     private FirebaseDatabase database;
 
-    // Start is called before the first frame update
+    /// Start is called before the first frame update
     void Start()
     {
         DBinit();
     }
 
+    /// <summary>
+    /// initial Database connection
+    /// </summary>
     void DBinit()
     {
         //set connection
@@ -26,6 +29,9 @@ public class FacultyManager : MonoBehaviour
         FirebaseDatabase.DefaultInstance.GetReference("Faculty").ValueChanged += HandleValueChanged;
     }
 
+    /// <summary>
+    /// Get data from database and display on debug log for now until atucal use
+    /// </summary>
     async void GetData()
     {
         //remove all old events
@@ -58,6 +64,9 @@ public class FacultyManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Check if new update on Faculty database, update panel if any
+    /// </summary>
     void HandleValueChanged(object sender, ValueChangedEventArgs args)
     {
         if (args.DatabaseError != null)
