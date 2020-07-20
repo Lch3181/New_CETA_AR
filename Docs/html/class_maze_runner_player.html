@@ -84,6 +84,9 @@ $(document).ready(function(){initNavTree('class_maze_runner_player.html',''); in
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pri-types">Private Types</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_maze_runner_player-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">MazeRunnerPlayer Class Reference</div>  </div>
@@ -117,8 +120,89 @@ Public Attributes</h2></td></tr>
 <tr class="separator:aff0363932511d272f1cd253753fcc0fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5962dab84f868cf2862dc4d8be4cc39d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_maze_runner_player.html#a5962dab84f868cf2862dc4d8be4cc39d">isPlaying</a> = false</td></tr>
 <tr class="separator:a5962dab84f868cf2862dc4d8be4cc39d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-types"></a>
+Private Types</h2></td></tr>
+<tr class="memitem:adde2a154bacbdfa340e6c3f43859788d"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_maze_runner_player.html#adde2a154bacbdfa340e6c3f43859788d">direction</a> { <a class="el" href="class_maze_runner_player.html#adde2a154bacbdfa340e6c3f43859788da46c48bec0d282018b9d167eef7711b2c">direction.up</a>, 
+<a class="el" href="class_maze_runner_player.html#adde2a154bacbdfa340e6c3f43859788da74e8333ad11685ff3bdae589c8f6e34d">direction.down</a>, 
+<a class="el" href="class_maze_runner_player.html#adde2a154bacbdfa340e6c3f43859788da811882fecd5c7618d7099ebbd39ea254">direction.left</a>, 
+<a class="el" href="class_maze_runner_player.html#adde2a154bacbdfa340e6c3f43859788da7c4f29407893c334a6cb7a87bf045c0d">direction.right</a>
+ }</td></tr>
+<tr class="separator:adde2a154bacbdfa340e6c3f43859788d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:aea0f1e70e340789da34b15fb2f230f88"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_maze_runner_player.html#aea0f1e70e340789da34b15fb2f230f88">FixedUpdate</a> ()</td></tr>
+<tr class="separator:aea0f1e70e340789da34b15fb2f230f88"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab432c1267ec17b28d797fd4b12aa3903"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_maze_runner_player.html#ab432c1267ec17b28d797fd4b12aa3903">OnCollisionEnter</a> (Collision collision)</td></tr>
+<tr class="separator:ab432c1267ec17b28d797fd4b12aa3903"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc64df290599c56fcc2edafcdab07329"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_maze_runner_player.html#afc64df290599c56fcc2edafcdab07329">OnTriggerEnter</a> (Collider other)</td></tr>
+<tr class="separator:afc64df290599c56fcc2edafcdab07329"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e73e404bbd5d53bb6461e33749d1b63"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_maze_runner_player.html#a1e73e404bbd5d53bb6461e33749d1b63">stopPlayer</a> ()</td></tr>
+<tr class="separator:a1e73e404bbd5d53bb6461e33749d1b63"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a1967428b4738a87a192a2f19f60440a2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_maze_runner_player.html#adde2a154bacbdfa340e6c3f43859788d">direction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_maze_runner_player.html#a1967428b4738a87a192a2f19f60440a2">playerDirection</a> = <a class="el" href="class_maze_runner_player.html#adde2a154bacbdfa340e6c3f43859788da46c48bec0d282018b9d167eef7711b2c">direction.up</a></td></tr>
+<tr class="separator:a1967428b4738a87a192a2f19f60440a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af80b94356f59768b2f682d688ad60dd1"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_maze_runner_player.html#af80b94356f59768b2f682d688ad60dd1">force</a> = 15</td></tr>
+<tr class="separator:af80b94356f59768b2f682d688ad60dd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Enumeration Documentation</h2>
+<a id="adde2a154bacbdfa340e6c3f43859788d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adde2a154bacbdfa340e6c3f43859788d">&#9670;&nbsp;</a></span>direction</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="class_maze_runner_player.html#adde2a154bacbdfa340e6c3f43859788d">MazeRunnerPlayer.direction</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="adde2a154bacbdfa340e6c3f43859788da46c48bec0d282018b9d167eef7711b2c"></a>up&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="adde2a154bacbdfa340e6c3f43859788da74e8333ad11685ff3bdae589c8f6e34d"></a>down&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="adde2a154bacbdfa340e6c3f43859788da811882fecd5c7618d7099ebbd39ea254"></a>left&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="adde2a154bacbdfa340e6c3f43859788da7c4f29407893c334a6cb7a87bf045c0d"></a>right&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="aea0f1e70e340789da34b15fb2f230f88"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea0f1e70e340789da34b15fb2f230f88">&#9670;&nbsp;</a></span>FixedUpdate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MazeRunnerPlayer.FixedUpdate </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a043c29b4274711bd2b3f1ac70039777f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a043c29b4274711bd2b3f1ac70039777f">&#9670;&nbsp;</a></span>moveDown()</h2>
 
@@ -215,7 +299,106 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="ab432c1267ec17b28d797fd4b12aa3903"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab432c1267ec17b28d797fd4b12aa3903">&#9670;&nbsp;</a></span>OnCollisionEnter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MazeRunnerPlayer.OnCollisionEnter </td>
+          <td>(</td>
+          <td class="paramtype">Collision&#160;</td>
+          <td class="paramname"><em>collision</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afc64df290599c56fcc2edafcdab07329"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc64df290599c56fcc2edafcdab07329">&#9670;&nbsp;</a></span>OnTriggerEnter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MazeRunnerPlayer.OnTriggerEnter </td>
+          <td>(</td>
+          <td class="paramtype">Collider&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1e73e404bbd5d53bb6461e33749d1b63"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e73e404bbd5d53bb6461e33749d1b63">&#9670;&nbsp;</a></span>stopPlayer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MazeRunnerPlayer.stopPlayer </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="af80b94356f59768b2f682d688ad60dd1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af80b94356f59768b2f682d688ad60dd1">&#9670;&nbsp;</a></span>force</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float MazeRunnerPlayer.force = 15</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a5962dab84f868cf2862dc4d8be4cc39d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5962dab84f868cf2862dc4d8be4cc39d">&#9670;&nbsp;</a></span>isPlaying</h2>
 
@@ -258,8 +441,30 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a1967428b4738a87a192a2f19f60440a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1967428b4738a87a192a2f19f60440a2">&#9670;&nbsp;</a></span>playerDirection</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_maze_runner_player.html#adde2a154bacbdfa340e6c3f43859788d">direction</a> MazeRunnerPlayer.playerDirection = <a class="el" href="class_maze_runner_player.html#adde2a154bacbdfa340e6c3f43859788da46c48bec0d282018b9d167eef7711b2c">direction.up</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>Assets/Scripts/Game Scripts/<a class="el" href="_maze_runner_player_8cs.html">MazeRunnerPlayer.cs</a></li>
+<li>D:/GitHubProjects/New_CETA_AR/Assets/Scripts/Game Scripts/<a class="el" href="_maze_runner_player_8cs.html">MazeRunnerPlayer.cs</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

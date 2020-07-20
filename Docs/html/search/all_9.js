@@ -1,19 +1,7 @@
 var searchData=
 [
-  ['managercall_59',['managerCall',['../class_info_trigger.html#a8b4114d31cad6d62b94f25c4abbacdd4',1,'InfoTrigger.managerCall()'],['../class_maze_runner_player.html#a6a5e3dbb7f6fd91b4f185b4ecbe7e773',1,'MazeRunnerPlayer.managerCall()']]],
-  ['mazerunnermanager_60',['MazeRunnerManager',['../class_maze_runner_manager.html',1,'']]],
-  ['mazerunnermanager_2ecs_61',['MazeRunnerManager.cs',['../_maze_runner_manager_8cs.html',1,'']]],
-  ['mazerunnerplayer_62',['MazeRunnerPlayer',['../class_maze_runner_player.html',1,'']]],
-  ['mazerunnerplayer_2ecs_63',['MazeRunnerPlayer.cs',['../_maze_runner_player_8cs.html',1,'']]],
-  ['mazerunnerpoint_64',['MazeRunnerPoint',['../class_maze_runner_point.html',1,'']]],
-  ['mazerunnerpoint_2ecs_65',['MazeRunnerPoint.cs',['../_maze_runner_point_8cs.html',1,'']]],
-  ['menubutton_66',['menuButton',['../class_c_e_t_a_u_i_manager.html#a55a4cf446256ac0b25487f804f3b7cb7',1,'CETAUIManager']]],
-  ['minimap_67',['miniMap',['../class_side_menu.html#a74f460fc1e0a3b72a9c7f2433de2d927',1,'SideMenu']]],
-  ['movedown_68',['moveDown',['../class_maze_runner_player.html#a043c29b4274711bd2b3f1ac70039777f',1,'MazeRunnerPlayer']]],
-  ['moveleft_69',['moveLeft',['../class_maze_runner_player.html#a8c173101a1299ecce8d2d63f33e3a406',1,'MazeRunnerPlayer']]],
-  ['moveplayer_70',['movePlayer',['../class_maze_runner_player.html#a49b804c9e51ebafb004b6b16b059b777',1,'MazeRunnerPlayer']]],
-  ['moveright_71',['moveRight',['../class_maze_runner_player.html#a0ba9224c1980df81ba2aea3b58f5481f',1,'MazeRunnerPlayer']]],
-  ['movespeed_72',['moveSpeed',['../class_player_controller.html#abb12e85ca1b12efdbc8684bff2e19c4c',1,'PlayerController']]],
-  ['moveuiobject_73',['moveUIObject',['../class_c_e_t_a_u_i_manager.html#ae801fab44dc07eb4182319629eaa18c7',1,'CETAUIManager']]],
-  ['moveup_74',['moveUp',['../class_maze_runner_player.html#a84ffc29b05981bfc19621a6a6308dba6',1,'MazeRunnerPlayer']]]
+  ['joycamera_93',['joyCamera',['../class_a_r_manager.html#a0571d1255abadb129e06ad2dfee869a1',1,'ARManager.joyCamera()'],['../class_c_e_t_a_u_i_manager.html#af90cb499cdf2f812f5258dc60b2e5508',1,'CETAUIManager.joyCamera()']]],
+  ['joymove_94',['joyMove',['../class_a_r_manager.html#a143f938643135a571aaf04875aa6a392',1,'ARManager.joyMove()'],['../class_c_e_t_a_u_i_manager.html#aae4346a860734b1b44e63d75e162548f',1,'CETAUIManager.joyMove()']]],
+  ['joystickcamera_95',['joystickCamera',['../class_player_controller.html#a44e439e5f4de2b8f0c8a50bd0bdba45e',1,'PlayerController']]],
+  ['joystickmovement_96',['joystickMovement',['../class_player_controller.html#ad9865296a56e08150299e70162168549',1,'PlayerController']]]
 ];

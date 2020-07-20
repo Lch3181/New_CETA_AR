@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['panelsetup_211',['panelSetup',['../class_c_e_t_a_u_i_manager.html#a0de451b541472ecc00ffa749f45d07ed',1,'CETAUIManager']]],
-  ['pausetoggle_212',['pauseToggle',['../class_video_manager.html#a7830a2e317c35f2196536ada98fcacdc',1,'VideoManager']]]
+  ['handlevaluechanged_290',['HandleValueChanged',['../class_event_panel_manager.html#a74219ac980ce8245f35a8945c8d2901a',1,'EventPanelManager.HandleValueChanged()'],['../class_faculty_manager.html#af1f4591993dab7e09de3274bbee57807',1,'FacultyManager.HandleValueChanged()'],['../class_room_manager.html#a5af27af3964195db21ca8b281f8d5ebd',1,'RoomManager.HandleValueChanged()']]]
 ];

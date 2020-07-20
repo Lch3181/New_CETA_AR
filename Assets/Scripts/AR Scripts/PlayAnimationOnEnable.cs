@@ -6,6 +6,13 @@ public class PlayAnimationOnEnable : MonoBehaviour {
     public BoxCollider baseCollider;
     public bool animationPlayed;
 
+    /// <summary>
+    /// Update is called every frame
+    /// 
+    /// play animation on awake, user touches it
+    /// 
+    /// stop animation when collider disable
+    /// </summary>
     private void Update()
     {
         if(Screen.orientation != ScreenOrientation.Portrait)

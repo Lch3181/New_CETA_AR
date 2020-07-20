@@ -16,7 +16,7 @@ var dir_2205dc2a0f70a7996fd6ca4187e4866f =
       [ "EventScript", "class_event_script.html", "class_event_script" ]
     ] ],
     [ "FacultyManager.cs", "_faculty_manager_8cs.html", [
-      [ "FacultyManager", "class_faculty_manager.html", null ]
+      [ "FacultyManager", "class_faculty_manager.html", "class_faculty_manager" ]
     ] ],
     [ "FloorLayerDisplay.cs", "_floor_layer_display_8cs.html", [
       [ "FloorLayerDisplay", "class_floor_layer_display.html", "class_floor_layer_display" ]
@@ -34,7 +34,7 @@ var dir_2205dc2a0f70a7996fd6ca4187e4866f =
       [ "PlayerController", "class_player_controller.html", "class_player_controller" ]
     ] ],
     [ "RoomManager.cs", "_room_manager_8cs.html", [
-      [ "RoomManager", "class_room_manager.html", null ]
+      [ "RoomManager", "class_room_manager.html", "class_room_manager" ]
     ] ],
     [ "ScenesManager.cs", "_scenes_manager_8cs.html", [
       [ "ScenesManager", "class_scenes_manager.html", "class_scenes_manager" ]

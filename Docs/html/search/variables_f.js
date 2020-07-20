@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['webbuttontitle_294',['webButtonTitle',['../class_info_trigger.html#a8271b871b643ca991e5bd6373c63770e',1,'InfoTrigger']]],
-  ['weblink_295',['webLink',['../class_info_trigger.html#a4e0fb5da42ff6734098b1e69235968a1',1,'InfoTrigger']]]
+  ['uicall_440',['UICall',['../class_maze_runner_manager.html#aac8bff5195f29511617d34da5fea99a4',1,'MazeRunnerManager']]]
 ];

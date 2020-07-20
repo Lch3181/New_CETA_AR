@@ -6,7 +6,7 @@ public class MazeRunnerPoint : MonoBehaviour
 {
     public Transform pointPosition;
     
-    // Start is called before the first frame update
+    /// Start is called before the first frame update
     void Start()
     {
         pointPosition.position = new Vector3(Random.Range(-18,18),1,(Random.Range(-18,18)));

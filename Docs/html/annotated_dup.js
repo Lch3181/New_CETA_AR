@@ -8,7 +8,7 @@ var annotated_dup =
     [ "create_player", "classcreate__player.html", "classcreate__player" ],
     [ "EventPanelManager", "class_event_panel_manager.html", "class_event_panel_manager" ],
     [ "EventScript", "class_event_script.html", "class_event_script" ],
-    [ "FacultyManager", "class_faculty_manager.html", null ],
+    [ "FacultyManager", "class_faculty_manager.html", "class_faculty_manager" ],
     [ "FloorLayerDisplay", "class_floor_layer_display.html", "class_floor_layer_display" ],
     [ "FloorLayerTrigger", "class_floor_layer_trigger.html", "class_floor_layer_trigger" ],
     [ "FloorTeleport", "class_floor_teleport.html", "class_floor_teleport" ],
@@ -19,7 +19,7 @@ var annotated_dup =
     [ "MazeRunnerPoint", "class_maze_runner_point.html", "class_maze_runner_point" ],
     [ "PlayAnimationOnEnable", "class_play_animation_on_enable.html", "class_play_animation_on_enable" ],
     [ "PlayerController", "class_player_controller.html", "class_player_controller" ],
-    [ "RoomManager", "class_room_manager.html", null ],
+    [ "RoomManager", "class_room_manager.html", "class_room_manager" ],
     [ "ScenesManager", "class_scenes_manager.html", "class_scenes_manager" ],
     [ "SideMenu", "class_side_menu.html", "class_side_menu" ],
     [ "VideoManager", "class_video_manager.html", "class_video_manager" ]
