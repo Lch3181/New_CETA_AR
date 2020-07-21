@@ -1,0 +1,26 @@
+var annotated_dup =
+[
+    [ "ARManager", "class_a_r_manager.html", "class_a_r_manager" ],
+    [ "ARTrigger", "class_a_r_trigger.html", "class_a_r_trigger" ],
+    [ "CETAUIManager", "class_c_e_t_a_u_i_manager.html", "class_c_e_t_a_u_i_manager" ],
+    [ "close_video", "classclose__video.html", "classclose__video" ],
+    [ "control_button", "classcontrol__button.html", "classcontrol__button" ],
+    [ "create_player", "classcreate__player.html", "classcreate__player" ],
+    [ "EventPanelManager", "class_event_panel_manager.html", "class_event_panel_manager" ],
+    [ "EventScript", "class_event_script.html", "class_event_script" ],
+    [ "FacultyManager", "class_faculty_manager.html", "class_faculty_manager" ],
+    [ "FloorLayerDisplay", "class_floor_layer_display.html", "class_floor_layer_display" ],
+    [ "FloorLayerTrigger", "class_floor_layer_trigger.html", "class_floor_layer_trigger" ],
+    [ "FloorTeleport", "class_floor_teleport.html", "class_floor_teleport" ],
+    [ "GameUIManager", "class_game_u_i_manager.html", "class_game_u_i_manager" ],
+    [ "InfoTrigger", "class_info_trigger.html", "class_info_trigger" ],
+    [ "MazeRunnerManager", "class_maze_runner_manager.html", "class_maze_runner_manager" ],
+    [ "MazeRunnerPlayer", "class_maze_runner_player.html", "class_maze_runner_player" ],
+    [ "MazeRunnerPoint", "class_maze_runner_point.html", "class_maze_runner_point" ],
+    [ "PlayAnimationOnEnable", "class_play_animation_on_enable.html", "class_play_animation_on_enable" ],
+    [ "PlayerController", "class_player_controller.html", "class_player_controller" ],
+    [ "RoomManager", "class_room_manager.html", "class_room_manager" ],
+    [ "ScenesManager", "class_scenes_manager.html", "class_scenes_manager" ],
+    [ "SideMenu", "class_side_menu.html", "class_side_menu" ],
+    [ "VideoManager", "class_video_manager.html", "class_video_manager" ]
+];
