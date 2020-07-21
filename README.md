@@ -34,8 +34,11 @@ Basement : machine shop
 ## Installation
 undecided
 
+## Documentation
+/Docs/index.html
+
 ## License
-undecided
+[MIT Liscense](https://github.com/Lch3181/New_CETA_AR/blob/master/LICENSE)
 
 ## Contact
 Professor Kim,
