@@ -35,7 +35,7 @@ Basement : machine shop
 undecided
 
 ## Documentation
-[Documentation](https://lch3181.github.io/New_CETA_AR_Documentation/)
+[Documentation](https://lch3181.github.io/New_CETA_AR/)
 
 ## License
 [MIT Liscense](https://github.com/Lch3181/New_CETA_AR/blob/master/LICENSE)
