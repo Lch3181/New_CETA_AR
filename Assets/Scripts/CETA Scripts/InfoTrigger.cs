@@ -5,66 +5,76 @@ using UnityEngine.Networking;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// UI infomation panel control whenever player walks into a special place
+/// </summary>
 public class InfoTrigger : MonoBehaviour
 {
-    //Used to call to the CETA UI Manager.
+    ///Used to call to the CETA UI Manager.
     public CETAUIManager managerCall;
 
     //database
     FirebaseStorage storage;
     StorageReference storage_ref;
 
-    //What the button that triggers the info UI should display.
+    ///What the button that triggers the info UI should display.
     public string TriggerTitle;
-    //The title of the UI.
+    ///The title of the UI.
     public string displayTitle;
-    //What image should be shown. (The URL link to the image.)
+    ///What image should be shown. (The URL link to the image.)
     public string ImageLocation;
 
-    //loading.gif
+    ///loading.gif
     private GameObject loadingGif;
 
-    //store image texture in scope
+    ///store image texture in scope
     public Sprite sprite;
 
-    //Website button text.
+    ///Website button text.
     public string webButtonTitle;
-    //Website Link.
+    ///Website Link.
     public string webLink;
 
-    //Action button title.
+    ///Action button title.
     public string actionTitle;
-    //What the action does.
 
+    ///What the action does.
     public enum actionType { video, panel, scene, none };
 
     public actionType setType;
 
-    //The panel to show.
+    ///The panel to show.
     public GameObject panel;
-    //Where the panel should hide.
+    ///Where the panel should hide.
     Vector3 panelHide;
 
-    //The video URL to play;
+    ///The video URL to play;
     public string videoURL;
 
-    //The scene the trigger should load.
+    ///The scene the trigger should load.
     public string triggerScene;
 
-    //Denotes if the player is in a trigger.
+    ///Denotes if the player is in a trigger.
     bool inTrigger = false;
 
     private PlayerController controller;
 
+    /// <summary>
+    /// initial database connection
+    /// </summary>
     private void Start()
     {
         storage = FirebaseStorage.DefaultInstance;
         storage_ref = storage.GetReferenceFromUrl("gs://root-wharf-237820.appspot.com");
         loadingGif = GameObject.Find("CETA Manager/Canvas/loading.gif");
-
         controller = GameObject.Find("Player").GetComponent<PlayerController>();
     }
 
+    /// <summary>
+    /// Update is called every frame
+    /// 
+    /// Show/Hide panel for video display
+    /// </summary>
     private void Update()
     {
         if (setType == actionType.video)
@@ -77,6 +87,9 @@ public class InfoTrigger : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Whenever Player walks into a info Trigger, show button for opening info panel
+    /// </summary>
     private void OnTriggerStay(Collider hit)
     {
         if (hit.tag == "Player")
@@ -100,6 +113,9 @@ public class InfoTrigger : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Whenever Player exits the Trigger, hide button for opening info panel
+    /// </summary>
     private void OnTriggerExit(Collider hit)
     {
         if (hit.tag == "Player")
@@ -111,6 +127,9 @@ public class InfoTrigger : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Setup info panel base one what action Type the Trigger is
+    /// </summary>
     private void prepareAction()
     {
         if (setType != actionType.none && setType != actionType.scene)
@@ -135,11 +154,17 @@ public class InfoTrigger : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Use menu to trigger info panel instead of walking into it
+    /// </summary>
     public void ButtonActiveEvent()
     {
         getInfo(true);
     }
 
+    /// <summary>
+    /// Thread get image from database
+    /// </summary>
     async void getInfo(bool isEvent)
     {
         if (sprite == null)
@@ -153,9 +178,12 @@ public class InfoTrigger : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Thread set all the infomations to info panel
+    /// </summary>
     IEnumerator SetInfo(Uri URL, bool isEvent)
     {
-        loadingGif.SetActive(true);
+        loadingGif.SetActive(true); // loading spin for user
         controller.toggleMove();
         UnityWebRequest imageGet = UnityWebRequestTexture.GetTexture(URL);
         yield return imageGet.SendWebRequest();
@@ -175,9 +203,12 @@ public class InfoTrigger : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Display the info panel for user by calling manager script
+    /// </summary>
     void ManagerCalls(string text, bool isEvent)
     {
-        loadingGif.SetActive(false);
+        loadingGif.SetActive(false); // disable loading spin
         managerCall.setUpInfoClose(isEvent);
         managerCall.setCommonInfo(TriggerTitle, displayTitle, sprite, text);
         managerCall.setLink(webButtonTitle, webLink);

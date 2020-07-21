@@ -2,11 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Layer Contol for Player's Camera
+/// 
+/// Hide Floors&Trigger Above Player's current Floor
+/// </summary>
 public class FloorLayerDisplay : MonoBehaviour
 {
     public GameObject[] Floors;
     public GameObject[] Triggers;
 
+    /// <summary>
+    /// Set the selected Floor and Triggers to Layer(CurrentFloor)
+    /// </summary>
+    /// <param name="go"></param>
     public void SetCurrentLayer(GameObject go)
     {
         ResetLayer();
@@ -24,6 +33,9 @@ public class FloorLayerDisplay : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Reset all Floors and Triggers to Layer 10 (Floor)
+    /// </summary>
     public void ResetLayer()
     {
         foreach (GameObject floor in Floors)

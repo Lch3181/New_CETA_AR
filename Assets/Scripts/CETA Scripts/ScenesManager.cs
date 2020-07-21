@@ -4,19 +4,25 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+/// <summary>
+/// Manage Scene switching with a blacckscreen for scene transfer
+/// </summary>
 public class ScenesManager : MonoBehaviour
 {
-    //Name of the scene to load.
+    ///Name of the scene to load.
     private string triggerScene;
 
-    //Used to transition between scenes.
+    ///Used to transition between scenes.
     [SerializeField]
     private GameObject blackScreen;
 
-    //Gives users a choice on leaving the current scene.
+    ///Gives users a choice on leaving the current scene.
     [SerializeField]
     private GameObject sceneChoice;
 
+    /// <summary>
+    /// Start is called on the frame when a script is enabled
+    /// </summary>
     private void Start()
     {
         //Makes it so that the screen is still interactible if the black screen is turned off in the editor.
@@ -36,11 +42,17 @@ public class ScenesManager : MonoBehaviour
         triggerScene = inputScene;
     }
 
+    /// <summary>
+    /// Toggle Switch scene Yes/No window
+    /// </summary>
     public void toggleSceneWindow()
     {
         sceneChoice.SetActive(!sceneChoice.activeSelf);
     }
 
+    /// <summary>
+    /// fade out scene with a blackscreen
+    /// </summary>
     public void sceneOut()
     {
         blackScreenActive();

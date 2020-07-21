@@ -15,6 +15,11 @@ public class PlayerController : MonoBehaviour
 
     public bool canMove;
 
+    /// <summary>
+    /// Start is called on the frame when a script is enabled
+    /// 
+    /// Set all component
+    /// </summary>
     void Start()
     {
         canMove = true;
@@ -22,7 +27,7 @@ public class PlayerController : MonoBehaviour
         cam = GetComponentInChildren<Camera>();
     }
 
-    //Determines if the player can interact with the trigger.
+    ///Determines if the player can interact with the trigger.
     public void toggleTriggerCollide()
     {
         if(this.CompareTag("Player"))
@@ -37,11 +42,17 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Toggle Movement
+    /// </summary>
     public void toggleMove()
     {
         canMove = !canMove;
     }
 
+    /// <summary>
+    /// Fixed Update is called once in every CPU cycle
+    /// </summary>
     void FixedUpdate()
     {
         Movement();
@@ -49,6 +60,11 @@ public class PlayerController : MonoBehaviour
         ToggleCursorLock();
     }
 
+    /// <summary>
+    /// Player Movement control
+    /// 
+    /// Keyboard and Joystick
+    /// </summary>
     void Movement()
     {
         if (canMove)
@@ -80,6 +96,9 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Toggle Cursor Lock and Show/Hide for PC users on Right Click
+    /// </summary>
     void ToggleCursorLock()
     {
         //Right Click to toggle cursor lock

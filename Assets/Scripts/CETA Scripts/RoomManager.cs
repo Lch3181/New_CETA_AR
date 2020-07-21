@@ -5,18 +5,24 @@ using Firebase;
 using Firebase.Database;
 using Firebase.Unity.Editor;
 
+/// <summary>
+/// GetSet all the rooms information and rooms number from database
+/// </summary>
 public class RoomManager : MonoBehaviour
 {
     //public GameObject Faculty;
     //public GameObject scrollContent;
     private FirebaseDatabase database;
 
-    // Start is called before the first frame update
+    /// Start is called before the first frame update
     void Start()
     {
         DBinit();
     }
 
+    /// <summary>
+    /// initial Database connection
+    /// </summary>
     void DBinit()
     {
         //set connection
@@ -26,6 +32,9 @@ public class RoomManager : MonoBehaviour
         FirebaseDatabase.DefaultInstance.GetReference("Rooms").ValueChanged += HandleValueChanged;
     }
 
+    /// <summary>
+    /// Get data from database and show to debug log until actual use
+    /// </summary>
     async void GetData()
     {
         //remove all old events
@@ -56,6 +65,9 @@ public class RoomManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Check if any new updates, get data again if any new update
+    /// </summary>
     void HandleValueChanged(object sender, ValueChangedEventArgs args)
     {
         if (args.DatabaseError != null)
