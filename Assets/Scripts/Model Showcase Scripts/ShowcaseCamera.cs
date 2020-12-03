@@ -31,7 +31,7 @@ public class ShowcaseCamera : MonoBehaviour
             NextStageTime += stageTimer;
 
             // set camera focus to new floor
-            transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y - 10f, transform.localPosition.z);
+            transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y - 9f, transform.localPosition.z);
             if (currentStage == 1)
             {
                 transform.localPosition = new Vector3(transform.localPosition.x + 25f, transform.localPosition.y, transform.localPosition.z);
