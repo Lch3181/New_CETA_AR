@@ -32,9 +32,9 @@ public class ShowcaseCamera : MonoBehaviour
 
             // set camera focus to new floor
             transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y - 9f, transform.localPosition.z);
-            if (currentStage == 1)
+            if (currentStage == 1) //last stage(basement) is smaller
             {
-                transform.localPosition = new Vector3(transform.localPosition.x + 25f, transform.localPosition.y, transform.localPosition.z);
+                transform.localPosition = new Vector3(transform.localPosition.x + 30f, transform.localPosition.y, transform.localPosition.z);
             }
 
             // disable floor
