@@ -82,8 +82,8 @@ public class PlayerController : MonoBehaviour
                     RotationX = new Vector3(Input.GetAxisRaw("Mouse Y"), 0, 0);
                 }
                 //virtual joystick
-                RotationY = new Vector3(0, joystickCamera.Horizontal * 5, 0);
-                RotationX = new Vector3(joystickCamera.Vertical * 3, 0, 0);
+                RotationY = new Vector3(0, joystickCamera.Horizontal * 5 + joystickMovement.Horizontal * 1.5f, 0);
+                RotationX = new Vector3(joystickCamera.Vertical * 3, 0, 0); RotationX = new Vector3(joystickCamera.Vertical * 3f, 0, 0);
             }
             //Applying gravity to the controller
             moveDirection.y -= 20f * Time.deltaTime;

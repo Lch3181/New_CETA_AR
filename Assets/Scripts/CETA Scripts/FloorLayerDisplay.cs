@@ -22,11 +22,11 @@ public class FloorLayerDisplay : MonoBehaviour
         go.layer = LayerMask.NameToLayer("CurrentFloor");
         for (int i = System.Array.IndexOf(Floors, go); i >= 0; i--)
         {
-            foreach (Transform child in Triggers[i].transform)
+            foreach (Transform child in Triggers[i].GetComponentsInChildren<Transform>())
             {
                 child.gameObject.layer = LayerMask.NameToLayer("CurrentFloor");
             }
-            foreach (Transform child in Floors[i].transform)
+            foreach (Transform child in Floors[i].GetComponentsInChildren<Transform>())
             {
                 child.gameObject.layer = LayerMask.NameToLayer("CurrentFloor");
             }
@@ -41,7 +41,7 @@ public class FloorLayerDisplay : MonoBehaviour
         foreach (GameObject floor in Floors)
         {
             floor.layer = 10;
-            foreach (Transform child in floor.transform)
+            foreach (Transform child in floor.GetComponentsInChildren<Transform>())
             {
                 child.gameObject.layer = 10;
             }
@@ -50,7 +50,7 @@ public class FloorLayerDisplay : MonoBehaviour
         foreach (GameObject trigger in Triggers)
         {
             trigger.layer = 10;
-            foreach (Transform child in trigger.transform)
+            foreach (Transform child in trigger.GetComponentsInChildren<Transform>())
             {
                 child.gameObject.layer = 10;
             }
